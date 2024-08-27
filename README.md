@@ -1,6 +1,6 @@
 # Librotek.app
 
-##Integrantes:
+## Integrantes:
 * Germán Gustavo Cano
 * Romina Soledad Haag
 * Daiana Soledad Zabala
