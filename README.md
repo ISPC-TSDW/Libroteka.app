@@ -26,10 +26,10 @@ Dependencies:
 - SQLITE3: Incluido en Django
 
 Puntos claves:
-- Formulario IEEE830: [Link](https://github.com/ISPC-Bookster/Libroteka/wiki/Formulario-IEEE830)
-- Ceremonias - Scrum: [Link](https://github.com/ISPC-Bookster/Libroteka/wiki/Scrum:-Registro-de-ceremonias)
-- Historias de Usuario: [Link](https://github.com/ISPC-Bookster/Libroteka/wiki/Historias-de-Usuario)
-- Milestones: [Link](https://github.com/ISPC-Bookster/Libroteka/milestones)
+- Formulario IEEE830: [Link](https://github.com/ISPC-TSDW/Libroteka.app/wiki/Formulario-IEEE830#link-para-acceder-al-formulario)
+- Ceremonias - Scrum: [Link](https://github.com/ISPC-TSDW/Libroteka.app/wiki/SPRINT-0)
+- Historias de Usuario: [Link](https://github.com/ISPC-TSDW/Libroteka.app/wiki/Historias-de-Usuario)
+- Milestones: [Link](https://github.com/ISPC-TSDW/Libroteka.app/milestones)
 - Branching Strategy:
 
 | Branch	| Naming Convention |
