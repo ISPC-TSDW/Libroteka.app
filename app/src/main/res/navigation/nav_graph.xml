@@ -6,7 +6,12 @@
     app:startDestination="@id/activity_login">
     <activity
         android:id="@+id/activity_login"
-        android:name="com.example.libroteka.activity_login"
+        android:name="com.example.libroteka.main_login"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/main_login2"
+        android:name="com.example.libroteka.Main_login2"
+        android:label="activity_main_login2"
+        tools:layout="@layout/activity_main_login2" />
 </navigation>
