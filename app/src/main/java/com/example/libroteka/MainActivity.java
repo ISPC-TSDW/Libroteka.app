@@ -1,5 +1,6 @@
 package com.example.libroteka;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -73,5 +74,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.activity_login);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void inicio (View view){
+
+        Intent inicio = new Intent(this, Main_login2.class);
+        startActivity(inicio);
     }
 }
