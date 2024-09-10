@@ -33,4 +33,16 @@ public class main_login extends AppCompatActivity {
         startActivity(inicio);
     }
 
+    // metodo para el btn crear cuenta
+
+    //public void crearCuenta (View view){
+
+        //Intent crearCuerta = new Intent(this, );
+        //startActivity(crearCuenta);
+
+    //}
+
+
+
+
 }
