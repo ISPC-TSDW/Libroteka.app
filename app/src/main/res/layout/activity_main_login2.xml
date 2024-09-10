@@ -68,6 +68,7 @@
         android:text="@string/title_activity_login"
         android:textColor="@color/marble"
         android:textSize="20sp"
+        android:onClick="onLoginClick"
         app:layout_constraintBottom_toTopOf="@+id/tvOlvidasteContrasena"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
