@@ -30,6 +30,7 @@
         android:backgroundTint="@color/brownstone"
         android:fontFamily="@font/roboto"
         android:gravity="center"
+        android:onClick="inicio"
         android:text="@string/title_activity_login"
         android:textColor="@color/marble"
         android:textSize="20sp"

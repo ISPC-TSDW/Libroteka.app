@@ -32,4 +32,10 @@ public class Main_login2 extends AppCompatActivity {
         startActivity(register);
     }
 
+    //evento para regresar a login
+
+    public void previo (View view){
+        Intent  previo = new Intent(this,main_login.class);
+        startActivity(previo);
+    }
 }
