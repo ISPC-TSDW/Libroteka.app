@@ -94,4 +94,12 @@ public class Main_login2 extends AppCompatActivity {
         return true;
     }
 
+//metodo para el btn olvido contraseña
+
+    public void recuperarContraseña (View view){
+
+        Intent recuperarContraseña = new Intent(this, Main_forgotten.class);
+        startActivity(recuperarContraseña);
+    }
+
 }

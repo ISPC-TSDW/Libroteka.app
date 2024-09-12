@@ -82,6 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:onClick="recuperarContraseña"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/forgotten"
