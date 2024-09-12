@@ -16,5 +16,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="texto1">Ingresa tu contraseña</string>
+    <string name="texto2">Recupera tu contraseña</string>
+    <string name="texto3">Recuperar</string>
+    <string name="email">Email</string>
+
 
 </resources>
