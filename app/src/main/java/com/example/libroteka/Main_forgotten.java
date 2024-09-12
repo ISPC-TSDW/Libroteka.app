@@ -1,6 +1,8 @@
 package com.example.libroteka;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +23,12 @@ public class Main_forgotten extends AppCompatActivity {
             return insets;
         });
     }
+    //evento para regresar a login
 
+    public void previo1 (View view){
+        Intent previo1 = new Intent(this,main_login.class);
+        startActivity(previo1);
+    }
 
 
 }
