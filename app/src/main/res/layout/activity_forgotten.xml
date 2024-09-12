@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marble"
-
     tools:context=".Main_forgotten">
 
     <ImageView
@@ -18,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_login" />
+        app:srcCompat="@drawable/icon_login"/>
 
     <TextView
         android:id="@+id/textView"
@@ -26,15 +25,15 @@
         android:layout_height="59dp"
         android:layout_marginTop="130dp"
         android:fontFamily="@font/roboto"
+        android:gravity="center_vertical"
         android:text="@string/texto1"
         android:textColor="@color/bark"
-        android:textSize="36sp"
-        android:gravity="center_vertical"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_logo1"
-        app:layout_constraintVertical_bias="0.821" />
+        app:layout_constraintVertical_bias="0.821"/>
 
     <EditText
         android:id="@+id/et_mail"
@@ -51,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -60,7 +59,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginBottom="21dp"
         android:text="@string/texto2"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:gravity="center_vertical"
         android:fontFamily="@font/roboto"
         android:textColor="@color/bark"
@@ -72,12 +71,14 @@
 
     <Button
         android:id="@+id/btn_recuperar"
-        android:layout_width="181dp"
-        android:layout_height="64dp"
+        android:layout_width="264dp"
+        android:layout_height="72dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/button_rounded"
         android:fontFamily="@font/roboto"
         android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:text="@string/texto3"
         android:textColor="@color/marble"
         android:textSize="30sp"
@@ -88,8 +89,9 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="54dp"
-        android:layout_height="56dp"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:onClick="previo1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
