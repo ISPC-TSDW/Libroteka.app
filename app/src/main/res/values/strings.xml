@@ -19,7 +19,9 @@
     <string name="texto1">Ingresa tu email</string>
     <string name="texto2">Recupera tu contraseña</string>
     <string name="texto3">Recuperar</string>
-    <string name="email">Email</string>
-
-
+    <string name="email">Correo electrónico</string>
+    <string name="name">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registro</string>
+    <string name="login">Iniciar sesión</string>
 </resources>
