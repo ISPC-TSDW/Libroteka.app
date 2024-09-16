@@ -24,18 +24,54 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Configuramos el botón de registro
         btnRegistrar.setOnClickListener(v -> {
-            String nombre = etNombre.getText().toString();
-            String correo = etCorreo.getText().toString();
-            String contrasena = etContrasena.getText().toString();
+            String nombre = etNombre.getText().toString().trim();
+            String correo = etCorreo.getText().toString().trim();
+            String contrasena = etContrasena.getText().toString().trim();
 
             // Validamos los campos
             if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty()) {
                 Toast.makeText(RegisterActivity.this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
-            } else {
-                // Aquí enviamos los datos a una base de datos o backend
-                Toast.makeText(RegisterActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            // Validar que el nombre no contenga caracteres especiales o números
+            if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+                Toast.makeText(RegisterActivity.this, "El nombre no debe contener números o caracteres especiales", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Validar formato correo electrónico
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+                Toast.makeText(RegisterActivity.this, "Por favor, ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Validar que el correo tenga un dominio como "gmail.com", "hotmail.com", etc.
+            String[] validDomains = {"gmail.com", "hotmail.com", "yahoo.com", "outlook.com"};
+            String domain = correo.substring(correo.indexOf("@") + 1);
+            boolean isDomainValid = false;
+            for (String validDomain : validDomains) {
+                if (domain.equalsIgnoreCase(validDomain)) {
+                    isDomainValid = true;
+                    break;
+                }
+            }
+
+            if (!isDomainValid) {
+                Toast.makeText(RegisterActivity.this, "Por favor, usa un dominio de correo electrónico válido (ej. gmail.com, hotmail.com)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Validar longitud contraseña
+            if (contrasena.length() < 8) {
+                Toast.makeText(RegisterActivity.this, "La contraseña debe tener al menos 8 caracteres", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Aquí enviamos los datos a una base de datos o backend
+            Toast.makeText(RegisterActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
         });
+
 
         // Si hacemos clic en "Iniciar sesión"
         tvIniciarSesion.setOnClickListener(v -> {
