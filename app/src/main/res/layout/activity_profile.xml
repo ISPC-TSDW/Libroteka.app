@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/marble"
+    android:padding="10dp">
+
+    <!-- Profile Image -->
+
+    <!-- User Name -->
+
+    <!-- User Email -->
+
+    <!-- Edit Profile Button -->
+
+    <!-- Address Button -->
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="134dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/profile_image_description"
+        android:src="@android:drawable/ic_menu_camera"
+        app:circularflow_defaultRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/username_placeholder"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/userEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileImage" />
+
+    <TextView
+        android:id="@+id/userEmail"
+        android:layout_width="289dp"
+        android:layout_height="39dp"
+        android:text="@string/email_placeholder"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/editProfileButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userName" />
+
+    <Button
+        android:id="@+id/editProfileButton"
+        style="@style/buttonStyle"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:text="@string/editar_perfil"
+        app:layout_constraintBottom_toTopOf="@id/addressButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userEmail" />
+
+    <Button
+        android:id="@+id/addressButton"
+        style="@style/buttonStyle"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/tus_direcciones"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/ordersButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editProfileButton" />
+
+    <!-- Orders Button -->
+
+    <Button
+        android:id="@+id/ordersButton"
+        style="@style/buttonStyle"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:text="@string/tus_pedidos"
+        app:layout_constraintBottom_toTopOf="@id/contactUsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addressButton" />
+
+    <!-- Contact Us Button -->
+
+    <!-- Logout Button -->
+
+    <Button
+        android:id="@+id/contactUsButton"
+        style="@style/buttonStyle"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:text="@string/contacto"
+        app:layout_constraintBottom_toTopOf="@id/logoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ordersButton" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        style="@style/buttonStyle"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/cerrar_sesi_n"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
