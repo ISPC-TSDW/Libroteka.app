@@ -20,6 +20,15 @@
     <string name="texto2">Recupera tu contraseña</string>
     <string name="texto3">Recuperar</string>
     <string name="email">Email</string>
+    <string name="editar_perfil">Editar perfil</string>
+    <string name="email_placeholder">masanchez@gmail.com</string>
+    <string name="username_placeholder">Maria Sanchez</string>
+    <string name="tus_direcciones">Tus direcciones</string>
+    <string name="tus_pedidos">Tus pedidos</string>
+    <string name="contacto">Contacto</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="go_to_profile">Ir al perfil</string>
+    <string name="email_fab">Email</string>
 
 
 </resources>

@@ -24,7 +24,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:contentDescription="@string/profile_image_description"
+        android:contentDescription="@string/email_placeholder"
         android:src="@android:drawable/ic_menu_camera"
         app:circularflow_defaultRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
