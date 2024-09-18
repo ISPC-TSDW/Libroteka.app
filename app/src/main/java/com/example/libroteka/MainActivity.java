@@ -2,28 +2,33 @@ package com.example.libroteka;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.UserResponse;
 import com.example.libroteka.databinding.ActivityMainBinding;
 import com.example.libroteka.databinding.ContentMainBinding;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    private ApiManager apiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.libroteka.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Initialize the toolbar
@@ -53,6 +58,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToProfile(v);
+            }
+        });
+
+        // Initialize ApiManager
+        apiManager = new ApiManager();
+
+        // Example of logging in a user
+        loginUser();
+    }
+
+    private void loginUser() {
+        apiManager.loginUser("testuser", "password123", new ApiManager.ApiCallback<UserResponse>() {
+            @Override
+            public void onSuccess(UserResponse response) {
+                // Handle successful login
+                Toast.makeText(MainActivity.this, "Login Success: " + response.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // Handle failed login
+                Toast.makeText(MainActivity.this, "Login Failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCreate(Bundle savedInstanceState) {
+
             }
         });
     }
