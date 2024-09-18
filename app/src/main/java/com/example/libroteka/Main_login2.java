@@ -107,5 +107,8 @@ public class Main_login2 extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
-
+    public void goToHome(View view) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 }
