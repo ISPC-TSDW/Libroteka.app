@@ -1,0 +1,47 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Imagen del libro -->
+    <ImageView
+        android:id="@+id/imgLibro"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_book_placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Ícono de corazón para favoritos -->
+    <ImageView
+        android:id="@+id/btnFavorito"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_heart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <!-- Título del libro -->
+    <TextView
+        android:id="@+id/tvTituloLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Título del Libro"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/imgLibro"
+        app:layout_constraintStart_toStartOf="@+id/imgLibro"/>
+
+    <!-- Precio del libro -->
+    <TextView
+        android:id="@+id/tvPrecioLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$15.18"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloLibro"
+        app:layout_constraintStart_toStartOf="@+id/tvTituloLibro"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

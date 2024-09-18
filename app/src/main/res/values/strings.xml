@@ -20,6 +20,5 @@
     <string name="texto2">Recupera tu contraseña</string>
     <string name="texto3">Recuperar</string>
     <string name="email">Email</string>
-
-
+    <string name="categoria_imagen">Imagen de categoría</string>
 </resources>
