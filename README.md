@@ -38,6 +38,8 @@ Puntos claves:
 | Desarrollo	| "dev" |
 | Rama Integrantes | "iniciales-feature" |
 
+- Link al repositorio web: [Link](https://github.com/ISPC-TSDW/Libroteka.web)
+
 ## Credenciales Django Admin
 - user: superadmin
 - password: libroteka

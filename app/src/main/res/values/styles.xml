@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="buttonStyle">
+        <item name="android:layout_width">188dp</item>
+        <item name="android:layout_height">62dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginBottom">28dp</item>
+        <item name="android:background">@drawable/button_rounded</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/marble</item>
+        <item name="android:textSize">20sp</item>
+        <item name="windowActionBar">false</item>
+    </style>
+</resources>
