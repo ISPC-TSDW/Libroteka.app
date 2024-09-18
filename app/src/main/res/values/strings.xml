@@ -29,6 +29,14 @@
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="go_to_profile">Ir al perfil</string>
     <string name="email_fab">Email</string>
+    <string name="cancel_button_text">Cancelar</string>
+    <string name="save_button_text">Guardar</string>
+    <string name="email_hint">hola@ejemplo.com</string>
+    <string name="username_hint">Maria Sanchez</string>
+    <string name="nombre_de_usuario">Nombre de Usuario</string>
+    <string name="correo_electr_nico">Correo Electrónico</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 
 
 </resources>

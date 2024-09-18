@@ -5,126 +5,106 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marble"
-    android:padding="10dp">
+    android:padding="50dp">
 
     <!-- Profile Image -->
-
-    <!-- User Name -->
-
-    <!-- User Email -->
-
-    <!-- Edit Profile Button -->
-
-    <!-- Address Button -->
-
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="134dp"
         android:layout_height="135dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/email_placeholder"
         android:src="@android:drawable/ic_menu_camera"
-        app:circularflow_defaultRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- User Name -->
     <TextView
         android:id="@+id/userName"
         android:layout_width="290dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/username_placeholder"
         android:textAlignment="center"
+        android:textColor="@color/bark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/userEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileImage" />
 
+    <!-- User Email -->
     <TextView
         android:id="@+id/userEmail"
-        android:layout_width="289dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/email_placeholder"
         android:textAlignment="center"
+        android:textColor="@color/bark"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/editProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userName" />
 
+    <!-- Edit Profile Button -->
     <Button
         android:id="@+id/editProfileButton"
         style="@style/buttonStyle"
         android:layout_width="320dp"
         android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:text="@string/editar_perfil"
-        app:layout_constraintBottom_toTopOf="@id/addressButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userEmail" />
 
+    <!-- Address Button -->
     <Button
         android:id="@+id/addressButton"
         style="@style/buttonStyle"
         android:layout_width="320dp"
         android:layout_height="40dp"
-        android:fontFamily="@font/roboto"
+        android:layout_marginTop="20dp"
         android:text="@string/tus_direcciones"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/ordersButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editProfileButton" />
 
     <!-- Orders Button -->
-
     <Button
         android:id="@+id/ordersButton"
         style="@style/buttonStyle"
         android:layout_width="320dp"
         android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:text="@string/tus_pedidos"
-        app:layout_constraintBottom_toTopOf="@id/contactUsButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addressButton" />
 
     <!-- Contact Us Button -->
-
-    <!-- Logout Button -->
-
     <Button
         android:id="@+id/contactUsButton"
         style="@style/buttonStyle"
         android:layout_width="320dp"
         android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:text="@string/contacto"
-        app:layout_constraintBottom_toTopOf="@id/logoutButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ordersButton" />
 
+    <!-- Logout Button -->
     <Button
+        android:onClick="previo"
         android:id="@+id/logoutButton"
         style="@style/buttonStyle"
         android:layout_width="320dp"
         android:layout_height="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:text="@string/cerrar_sesi_n"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
 

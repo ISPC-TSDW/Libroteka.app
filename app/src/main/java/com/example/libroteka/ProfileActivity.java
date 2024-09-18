@@ -1,5 +1,6 @@
 package com.example.libroteka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,11 +20,15 @@ public class ProfileActivity extends AppCompatActivity {
         Button contactUsButton = findViewById(R.id.contactUsButton);
         Button logoutButton = findViewById(R.id.logoutButton);
 
+
+
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle Edit Profile action
+                // Navigate to the EditProfileActivity
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -54,5 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
                 // Handle Logout action
             }
         });
+
     }
 }
