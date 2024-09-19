@@ -39,6 +39,9 @@
     <string name="cancelar">Cancelar</string>
     <string name="categoria_imagen">Imagen de categoría</string>
     <string name="profile_icon">Perfil</string>
+    <string name="nombre_libro">Nombre Libro</string>
+    <string name="descripcion_libro">Breve descripcion del libro: Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, sed do eiusmod  </string>
 
 
 </resources>
