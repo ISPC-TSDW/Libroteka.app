@@ -49,7 +49,11 @@ public class ProfileActivity extends AppCompatActivity {
         contactUsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // Handle Contact Us action
+                Intent intent = new Intent(ProfileActivity.this, ContactActivity.class);
+                startActivity(intent);
+
             }
         });
 
