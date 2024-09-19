@@ -11,10 +11,12 @@
     <!-- RecyclerView para las categorías -->
 
     <!-- Título de libros destacados -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
         android:background="@color/marble"
         android:clipToPadding="false"
         android:orientation="horizontal"
@@ -53,6 +55,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
         tools:listitem="@layout/item_destacado" />
+
+    <!-- ImageView for profile icon -->
+    <ImageView
+        android:id="@+id/profileIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/profile_icon"
+        android:src="@drawable/ic_profile"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:clickable="true"
+    android:focusable="true" />
 
     <!-- Barra de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

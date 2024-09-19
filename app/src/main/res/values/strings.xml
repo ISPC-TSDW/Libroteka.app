@@ -38,6 +38,7 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="categoria_imagen">Imagen de categoría</string>
+    <string name="profile_icon">Perfil</string>
 
 
 </resources>
