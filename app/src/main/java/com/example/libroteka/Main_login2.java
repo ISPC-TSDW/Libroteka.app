@@ -57,7 +57,7 @@ public class Main_login2 extends AppCompatActivity {
         String password = passwordEditText.getText().toString().trim();
 
         if (validateInputs(email, password)) {
-            Intent inicio = new Intent(this, Main_login2.class);
+            Intent inicio = new Intent(this, Home.class);
             startActivity(inicio);
         }
     }
@@ -101,11 +101,6 @@ public class Main_login2 extends AppCompatActivity {
 
         Intent recuperarContraseña = new Intent(this, Main_forgotten.class);
         startActivity(recuperarContraseña);
-    }
-
-    public void goToProfile(View view) {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
     }
 
 }
