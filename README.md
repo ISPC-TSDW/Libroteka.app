@@ -34,9 +34,9 @@ Puntos claves:
 
 | Branch	| Naming Convention |
 | -- | -- |
-| Master |	"main"
-| Desarrollo	| "dev"
-| Rama Integrantes | "iniciales-feature"
+| Master |	"main" |
+| Desarrollo	| "dev" |
+| Rama Integrantes | "iniciales-feature" |
 
 - Link al repositorio web: [Link](https://github.com/ISPC-TSDW/Libroteka.web)
 

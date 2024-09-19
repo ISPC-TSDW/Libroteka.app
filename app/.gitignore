@@ -1,1 +1,6 @@
 /build
+/local.properties
+local.properties
+*.lock
+android/local.properties
+.android/local.properties

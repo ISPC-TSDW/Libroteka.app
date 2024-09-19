@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#839192</color>
+    <color name="leaves">#506D2F</color>
+    <color name="bark">#2A2922</color>
+    <color name="marble">#FEEBDD</color>
+    <color name="brownstone">#7D5642</color>
+
+    <color name="bottom_nav_icon_color">#FF0000</color> <!-- Color de ejemplo, ajusta a tu preferencia -->
+    <color name="bottom_nav_text_color">#FFFFFF</color> <!-- Color de ejemplo, ajusta a tu preferencia -->
+
 </resources>
