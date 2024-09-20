@@ -1,4 +1,4 @@
-# Librotek.app
+# Libroteka.app
 
 ## Integrantes:
 * Germán Gustavo Cano
