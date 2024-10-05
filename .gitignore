@@ -18,3 +18,7 @@ local.properties
 
 *.lock
 *.properties
+.idea/misc.xml
+.idea/other.xml
+gradle/libs.versions.toml
+local.properties
