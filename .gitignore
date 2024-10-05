@@ -13,12 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
-
 .idea/
-
 *.lock
 *.properties
 .idea/misc.xml
 .idea/other.xml
 gradle/libs.versions.toml
-local.properties
