@@ -39,6 +39,8 @@
     <string name="cancelar">Cancelar</string>
     <string name="categoria_imagen">Imagen de categoría</string>
     <string name="profile_icon">Perfil</string>
-
-
+    <string name="name">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registro</string>
+    <string name="login">Iniciar sesión</string>
 </resources>
