@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             // Validamos los campos
             if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty()) {
-                Toast.makeText(RegisterActivity.this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             // Validar formato correo electrónico
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-                Toast.makeText(RegisterActivity.this, "Por favor, ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Por favor, ingrese un correo electrónico válido", Toast.LENGTH_SHORT).show();
                 return;
             }
 

@@ -23,8 +23,8 @@
     <string name="editar_perfil">Editar perfil</string>
     <string name="email_placeholder">masanchez@gmail.com</string>
     <string name="username_placeholder">Maria Sanchez</string>
-    <string name="tus_direcciones">Tus direcciones</string>
-    <string name="tus_pedidos">Tus pedidos</string>
+    <string name="tus_reseñas">Tus reseñas</string>
+    <string name="tus_favoritos">Tus favoritos</string>
     <string name="contacto">Contacto</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="go_to_profile">Ir al perfil</string>
