@@ -6,26 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marble"
+    android:onClick="crearCuenta"
     tools:context=".main_login">
 
-    <ImageView
-        android:id="@+id/img_login"
-        android:layout_width="201dp"
-        android:layout_height="187dp"
-
-        android:layout_marginTop="208dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:fontFamily="@font/lobster"
+        android:text="Libtroteka"
+        android:textColor="@color/black"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/img_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/icon_login" />
+        app:layout_constraintVertical_bias="0.945" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="228dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/button_rounded"
         android:backgroundTint="@color/brownstone"
         android:fontFamily="@font/roboto"
@@ -36,14 +41,29 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_registrer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_login"
+        android:layout_width="201dp"
+        android:layout_height="187dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755"
+        app:srcCompat="@drawable/icon_login" />
 
     <Button
         android:id="@+id/btn_registrer"
-        android:layout_width="199dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="136dp"
+        style="@style/buttonStyle"
+        android:layout_width="227dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="176dp"
         android:background="@color/brownstone"
         android:fontFamily="@font/roboto"
         android:gravity="center"
@@ -52,7 +72,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

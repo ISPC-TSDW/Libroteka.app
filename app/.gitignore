@@ -4,3 +4,9 @@ local.properties
 *.lock
 android/local.properties
 .android/local.properties
+gradle/libs.versions.toml
+.local.properties
+/grandle
+.grandle
+.idea
+/idea
