@@ -19,7 +19,7 @@
         android:layout_marginTop="88dp"
         android:layout_marginBottom="56dp"
         android:fontFamily="@font/lobster"
-        android:text="Libtroteka"
+        android:text="Libroteka"
         android:textColor="@color/black"
         android:textSize="80sp"
         app:layout_constraintBottom_toTopOf="@+id/img_login"
