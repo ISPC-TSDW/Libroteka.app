@@ -10,45 +10,76 @@
 
     <!--seccion de ingreso de usuario-->
 
+    <!--seccion de ingreso de contraseña-->
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="56dp"
+        android:fontFamily="@font/lobster"
+        android:text="Libroteka"
+        android:textColor="@color/black"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <EditText
         android:id="@+id/et_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="@color/brownstone"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:fontFamily="@font/roboto"
         android:hint="@string/prompt_email"
-        android:textColorHint="@color/bark"
         android:inputType="textEmailAddress"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:textColor="@color/brownstone"
+        android:textColorHint="@color/bark"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/et_pass"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <!--seccion de ingreso de contraseña-->
+    <TextView
+        android:id="@+id/tvOlvidasteContrasena"
+        android:layout_width="258dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="60dp"
+        android:onClick="recuperarContraseña"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/forgotten"
+        android:textColor="@color/bark"
+        android:textColorHint="@color/bark"
+        android:textSize="22sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
         android:id="@+id/et_pass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:fontFamily="@font/roboto"
         android:hint="@string/prompt_password"
-        android:textColorHint="@color/bark"
         android:inputType="textPassword"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:textSize="30sp"
         android:textColor="@color/brownstone"
+        android:textColorHint="@color/bark"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -56,90 +87,26 @@
         app:layout_constraintTop_toBottomOf="@id/et_email"
         app:layout_constraintVertical_bias="0.159" />
 
-    <!--seccion de btn de inicio de sesion-->
-
     <Button
         android:id="@+id/button"
         android:layout_width="188dp"
         android:layout_height="62dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="28dp"
         android:background="@drawable/button_rounded"
         android:fontFamily="@font/roboto"
         android:gravity="center"
+        android:onClick="onLoginClick"
         android:text="@string/title_activity_login"
         android:textColor="@color/marble"
         android:textSize="20sp"
-        android:onClick="onLoginClick"
         app:layout_constraintBottom_toTopOf="@+id/tvOlvidasteContrasena"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pass" />
 
+    <!--seccion de btn de inicio de sesion-->
+
     <!--seccion de recuperacion de contraseña-->
-
-    <TextView
-        android:id="@+id/tvOlvidasteContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:onClick="recuperarContraseña"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/forgotten"
-        android:textColor="@color/bark"
-        android:textColorHint="@color/bark"
-        android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="85dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvOlvidasteContrasena"
-        app:srcCompat="@mipmap/ic_google_round" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:onClick="goToHome"
-        android:layout_width="85dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/tvOlvidasteContrasena"
-        app:srcCompat="@mipmap/ic_x" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="85dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/tvOlvidasteContrasena"
-        app:srcCompat="@mipmap/ic_insta" />
-
-    <ImageButton
-        android:id="@+id/btn_atras"
-        android:layout_width="61dp"
-        android:layout_height="72dp"
-        android:onClick="previo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-        app:srcCompat="@android:drawable/ic_media_previous" />
 
     <!--seccion de atentificacion por redes sociales-->
 

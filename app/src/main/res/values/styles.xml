@@ -11,6 +11,12 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/marble</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:radius">70dp</item>
         <item name="windowActionBar">false</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Disable the window's action bar -->
+        <item name="windowActionBar">false</item>
+        <!-- Other theme attributes -->
     </style>
 </resources>
