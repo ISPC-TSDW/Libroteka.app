@@ -22,7 +22,6 @@
         android:text="Libroteka"
         android:textColor="@color/black"
         android:textSize="80sp"
-        app:layout_constraintBottom_toTopOf="@+id/img_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
