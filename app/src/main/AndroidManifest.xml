@@ -22,8 +22,11 @@
             android:name=".Main_login2"
             android:exported="false" />
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false"/>
+        <activity
             android:name=".main_login"
-            android:exported="false" />
+            android:exported="false"/>
         <activity android:name=".ProfileActivity" android:exported="false"/>
         <activity android:name=".EditProfileActivity" android:exported="false" />
         <activity android:name=".ContactActivity" android:exported="false" />
@@ -35,6 +38,7 @@
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
+
 
 
         <activity
