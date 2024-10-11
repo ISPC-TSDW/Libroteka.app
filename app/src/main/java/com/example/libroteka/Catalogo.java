@@ -1,12 +1,8 @@
 package com.example.libroteka;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,43 +10,37 @@ import java.util.List;
 
 public class Catalogo extends AppCompatActivity {
 
+    private RecyclerView recyclerViewCatalogo;
+    private CategoriasAdapter categoriasAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogo);
+        setContentView(R.layout.activity_catalogo); // El XML que compartiste
 
-        // Icono para volver atrás
-        ImageView backIcon = findViewById(R.id.icon_back);
-        backIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Acción para volver a la actividad anterior
-                finish(); // Esto cierra la actividad actual y vuelve a la anterior
-            }
-        });
+        // Inicializa el RecyclerView
+        recyclerViewCatalogo = findViewById(R.id.recycler_view_catalogo);
 
-        // Icono para ir al perfil
-        ImageView profileIcon = findViewById(R.id.icon_profile);
-        profileIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Acción para ir a la actividad de perfil
-                Intent intent = new Intent(Catalogo.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
+        // Configura el RecyclerView con un GridLayoutManager para mostrar una cuadrícula
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2); // 2 columnas
+        recyclerViewCatalogo.setLayoutManager(gridLayoutManager);
 
-        // Configuración del RecyclerView para el catálogo
-        RecyclerView recyclerViewCatalogo = findViewById(R.id.recycler_view_catalogo);
-        recyclerViewCatalogo.setLayoutManager(new LinearLayoutManager(this));
+        // Cargar categorías de ejemplo
+        List<Categoria> listaCategorias = cargarCategorias();
 
-        // Lista de categorías de ejemplo
-        List<Categoria> listaCategorias = new ArrayList<>();
-        listaCategorias.add(new Categoria("Acción", R.drawable.ic_category_placeholder));
-        listaCategorias.add(new Categoria("Aventura", R.drawable.ic_category_placeholder));
-        listaCategorias.add(new Categoria("Fantasía", R.drawable.ic_category_placeholder));
+        // Configura el adaptador
+        categoriasAdapter = new CategoriasAdapter(listaCategorias);
+        recyclerViewCatalogo.setAdapter(categoriasAdapter);
+    }
 
-        // Establecemos el adaptador para el RecyclerView
-        recyclerViewCatalogo.setAdapter(new CategoriasAdapter(listaCategorias));
+    // Método para cargar una lista de categorías de ejemplo
+    private List<Categoria> cargarCategorias() {
+        List<Categoria> categorias = new ArrayList<>();
+        categorias.add(new Categoria("Romeo y Julieta", R.drawable.romeo_y_julieta, 239.80));
+        categorias.add(new Categoria("Corazón Delator", R.drawable.corazon_delator, 239.80));
+        categorias.add(new Categoria("Harry Potter", R.drawable.harry_potter, 239.80));
+        categorias.add(new Categoria("El Mago de Oz", R.drawable.mago_de_oz, 239.80));
+        return categorias;
     }
 }
+

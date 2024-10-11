@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
-        tools:listitem="@layout/item_destacado" />
+        tools:listitem="@layout/item_libro" />
 
     <!-- ImageView for profile icon -->
     <ImageView
