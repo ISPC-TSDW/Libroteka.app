@@ -1,6 +1,8 @@
 package com.example.libroteka;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +23,19 @@ public class Productos_Activity extends AppCompatActivity {
             return insets;
         });
     }
+
+    //btn home
+    public void irHome (View view){
+        Intent irHome = new Intent(this, Home.class);
+        startActivity(irHome);
+
+    }
+    //btn agregar a favorito
+    /*
+    -----------------Backend------------------
+    agregar la funcionalidad de agregar a favoritos  @facku @augusto
+
+    */
+
+
 }

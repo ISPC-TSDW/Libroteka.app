@@ -35,14 +35,17 @@ public class Home extends AppCompatActivity {
         // Lista de categorías de ejemplo
         List<Categoria> listaCategorias = new ArrayList<>();
         listaCategorias.add(new Categoria("Acción", R.drawable.ic_category_placeholder));
-        listaCategorias.add(new Categoria("Aventura", R.drawable.ic_category_placeholder));
+        listaCategorias.add(new Categoria("Suspenso", R.drawable.ic_category_placeholder));
         listaCategorias.add(new Categoria("Fantasía", R.drawable.ic_category_placeholder));
 
         // Lista de libros destacados de ejemplo
         List<Libro> listaLibros = new ArrayList<>();
-        listaLibros.add(new Libro("El Principito", R.drawable.ic_book_placeholder));
-        listaLibros.add(new Libro("Don Quijote", R.drawable.ic_book_placeholder));
-        listaLibros.add(new Libro("1984", R.drawable.ic_book_placeholder));
+        listaLibros.add(new Libro("El Instituto", R.drawable.el_instituto));
+        listaLibros.add(new Libro("El laberinto del Fauno", R.drawable.el_laberinto_del_fauno));
+        listaLibros.add(new Libro("El Visitante", R.drawable.el_visitante));
+        listaLibros.add(new Libro("Terapia", R.drawable.terapia));
+        listaLibros.add(new Libro("A la caza de Jack el destripador", R.drawable.a_la_caza_de_jack_el_destripador));
+
 
         // Inicializamos RecyclerView y BottomNavigationView
         RecyclerView rvCategorias = findViewById(R.id.rvCategorias);

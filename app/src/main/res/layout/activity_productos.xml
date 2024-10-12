@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/et_tituloprod"
@@ -37,8 +37,8 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="65dp"
-            android:layout_height="66dp"
+            android:layout_width="71dp"
+            android:layout_height="72dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,33 +55,34 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.195"
             app:srcCompat="@drawable/el_laberinto_del_fauno" />
 
         <EditText
             android:id="@+id/editTextTextMultiLine"
-            android:layout_width="231dp"
-            android:layout_height="171dp"
+            android:layout_width="336dp"
+            android:layout_height="195dp"
             android:ems="10"
             android:fontFamily="@font/roboto"
-            android:gravity="start|top"
+            android:gravity="center"
             android:inputType="textMultiLine"
+            android:shadowColor="#A8FF9800"
             android:text="Norte de España, 1944. Ofelia, una niña de 13 años muy inteligente amante de los cuentos, está viajando con su madre Carmen"
             android:textAlignment="center"
             android:textColor="@color/bark"
             android:textColorHighlight="@color/bark"
             android:textColorHint="@color/bark"
             android:textColorLink="@color/bark"
-            android:textSize="20sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="496dp" />
+            tools:layout_editor_absoluteY="498dp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="76dp"
             android:drawableBottom="@color/brownstone"
             android:text="ver mas.."
             android:textSize="16sp"
@@ -91,24 +92,28 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="92dp"
-            android:layout_height="81dp"
+            android:layout_width="100dp"
+            android:layout_height="86dp"
             android:layout_marginStart="64dp"
             android:layout_marginTop="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageButton3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.084"
             app:srcCompat="@drawable/ic_heart" />
 
         <ImageButton
             android:id="@+id/imageButton3"
-            android:layout_width="91dp"
-            android:layout_height="81dp"
+            android:layout_width="100dp"
+            android:layout_height="87dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.068"
             app:srcCompat="@drawable/ic_home" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
