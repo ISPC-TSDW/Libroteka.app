@@ -59,7 +59,7 @@ public class Home extends AppCompatActivity {
 
         // Configuramos el RecyclerView horizontal para libros destacados
         rvDestacados.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        rvDestacados.setAdapter(new DestacadosAdapter(listaLibros));
+        rvDestacados.setAdapter(new LibrosAdapter(listaLibros));
 
         // Menú de navegación inferior
         bottomNavigationView.setOnItemSelectedListener(item -> {
