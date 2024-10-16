@@ -25,26 +25,26 @@ public class Catalogo extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerViewCatalogo.setLayoutManager(gridLayoutManager);
 
-        // Inicializa el RecyclerView para los libros
+        // Inicializamos el RecyclerView para los libros
         recyclerViewLibros = findViewById(R.id.recycler_view_libros);
         GridLayoutManager librosGridLayoutManager = new GridLayoutManager(this, 2); // 2 columnas para libros
         recyclerViewLibros.setLayoutManager(librosGridLayoutManager);
 
-        // Cargar categorías de ejemplo
+        // Cargamos las categorías de ejemplo
         List<Categoria> listaCategorias = cargarCategorias();
 
-        // Configura el adaptador para las categorías
+        // Configuramos el adaptador para las categorías
         categoriasAdapter = new CategoriasAdapter(listaCategorias, new CategoriasAdapter.OnCategoriaClickListener() {
             @Override
             public void onCategoriaClick(Categoria categoria) {
-                // Cargar libros según la categoría seleccionada
+                // Cargamos los libros según la categoría seleccionada
                 cargarLibrosPorCategoria(categoria);
             }
         });
         recyclerViewCatalogo.setAdapter(categoriasAdapter);
 
-        // Cargar libros iniciales (puede ser una lista por defecto o vacía)
-        cargarLibrosPorCategoria(null); // Puedes cambiar `null` por una categoría por defecto si lo prefieres
+        // Cargamos unos libros iniciales (por defecto)
+        cargarLibrosPorCategoria(null); // Luego debemos cambair el "null" por la categoria defecto
     }
 
     // Método para cargar una lista de categorías de ejemplo
@@ -75,10 +75,11 @@ public class Catalogo extends AppCompatActivity {
             libros.add(new Libro("El Viaje a Oz", R.drawable.ic_book_placeholder));
         }
 
-        // Configura el adaptador para los libros
+        // Configuramos el adaptador para los libros
         librosAdapter = new LibrosAdapter(libros);
         recyclerViewLibros.setAdapter(librosAdapter);
     }
 }
+
 
 

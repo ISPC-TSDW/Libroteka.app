@@ -9,9 +9,6 @@
     tools:context=".Home">
 
     <!-- RecyclerView para las categorías -->
-
-    <!-- Título de libros destacados -->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategorias"
         android:layout_width="match_parent"
@@ -23,11 +20,11 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_categoria" />
 
+    <!-- Título de libros destacados -->
     <TextView
         android:id="@+id/tvDestacados"
         android:layout_width="wrap_content"
@@ -65,10 +62,10 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/profile_icon"
         android:src="@drawable/ic_profile"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:clickable="true"
-    android:focusable="true" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        android:focusable="true" />
 
     <!-- Barra de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

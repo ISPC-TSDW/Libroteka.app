@@ -18,12 +18,14 @@ import java.util.List;
 
 public class Home extends AppCompatActivity {
 
+    private RecyclerView rvDestacados;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Set up the profile icon and click listener for navigation to ProfileActivity
+        //
         ImageView profileImageView = findViewById(R.id.profileIcon);
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,12 +48,19 @@ public class Home extends AppCompatActivity {
 
         // Inicializamos RecyclerView y BottomNavigationView
         RecyclerView rvCategorias = findViewById(R.id.rvCategorias);
-        RecyclerView rvDestacados = findViewById(R.id.rvDestacados);
+        rvDestacados = findViewById(R.id.rvDestacados);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        // Configuramos el RecyclerView horizontal para categorías
+        // Configuramos el RecyclerView horizontal para categorías con un listener de clic
         rvCategorias.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        rvCategorias.setAdapter(new CategoriasAdapter(listaCategorias));
+        CategoriasAdapter categoriasAdapter = new CategoriasAdapter(listaCategorias, new CategoriasAdapter.OnCategoriaClickListener() {
+            @Override
+            public void onCategoriaClick(Categoria categoria) {
+                // Acción cuando se selecciona una categoría (mostrar libros relacionados)
+                mostrarLibrosPorCategoria(categoria);
+            }
+        });
+        rvCategorias.setAdapter(categoriasAdapter);
 
         // Agregamos el SnapHelper para el efecto de "snap"
         SnapHelper snapHelper = new LinearSnapHelper();
@@ -75,9 +84,39 @@ public class Home extends AppCompatActivity {
         });
     }
 
-    // Method to navigate to ProfileActivity
+    // Método para navegar a ProfileActivity
     private void goToProfile() {
         Intent intent = new Intent(Home.this, ProfileActivity.class);
         startActivity(intent);
     }
+
+    // Método para manejar el clic en la categoría y mostrar los libros relacionados
+    private void mostrarLibrosPorCategoria(Categoria categoria) {
+        List<Libro> librosFiltrados = new ArrayList<>();
+
+        // Lógica para filtrar libros según la categoría seleccionada
+        switch (categoria.getNombre()) {
+            case "Acción":
+                librosFiltrados.add(new Libro("Libro de Acción 1", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro de Acción 2", R.drawable.ic_book_placeholder));
+                break;
+            case "Aventura":
+                librosFiltrados.add(new Libro("Libro de Aventura 1", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro de Aventura 2", R.drawable.ic_book_placeholder));
+                break;
+            case "Fantasía":
+                librosFiltrados.add(new Libro("Libro de Fantasía 1", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro de Fantasía 2", R.drawable.ic_book_placeholder));
+                break;
+            default:
+                librosFiltrados.add(new Libro("Libro General 1", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro General 2", R.drawable.ic_book_placeholder));
+                break;
+        }
+
+        // Actualizamos el RecyclerView de los libros destacados
+        LibrosAdapter librosAdapter = new LibrosAdapter(librosFiltrados);
+        rvDestacados.setAdapter(librosAdapter);
+    }
 }
+
