@@ -67,4 +67,3 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Ca
 
 
 
-

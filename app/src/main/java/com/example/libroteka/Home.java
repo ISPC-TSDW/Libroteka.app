@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //
+        // Icono del perfil y listener para navegar a ProfileActivity
         ImageView profileImageView = findViewById(R.id.profileIcon);
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,17 +34,17 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        // Lista de categorías de ejemplo
+        // Lista de categorías
         List<Categoria> listaCategorias = new ArrayList<>();
         listaCategorias.add(new Categoria("Acción", R.drawable.ic_category_placeholder));
         listaCategorias.add(new Categoria("Aventura", R.drawable.ic_category_placeholder));
         listaCategorias.add(new Categoria("Fantasía", R.drawable.ic_category_placeholder));
 
-        // Lista de libros destacados de ejemplo
+        // Lista de libros destacados
         List<Libro> listaLibros = new ArrayList<>();
-        listaLibros.add(new Libro("El Principito", R.drawable.ic_book_placeholder));
-        listaLibros.add(new Libro("Don Quijote", R.drawable.ic_book_placeholder));
-        listaLibros.add(new Libro("1984", R.drawable.ic_book_placeholder));
+        listaLibros.add(new Libro("El Principito", R.drawable.ic_book_placeholder, "Juvenil"));
+        listaLibros.add(new Libro("Don Quijote", R.drawable.ic_book_placeholder, "Histórico"));
+        listaLibros.add(new Libro("1984", R.drawable.ic_book_placeholder, "Terror"));
 
         // Inicializamos RecyclerView y BottomNavigationView
         RecyclerView rvCategorias = findViewById(R.id.rvCategorias);
@@ -76,8 +76,10 @@ public class Home extends AppCompatActivity {
             if (id == R.id.navigation_home) {
                 return true;
             } else if (id == R.id.navigation_categories) {
+                goToCategories(); // Navegar a la pantalla de categorías
                 return true;
             } else if (id == R.id.navigation_favorites) {
+                goToFavorites(); // Navegar a la pantalla de favoritos
                 return true;
             }
             return false;
@@ -86,7 +88,7 @@ public class Home extends AppCompatActivity {
 
     // Método para navegar a ProfileActivity
     private void goToProfile() {
-        Intent intent = new Intent(Home.this, ProfileActivity.class);
+        Intent intent = new Intent(Home.this, ProfileActivity.class); // Asegúrate que tienes ProfileActivity creada
         startActivity(intent);
     }
 
@@ -94,23 +96,19 @@ public class Home extends AppCompatActivity {
     private void mostrarLibrosPorCategoria(Categoria categoria) {
         List<Libro> librosFiltrados = new ArrayList<>();
 
-        // Lógica para filtrar libros según la categoría seleccionada
+        // Filtrar libros según la categoría seleccionada
         switch (categoria.getNombre()) {
             case "Acción":
-                librosFiltrados.add(new Libro("Libro de Acción 1", R.drawable.ic_book_placeholder));
-                librosFiltrados.add(new Libro("Libro de Acción 2", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro de Acción 1", R.drawable.ic_book_placeholder, "Acción"));
+                librosFiltrados.add(new Libro("Libro de Acción 2", R.drawable.ic_book_placeholder, "Acción"));
                 break;
             case "Aventura":
-                librosFiltrados.add(new Libro("Libro de Aventura 1", R.drawable.ic_book_placeholder));
-                librosFiltrados.add(new Libro("Libro de Aventura 2", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro de Aventura 1", R.drawable.ic_book_placeholder, "Aventura"));
+                librosFiltrados.add(new Libro("Libro de Aventura 2", R.drawable.ic_book_placeholder, "Aventura"));
                 break;
             case "Fantasía":
-                librosFiltrados.add(new Libro("Libro de Fantasía 1", R.drawable.ic_book_placeholder));
-                librosFiltrados.add(new Libro("Libro de Fantasía 2", R.drawable.ic_book_placeholder));
-                break;
-            default:
-                librosFiltrados.add(new Libro("Libro General 1", R.drawable.ic_book_placeholder));
-                librosFiltrados.add(new Libro("Libro General 2", R.drawable.ic_book_placeholder));
+                librosFiltrados.add(new Libro("Libro de Fantasía 1", R.drawable.ic_book_placeholder, "Fantasía"));
+                librosFiltrados.add(new Libro("Libro de Fantasía 2", R.drawable.ic_book_placeholder, "Fantasía"));
                 break;
         }
 
@@ -118,5 +116,19 @@ public class Home extends AppCompatActivity {
         LibrosAdapter librosAdapter = new LibrosAdapter(librosFiltrados);
         rvDestacados.setAdapter(librosAdapter);
     }
+
+    // Método para navegar a la pantalla de categorías
+    private void goToCategories() {
+        Intent intent = new Intent(Home.this, Catalogo.class); // Asegúrate de tener Catalogo.java creado
+        startActivity(intent);
+    }
+
+    // Método para navegar a la pantalla de favoritos (agregar cuando esté lista)
+    private void goToFavorites() {
+        // Agregar cuando esté lista la pantalla de favoritos
+    }
 }
+
+
+
 

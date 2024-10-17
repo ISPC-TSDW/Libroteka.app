@@ -50,3 +50,4 @@ public class LibrosAdapter extends RecyclerView.Adapter<LibrosAdapter.ViewHolder
 }
 
 
+
