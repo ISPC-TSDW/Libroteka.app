@@ -9,7 +9,7 @@
       android:translateX="5.04"
       android:translateY="5.04">
     <path
-        android:fillColor="@android:color/white"
+        android:fillColor="@color/bark"
         android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>
   </group>
 </vector>

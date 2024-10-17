@@ -30,6 +30,10 @@ public class Producto_Activity extends AppCompatActivity {
         startActivity(irHome);
 
     }
+    public void verMas(View view){
+
+    }
+
     //btn agregar a favorito
     /*
     -----------------Backend------------------
