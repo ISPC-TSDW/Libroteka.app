@@ -20,10 +20,10 @@
 
 Dependencies: 
 - Android: "x"
-- Java: "x"
+- Java: "^17"
 - Python: "^3.8"
 - Django: "^4.2"
-- MYSQL: "^2.2"
+- MYSQL: "^8.0"
 
 Puntos claves:
 - Formulario IEEE830: [Link](https://github.com/ISPC-TSDW/Libroteka.app/wiki/Formulario-IEEE830#link-para-acceder-al-formulario)
@@ -32,18 +32,17 @@ Puntos claves:
 - Milestones: [Link](https://github.com/ISPC-TSDW/Libroteka.app/milestones)
 - Branching Strategy:
 
-| Branch	          | Naming Convention   |
+| Branch	         | Naming Convention   |
 |------------------|---------------------|
 | Master           | 	"main"             |
-| Release          | 	"release"          |
-| Desarrollo	      | "dev"               |
+| Desarrollo	     | "develop"           |
 | Rama Integrantes | "iniciales-feature" |
 
 - Link al repositorio web: [Link](https://github.com/ISPC-TSDW/Libroteka.web)
 
 ---
 
-<table>
+
 <tr>
 <th> BackEnd </th>
 </tr>
@@ -93,8 +92,7 @@ Install Libraries
 ```bash 
   python manage.py makemigrations
 ```
-## Executes the necessary operations to synchronize the models with the database tables,
-## such as creating new tables, modifying columns, deleting tables, etc.
+## Executes the necessary operations to synchronize the models with the database tables, such as creating new tables, modifying columns, deleting tables, etc.
 
 ```bash
   python manage.py migrate
@@ -107,7 +105,6 @@ Start the server
 ```
 </td> 
 </tr> 
-</table> 
-```
+
 
 
