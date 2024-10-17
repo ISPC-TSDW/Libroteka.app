@@ -2,7 +2,7 @@
 
 ## Integrantes:
 * Germán Gustavo Cano
-* Romina Soledad Haag
+* Romina Sol Haag
 * Daiana Soledad Zabala
 * Juan Pablo Suarez
 * Giuliana Gesto
