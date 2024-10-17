@@ -35,6 +35,7 @@ Puntos claves:
 | Branch	         | Naming Convention   |
 |------------------|---------------------|
 | Master           | 	"main"             |
+| Release    	     | "release"           |
 | Desarrollo	     | "develop"           |
 | Rama Integrantes | "iniciales-feature" |
 
