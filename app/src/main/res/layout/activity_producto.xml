@@ -53,7 +53,7 @@
             android:layout_width="354dp"
             android:layout_height="523dp"
             android:layout_marginTop="144dp"
-            app:layout_constraintBottom_toTopOf="@+id/et_VerMas"
+            app:layout_constraintBottom_toTopOf="@+id/et_PopUp_verMas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
             app:srcCompat="@drawable/el_laberinto_del_fauno" />
 
         <TextView
-            android:id="@+id/et_VerMas"
+            android:id="@+id/et_PopUp_verMas"
             android:layout_width="178dp"
             android:layout_height="49dp"
             android:layout_marginStart="178dp"
@@ -86,7 +86,7 @@
             android:layout_marginBottom="53dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_VerMas"
+            app:layout_constraintTop_toBottomOf="@+id/et_PopUp_verMas"
             app:srcCompat="@mipmap/ic_favorite_basic_round" />
 
         <ImageView
@@ -96,9 +96,10 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="52dp"
             android:layout_marginBottom="53dp"
+            android:onClick="irHome"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_VerMas"
+            app:layout_constraintTop_toBottomOf="@+id/et_PopUp_verMas"
             app:srcCompat="@mipmap/ic_home_basic" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
