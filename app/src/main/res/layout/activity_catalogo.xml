@@ -8,18 +8,19 @@
     tools:context=".Catalogo">
 
     <!-- Icono de volver atrás -->
+
+    <!-- Icono de perfil -->
     <ImageView
         android:id="@+id/icon_back"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/ic_back"
         android:contentDescription="Volver"
+        android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Icono de perfil -->
     <ImageView
         android:id="@+id/icon_profile"
         android:layout_width="40dp"
