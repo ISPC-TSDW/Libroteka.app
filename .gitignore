@@ -19,3 +19,5 @@ local.properties
 .idea/misc.xml
 .idea/other.xml
 gradle/libs.versions.toml
+.env
+__pycache__/
