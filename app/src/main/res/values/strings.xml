@@ -23,8 +23,8 @@
     <string name="editar_perfil">Editar perfil</string>
     <string name="email_placeholder">masanchez@gmail.com</string>
     <string name="username_placeholder">Maria Sanchez</string>
-    <string name="tus_direcciones">Tus direcciones</string>
-    <string name="tus_pedidos">Tus pedidos</string>
+    <string name="tus_reseñas">Tus reseñas</string>
+    <string name="tus_favoritos">Tus favoritos</string>
     <string name="contacto">Contacto</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="go_to_profile">Ir al perfil</string>
@@ -39,6 +39,17 @@
     <string name="cancelar">Cancelar</string>
     <string name="categoria_imagen">Imagen de categoría</string>
     <string name="profile_icon">Perfil</string>
+    <string name="name">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registro</string>
+    <string name="login">Iniciar sesión</string>
 
+    <!--info libros-->
+    <string name="sinopsis_fauno"> En un reino subterráneo, donde no existían las mentiras ni el dolor, una princesa soñaba con los humanos. Un día escapó a nuestro mundo, el sol borró sus recuerdos y la princesa murió, pero su espíritu era inmortal. El rey no se daría por vencido: tenía la esperanza de que su hija regresara a casa algún día. En otro cuerpo. En otro tiempo. Quizás en otro lugar. Esperaría hasta su último aliento, hasta el final de los tiempos.</string>
+    <string name="sinopsis_elInstituto"> En mitad de la noche en un barrio tranquilo de Minneapolis raptan a Luke Ellis, de doce años, tras haber asesinado a sus padres. Una operación que dura menos de dos minutos. Luke se despierta en la siniestra institución conocida como el Instituto, en un cuarto que se asemeja al suyo pero sin ventanas. En habitaciones parecidas hay más niños: Kalisha, Nick, George, Iris y Avery Dixon, entre otros, que comparten capacidades especiales como la telequinesia o la telepatía. Todos ellos se alojan en la Mitad Delantera de la institución. Los mayores, en cambio, se encuentran en la Mitad Trasera. Como dice Kalisha: "El que entra no sale".</string>
+    <string name="sinopsis_elVisitante"> Un niño de once años ha sido brutalmente asesinado. Todas las pruebas apuntan a uno de los ciudadanos más queridos de Flint City: Terry Maitland, entrenador en la liga infantil, profesor de literatura, marido ejemplar y padre de dos niñas. El detective Ralph Anderson ordena su detención. Maitland tiene una coartada firme que demuestra que estuvo en otra ciudad cuando se cometió el crimen, pero las pruebas de ADNencontradas en el lugar de los hechos confirman que es culpable. Ante la justicia y la opinión pública Terry Maitland es un asesino y el caso está resuelto.</string>
+    <string name="sinopsis_terapia"> Ni testigos ni pistas ni cadáver. Josy, la hija de doce años del conocido psiquiatra Viktor Larenz, desaparece en misteriosas circunstancias de la consulta del medico que la trata de una inexplicable dolencia. Cuatro años despues, Viktor, sumido en una profunda tristeza, se ha retirado a una remota casa en una isla del Mar del Norte. Allí lo localiza una hermosa desconocida que padece alucinaciones: ve constantemente a una niña pequeña, una niña que sufre una extraña enfermedad y que desaparece sin dejar rastro de la consulta del medico. Viktor inicia entonces un tratamiento con la desconocida, pero la terapia se convierte paulatinamente en un dramático interrogatorio. ¿Es posible lo inconcebible? ¿Describen los delirios de Anna los últimos días de Josy?</string>
+    <string name="sinopsis_jackDestripador"> Audrey Rose Wadsworth, de diecisiete años, nació como la hija de un Lord, con toda una vida de riqueza y privilegios por delante. Pero entre las fiestas de té y los vestidos de seda lleva una vida secreta prohibida. En contra de los deseos de su severo padre y las expectativas de la sociedad, Audrey se escapa frecuentemente al laboratorio de su tío para estudiar la espantosa práctica de la medicina forense. Cuando su trabajo en una serie de cadáveres asesinados salvajemente la arrastra a la investigación de un asesino serial, su búsqueda de respuestas la llevará muy cerca de su propio mundo protegido.</string>
+    <string name="vermas">Ver mas</string>
 
 </resources>
