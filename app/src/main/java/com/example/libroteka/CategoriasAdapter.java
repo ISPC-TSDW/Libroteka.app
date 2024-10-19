@@ -13,10 +13,17 @@ import java.util.List;
 public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.CategoriaViewHolder> {
 
     private final List<Categoria> categorias;
+    private final OnCategoriaClickListener listener;
 
-    // Constructor para pasar la lista de categorías
-    public CategoriasAdapter(List<Categoria> categorias) {
+    // Interfaz para manejar los clics en las categorías
+    public interface OnCategoriaClickListener {
+        void onCategoriaClick(Categoria categoria);
+    }
+
+    // Constructor que recibe la lista de categorías y el listener de clic
+    public CategoriasAdapter(List<Categoria> categorias, OnCategoriaClickListener listener) {
         this.categorias = categorias;
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,6 +38,14 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Ca
         Categoria categoria = categorias.get(position);
         holder.imgCategoria.setImageResource(categoria.getImagen());
         holder.txtNombreCategoria.setText(categoria.getNombre());
+
+        // Manejador de clic en la categoría
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onCategoriaClick(categoria);
+            }
+        });
     }
 
     @Override
@@ -49,5 +64,6 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Ca
         }
     }
 }
+
 
 
