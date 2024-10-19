@@ -42,9 +42,9 @@ public class Home extends AppCompatActivity {
 
         // Lista de libros destacados
         List<Libro> listaLibros = new ArrayList<>();
-        listaLibros.add(new Libro("El Principito", R.drawable.ic_book_placeholder, "Juvenil"));
-        listaLibros.add(new Libro("Don Quijote", R.drawable.ic_book_placeholder, "Histórico"));
-        listaLibros.add(new Libro("1984", R.drawable.ic_book_placeholder, "Terror"));
+        listaLibros.add(new Libro("El Principito", R.drawable.ic_book_juegodetronos, "Juvenil"));
+        listaLibros.add(new Libro("Don Quijote", R.drawable.ic_book_juegodetronos, "Histórico"));
+        listaLibros.add(new Libro("1984", R.drawable.ic_book_juegodetronos, "Terror"));
 
         // Inicializamos RecyclerView y BottomNavigationView
         RecyclerView rvCategorias = findViewById(R.id.rvCategorias);
@@ -99,16 +99,16 @@ public class Home extends AppCompatActivity {
         // Filtrar libros según la categoría seleccionada
         switch (categoria.getNombre()) {
             case "Acción":
-                librosFiltrados.add(new Libro("Libro de Acción 1", R.drawable.ic_book_placeholder, "Acción"));
-                librosFiltrados.add(new Libro("Libro de Acción 2", R.drawable.ic_book_placeholder, "Acción"));
+                librosFiltrados.add(new Libro("Libro de Acción 1", R.drawable.ic_book_juegodetronos, "Acción"));
+                librosFiltrados.add(new Libro("Libro de Acción 2", R.drawable.ic_book_juegodetronos, "Acción"));
                 break;
             case "Aventura":
-                librosFiltrados.add(new Libro("Libro de Aventura 1", R.drawable.ic_book_placeholder, "Aventura"));
-                librosFiltrados.add(new Libro("Libro de Aventura 2", R.drawable.ic_book_placeholder, "Aventura"));
+                librosFiltrados.add(new Libro("Libro de Aventura 1", R.drawable.ic_book_juegodetronos, "Aventura"));
+                librosFiltrados.add(new Libro("Libro de Aventura 2", R.drawable.ic_book_juegodetronos, "Aventura"));
                 break;
             case "Fantasía":
-                librosFiltrados.add(new Libro("Libro de Fantasía 1", R.drawable.ic_book_placeholder, "Fantasía"));
-                librosFiltrados.add(new Libro("Libro de Fantasía 2", R.drawable.ic_book_placeholder, "Fantasía"));
+                librosFiltrados.add(new Libro("Libro de Fantasía 1", R.drawable.ic_book_juegodetronos, "Fantasía"));
+                librosFiltrados.add(new Libro("Libro de Fantasía 2", R.drawable.ic_book_juegodetronos, "Fantasía"));
                 break;
         }
 
