@@ -65,10 +65,10 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/profile_icon"
         android:src="@drawable/ic_profile"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:clickable="true"
-    android:focusable="true" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        android:focusable="true" />
 
     <!-- Barra de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
