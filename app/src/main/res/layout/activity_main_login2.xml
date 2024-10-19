@@ -19,10 +19,9 @@
         android:layout_marginTop="88dp"
         android:layout_marginBottom="56dp"
         android:fontFamily="@font/lobster"
-        android:text="Libtroteka"
+        android:text="Libroteka"
         android:textColor="@color/black"
         android:textSize="80sp"
-        app:layout_constraintBottom_toTopOf="@+id/img_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -50,16 +49,17 @@
 
     <TextView
         android:id="@+id/tvOlvidasteContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="258dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="60dp"
+        android:gravity="center"
         android:onClick="recuperarContraseña"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/forgotten"
         android:textColor="@color/bark"
         android:textColorHint="@color/bark"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -109,8 +109,6 @@
     <!--seccion de recuperacion de contraseña-->
 
     <!--seccion de atentificacion por redes sociales-->
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

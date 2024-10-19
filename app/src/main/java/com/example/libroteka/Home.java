@@ -42,9 +42,11 @@ public class Home extends AppCompatActivity {
 
         // Lista de libros destacados
         List<Libro> listaLibros = new ArrayList<>();
-        listaLibros.add(new Libro("El Principito", R.drawable.ic_book_juegodetronos, "Juvenil"));
-        listaLibros.add(new Libro("Don Quijote", R.drawable.ic_book_juegodetronos, "Histórico"));
-        listaLibros.add(new Libro("1984", R.drawable.ic_book_juegodetronos, "Terror"));
+        listaLibros.add(new Libro("El Instituto", R.drawable.el_instituto,"Suspenso"));
+        listaLibros.add(new Libro("El laberinto del Fauno", R.drawable.el_laberinto_del_fauno,"Suspenso"));
+        listaLibros.add(new Libro("El Visitante", R.drawable.el_visitante,"Suspenso"));
+        listaLibros.add(new Libro("Terapia", R.drawable.terapia,"Suspenso"));
+        listaLibros.add(new Libro("A la caza de Jack el destripador", R.drawable.a_la_caza_de_jack_el_destripador,"Terror"));
 
         // Inicializamos RecyclerView y BottomNavigationView
         RecyclerView rvCategorias = findViewById(R.id.rvCategorias);
