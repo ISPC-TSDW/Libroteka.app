@@ -16,7 +16,20 @@
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Disable the window's action bar -->
-        <item name="windowActionBar">false</item>
+        <item name="windowActionBar">true</item>
         <!-- Other theme attributes -->
     </style>
+    
+    <style name="AppTheme.TemaPopup">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+
+
+
+
+    </style>
+
+
 </resources>
