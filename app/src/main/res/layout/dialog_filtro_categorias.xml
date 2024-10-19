@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <RadioGroup
+        android:id="@+id/radioGroupCategorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButtonDrama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drama" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSuspenso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suspenso" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFantasia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fantasía" />
+
+        <RadioButton
+            android:id="@+id/radioButtonJuvenil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Juvenil" />
+
+    </RadioGroup>
+</LinearLayout>
