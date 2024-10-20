@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -95,8 +96,29 @@ public class EditProfileActivity extends AppCompatActivity {
     // Función para habilitar o deshabilitar el botón de guardar
     private void validateChanges() {
         // Comparar los valores actuales con los originales
-        String currentUsername = usernameEditText.getText().toString();
-        String currentEmail = emailEditText.getText().toString();
+        String currentUsername = usernameEditText.getText().toString().trim();
+        String currentEmail = emailEditText.getText().toString().trim();
+
+        // Verificar si los campos están vacíos
+        if (currentUsername.isEmpty()) {
+            saveButton.setEnabled(false);
+            Toast.makeText(this, "El nombre de usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (currentEmail.isEmpty()) {
+            saveButton.setEnabled(false);
+            Toast.makeText(this, "El correo electrónico no puede estar vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validar formato del correo electrónico
+        if (!Patterns.EMAIL_ADDRESS.matcher(currentEmail).matches()) {
+            saveButton.setEnabled(false);
+            Toast.makeText(this, "Por favor, ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         // Habilitar el botón solo si alguno de los valores ha cambiado
         boolean isChanged = !currentUsername.equals(originalUsername) || !currentEmail.equals(originalEmail);

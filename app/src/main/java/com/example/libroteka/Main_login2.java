@@ -28,11 +28,6 @@ public class Main_login2 extends AppCompatActivity {
         emailEditText = findViewById(R.id.et_email);
         passwordEditText = findViewById(R.id.et_pass);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
 
     //método para el btn crear cuenta
