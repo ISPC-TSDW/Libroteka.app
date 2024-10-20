@@ -50,5 +50,12 @@ public class ContactActivity extends AppCompatActivity {
 
         // For now, just display a success message
         Toast.makeText(this, "¡Mensaje enviado con éxito!", Toast.LENGTH_SHORT).show();
+
+        // Limpio los campos del formulario cuando se envia exitosamente el mensaje
+        nameEditText.setText("");
+        emailEditText.setText("");
+        messageEditText.setText("");
+
+
     }
 }

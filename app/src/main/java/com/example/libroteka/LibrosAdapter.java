@@ -30,6 +30,21 @@ public class LibrosAdapter extends RecyclerView.Adapter<LibrosAdapter.ViewHolder
         Libro libro = listaLibros.get(position);
         holder.tvTitulo.setText(libro.getTitulo());
         holder.ivImagen.setImageResource(libro.getImagenResId());
+
+
+        //                   @dai fijate si podes hacer esto
+        // Manejar el clic en la tarjeta del producto
+        /*holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailsActivity.class);
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productDescription", product.getDescription());
+            intent.putExtra("productPrice", product.getPrice());
+            intent.putExtra("productImage", product.getImage());
+            context.startActivity(intent);
+        });*/
+
+
+
     }
 
     @Override
