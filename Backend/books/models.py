@@ -1,9 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.core.validators import RegexValidator
-from jsonfield import JSONField
-import json
-from django.conf import settings
+
 
 class User(AbstractUser):
     first_name = models.CharField(max_length=30)
@@ -85,7 +83,7 @@ class Book(models.Model):
     price= models.DecimalField(blank=False, decimal_places=2, max_digits=10)
     stock= models.IntegerField(blank=False, default=1000)
     id_Editorial = models.ForeignKey(Editorial, to_field='id_Editorial', on_delete=models.CASCADE, blank=True, null=True)
-    
+
     class Meta:
         db_table= 'book'
         verbose_name = "Libro"
@@ -152,11 +150,7 @@ class Order(models.Model):
     books = models.JSONField(default=list)
     total = models.DecimalField(blank=False, decimal_places=2, max_digits=10)
     books_amount = models.IntegerField(blank=False)
-    
-    # def save(self, *args, **kwargs):
-    #     # Serialize the list of books to JSON
-    #     self.books = json.dumps(list(self.books))
-    #     super().save(*args, **kwargs)
+
     class Meta:
         db_table= 'Order'
         verbose_name = "Orden"
@@ -167,3 +161,18 @@ class Order(models.Model):
 
     def __str__(self):
         return self.id_Order
+
+class Favorite(models.Model):
+    id_user = models.ForeignKey(UsersLibroteka, on_delete=models.CASCADE)
+    id_book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('id_user', 'id_book')
+        db_table = 'Favorite'
+        verbose_name = 'Favorito'
+        verbose_name_plural = 'Favoritos'
+
+    def __str__(self):
+        return f"{self.id_user} - {self.id_book.title}"
+
