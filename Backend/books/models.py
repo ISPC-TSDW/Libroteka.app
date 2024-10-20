@@ -83,6 +83,7 @@ class Book(models.Model):
     price= models.DecimalField(blank=False, decimal_places=2, max_digits=10)
     stock= models.IntegerField(blank=False, default=1000)
     id_Editorial = models.ForeignKey(Editorial, to_field='id_Editorial', on_delete=models.CASCADE, blank=True, null=True)
+    avg_rating = models.FloatField(default=0.0, blank=True)
 
     class Meta:
         db_table= 'book'
@@ -176,3 +177,18 @@ class Favorite(models.Model):
     def __str__(self):
         return f"{self.id_user} - {self.id_book.title}"
 
+class Rating(models.Model):
+    id_user = models.ForeignKey(UsersLibroteka, on_delete=models.CASCADE)
+    id_book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    rating = models.PositiveSmallIntegerField(choices=((1, '1 star'), (2, '2 stars'), (3, '3 stars'), (4, '4 stars'), (5, '5 stars')))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('id_user', 'id_book')
+        db_table = 'Rating'
+        verbose_name = 'Valoracion'
+        verbose_name_plural = 'Valoraciones'
+
+    def __str__(self):
+        return f"{self.id_user} - {self.id_book.title} - {self.rating} estrellas"
