@@ -1,30 +1,16 @@
-from django.http import JsonResponse
-from django.shortcuts import render
-from django.views import View
-from rest_framework import viewsets, generics, permissions, status
-from rest_framework.views import APIView
-from django.shortcuts import render
-from django.views import View
-from rest_framework.response import Response
-from knox.models import AuthToken
-# from knox.views import LoginView as KnoxLoginView
-from django.contrib.auth import login, authenticate
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password
-from django.utils import timezone
+from django.db import transaction
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-import json
-
-from .models import Author, Editorial, User, Genre, Order, OrderStatus, Book, Role, UsersLibroteka
-from .serializer import (
-    AuthorSerializer, EditorialSerializer, UserSerializer, RegisterSerializer, 
-    GenreSerializer, BookSerializer, RoleSerializer, UsersLibrotekaSerializer, LoginSerializer, OrderSerializer
-)
-
-# ViewSets for different models
-from django.db.models import Q
+from django.views import View
+from knox.models import AuthToken
+from rest_framework import viewsets, generics, permissions, status
 from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .serializer import *
+from .models import *
 
 class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
@@ -131,44 +117,6 @@ class LoginAPI(APIView):
             except UsersLibroteka.DoesNotExist:
                 return Response({"message": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# Login API
-# @csrf_exempt
-
-# class LoginAPI(KnoxLoginView):
-#     permission_classes = [permissions.AllowAny]
-
-    # def post(self, request, format=None):
-    #     serializer = AuthTokenSerializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     user = serializer.validated_data['user']
-    #     login(request, user)
-    #     return super().post(request, format=None)
-# ---
-    # def post(self, request, format=None):
-    #     serializer = AuthTokenSerializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     user = serializer.validated_data['user']
-    #     login(request, user)
-    #     return super(LoginAPI, self).post(request, format=None)
-    # def login_view(request):
-    #     if request.method == 'POST':
-    #         data = json.loads(request.body)
-    #         email = data.get('email')
-    #         password = data.get('password')
-# --       
-    #     try:
-    #         user = User.objects.get(email=email)
-    #     except User.DoesNotExist:
-    #         return JsonResponse({'message': 'Invalid email or password'}, status=401)
-        
-    #     user = authenticate(username=user.username, password=password)
-        
-    #     if user is not None:
-    #         login(request, user)
-    #         return JsonResponse({'message': 'Login successful', 'user': {'username': user.username, 'email': user.email}})
-    #     else:
-    #         return JsonResponse({'message': 'Invalid email or password'}, status=401)
-    #     return JsonResponse({'message': 'Method not allowed'}, status=405)
 
 class RoleListCreateAPIView(generics.ListCreateAPIView):
     queryset = Role.objects.all()
@@ -202,7 +150,6 @@ class CreateOrderView(APIView):
         try:
             user = UsersLibroteka.objects.get(email=user_email)
         except UsersLibroteka.DoesNotExist:
-            # logger.error(f"User {user_email} does not exist.")
             return Response({"message": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
 
         order_status_str = request.data.get('id_Order_Status')
@@ -230,24 +177,50 @@ class CreateOrderView(APIView):
         # logger.error(f"Serializer errors: {serializer.errors}")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# @csrf_exempt
-# def login_view(request):
-#     if request.method == 'POST':
-#         data = json.loads(request.body)
-#         email = data.get('email')
-#         password = data.get('password')
-        
-#         try:
-#             user = User.objects.get(email=email)
-#         except User.DoesNotExist:
-#             return JsonResponse({'message': 'Invalid email or password'}, status=401)
-        
-#         user = authenticate(username=user.username, password=password)
-        
-#         if user is not None:
-#             login(request, user)
-#             return JsonResponse({'message': 'Login successful', 'user': {'username': user.username, 'email': user.email}})
-#         else:
-#             return JsonResponse({'message': 'Invalid email or password'}, status=401)
-#     return JsonResponse({'message': 'Method not allowed'}, status=405)
-    
+class FavoriteManageView(APIView):
+    queryset = Favorite.objects.all()
+    serializer_class = FavoriteSerializer
+
+    def post(self, request):
+        user_id = request.data.get('id_user')
+        book_id = request.data.get('id_book')
+
+        if Favorite.objects.filter(id_user=user_id, id_book=book_id).exists():
+            return Response({"detail": "Book is already in your favorites."}, status=status.HTTP_400_BAD_REQUEST)
+
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            response_data = serializer.data
+            response_data['message']= 'The book was added to favorites.'
+            return Response(response_data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        user_id = request.query_params.get('id_user', None)
+
+        if user_id:
+            favorites = Favorite.objects.filter(id_user=user_id)
+        else:
+            favorites = Favorite.objects.all()
+
+        serializer = self.serializer_class(favorites, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class DeleteFavoriteView(APIView):
+    queryset = Favorite.objects.all()
+    serializer_class = FavoriteSerializer
+
+
+    def delete(self, request, pk):
+        favorite = Favorite.objects.filter(pk=pk).first()
+
+        if favorite:
+            favorite.delete()
+            return Response({'message': 'Removed from favorites'}, status=status.HTTP_204_NO_CONTENT)
+
+        return Response({'message': 'Not in favorites'}, status=status.HTTP_404_NOT_FOUND)
+
+
