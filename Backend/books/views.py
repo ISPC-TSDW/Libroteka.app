@@ -11,6 +11,8 @@ from rest_framework.views import APIView
 
 from .serializer import *
 from .models import *
+from .utils import update_average_rating
+
 
 class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
@@ -222,5 +224,63 @@ class DeleteFavoriteView(APIView):
             return Response({'message': 'Removed from favorites'}, status=status.HTTP_204_NO_CONTENT)
 
         return Response({'message': 'Not in favorites'}, status=status.HTTP_404_NOT_FOUND)
+
+class RatingManageView(APIView):
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
+
+    @transaction.atomic
+    def post(self,request):
+        serializer = self.serializer_class(data=request.data, context={'request':request})
+        if serializer.is_valid():
+            rating = serializer.save()
+            update_average_rating(rating.id_book.id_Book)
+            response_data = serializer.data
+            response_data['message']= 'Your rating was sent.'
+            return Response(response_data, status=status.HTTP_201_CREATED)
+
+        response_error = serializer.errors
+        response_error['message'] =  'There was an issue with your request.'
+        return Response(response_error, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        user_id = request.query_params.get('id_user', None)
+
+        if user_id:
+            rating = Rating.objects.filter(id_user=user_id)
+        else:
+            rating = Rating.objects.all()
+
+        serializer = self.serializer_class(rating, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class ModifyRatingView(APIView):
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
+
+    @transaction.atomic
+    def put(self, request, pk):
+        rating = get_object_or_404(self.queryset, pk=pk)
+        serializer = RatingSerializer(rating, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            update_average_rating(rating.id_book.id_Book)
+            response_data = serializer.data
+            response_data['message']= 'Your rating has been updated.'
+            return Response(response_data, status=status.HTTP_200_OK)
+
+        response_error = serializer.errors
+        response_error['message'] =  'There was an issue with your request.'
+        return Response(response_error, status=status.HTTP_400_BAD_REQUEST)
+
+    @transaction.atomic
+    def delete(self, request, pk):
+        rating = get_object_or_404(Rating, pk=pk)
+        book_id = rating.id_book.id_Book
+        rating.delete()
+        update_average_rating(book_id)
+
+        return Response({'message': 'Rating removed.'}, status=status.HTTP_204_NO_CONTENT)
+
 
 

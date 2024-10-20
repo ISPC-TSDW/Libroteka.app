@@ -22,11 +22,11 @@ class BookSerializer(serializers.ModelSerializer):
     id_Author = AuthorSerializer()
     id_Genre = GenreSerializer()
     id_Editorial = EditorialSerializer()
-
+    avg_rating = serializers.FloatField(read_only=True)
 
 class Meta:
     model = Book
-    fields = ['id_Book', 'title', 'id_Author', 'id_Genre', 'id_Editorial', 'description', 'price', 'stock']
+    fields = ['id_Book', 'title', 'id_Author', 'id_Genre', 'id_Editorial', 'description', 'price', 'stock', 'avg_rating']
 
     def create(self, validated_data):
             author_data = validated_data.pop('id_Author', None)
@@ -158,3 +158,7 @@ class FavoriteSerializer(serializers.ModelSerializer):
         model = Favorite
         fields = ['id', 'id_user', 'id_book', 'created_at']
 
+class RatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = ['id', 'id_user', 'id_book', 'rating', 'created_at', 'updated_at']
