@@ -21,8 +21,8 @@ public class ContactActivity extends AppCompatActivity {
         setContentView(R.layout.contact_activity);
 
         // Initialize the views
-        contactTitle = findViewById(R.id.titleText);
-        nameEditText = findViewById(R.id.nameText);
+        contactTitle = findViewById(R.id.et_contacto);
+        nameEditText = findViewById(R.id.et_name);
         emailEditText = findViewById(R.id.emailText);
         messageEditText = findViewById(R.id.descriptionText);
 
