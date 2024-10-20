@@ -26,6 +26,8 @@ urlpatterns = [
     path('create-orders/', CreateOrderView.as_view(), name='create-orders'),
     path('favorites/', FavoriteManageView.as_view(), name='favorites'),
     path('favorites/<int:pk>/', DeleteFavoriteView.as_view(), name='delete_favorite'),
+    path('ratings/', RatingManageView.as_view(), name='post_rating'),
+    path('ratings/<int:pk>/', ModifyRatingView.as_view(), name='modify_rating'),
 
 
     path('', include(router.urls)),

@@ -27,6 +27,8 @@ class UsersLibrotekaAdmin(admin.ModelAdmin):
 class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('id', 'id_user', 'id_book', 'created_at')
 
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ('id', 'id_user', 'id_book', 'rating', 'created_at', 'updated_at')
 
 
 admin.site.register (UsersLibroteka, UsersLibrotekaAdmin)
@@ -37,3 +39,4 @@ admin.site.register(Genre, GenreAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderStatus, OrderStatusAdmin)
 admin.site.register(Favorite, FavoriteAdmin)
+admin.site.register(Rating, RatingAdmin)
