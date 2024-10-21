@@ -1,6 +1,7 @@
 package com.example.libroteka;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,15 +41,32 @@ public class ContactActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString().trim();
         String message = messageEditText.getText().toString().trim();
 
-        // Simple validation
-        if (name.isEmpty() || email.isEmpty() || message.isEmpty()) {
-            Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+
+        // Validar campos vacíos
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa tu nombre", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        if (email.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa tu correo electrónico", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Por favor, ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (message.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa tu mensaje", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         // TODO: Handle the actual form submission, such as sending the data to a backend
 
-        // For now, just display a success message
+        // Mostrar mensaje de éxito
         Toast.makeText(this, "¡Mensaje enviado con éxito!", Toast.LENGTH_SHORT).show();
     }
 }
