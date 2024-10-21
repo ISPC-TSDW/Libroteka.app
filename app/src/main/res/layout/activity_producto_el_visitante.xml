@@ -6,24 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marble"
-    android:backgroundTint="@color/ic_google_background"
-    tools:context=".Producto_Activity">
+    android:textAlignment="center"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0"
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/marble"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    tools:context=".Producto_El_Visitante">
+
+
 
         <TextView
-            android:id="@+id/et_tituloprod"
+            android:id="@+id/et_tituloprod_JackD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -37,31 +33,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/img_perfil"
             android:layout_width="54dp"
             android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:onClick="irPerfil"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/et_tituloprod"
+            app:layout_constraintStart_toEndOf="@+id/et_tituloprod_JackD"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon_login" />
 
         <ImageView
-            android:id="@+id/img_fauno"
+            android:id="@+id/img_jack"
             android:layout_width="354dp"
             android:layout_height="523dp"
             android:layout_marginTop="144dp"
-            app:layout_constraintBottom_toTopOf="@+id/et_PopUp_verMas"
+            app:layout_constraintBottom_toTopOf="@+id/txtVerJack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/el_laberinto_del_fauno" />
+            app:srcCompat="@drawable/el_visitante" />
 
         <TextView
-            android:id="@+id/et_PopUp_verMas"
+            android:id="@+id/txtVerJack"
             android:layout_width="178dp"
             android:layout_height="49dp"
             android:layout_marginStart="178dp"
@@ -69,16 +66,15 @@
             android:layout_marginEnd="178dp"
             android:fontFamily="@font/roboto"
             android:gravity="center"
-            android:onClick="verMas"
-            android:text="Ver mas ..."
+            android:text="@string/vermas"
             android:textColor="@color/bark"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_fauno" />
+            app:layout_constraintTop_toBottomOf="@+id/img_jack" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/favorito1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
@@ -86,11 +82,11 @@
             android:layout_marginBottom="53dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_PopUp_verMas"
+            app:layout_constraintTop_toBottomOf="@+id/txtVerJack"
             app:srcCompat="@mipmap/ic_favorite_basic_round" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -99,8 +95,9 @@
             android:onClick="irHome"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_PopUp_verMas"
+            app:layout_constraintTop_toBottomOf="@+id/txtVerJack"
             app:srcCompat="@mipmap/ic_home_basic" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

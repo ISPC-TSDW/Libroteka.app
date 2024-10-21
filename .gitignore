@@ -20,4 +20,3 @@ local.properties
 .idea/other.xml
 gradle/libs.versions.toml
 .env
-__pycache__/

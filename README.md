@@ -14,11 +14,11 @@
 # Tecnicatura Superior en Desarrollo web y Aplicaciones Digitales
 ## Programación de Aplicaciones Móviles 1
 
-- Equipo: -
+- Equipo: 8
 - Proyecto: Libroteka
 - Cohorte: 2022 - 2023
 
-Dependencies: 
+Dependencies:
 - Android: "x"
 - Java: "^17"
 - Python: "^3.8"
