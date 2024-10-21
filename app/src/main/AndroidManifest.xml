@@ -13,10 +13,12 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
+            android:name=".FaqActivity"
+            android:exported="false" />
+        <activity
             android:name=".Popup_verJackD"
             android:exported="false"
-            android:theme="@style/AppTheme.TemaPopup"
-            />
+            android:theme="@style/AppTheme.TemaPopup" />
         <activity
             android:name=".Producto_Jack_destripador"
             android:exported="false" />
@@ -56,7 +58,7 @@
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".main_login"
             android:exported="false" />
@@ -76,13 +78,12 @@
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
-
-        <activity android:name=".Catalogo"
+        <activity
+            android:name=".Catalogo"
             android:exported="false" />
-
-        <activity android:name=".Categoria"
+        <activity
+            android:name=".Categoria"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
