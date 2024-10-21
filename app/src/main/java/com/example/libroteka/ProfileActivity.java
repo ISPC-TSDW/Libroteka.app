@@ -18,9 +18,8 @@ public class ProfileActivity extends AppCompatActivity {
         Button addressButton = findViewById(R.id.addressButton);
         Button ordersButton = findViewById(R.id.ordersButton);
         Button contactUsButton = findViewById(R.id.contactUsButton);
+        Button faqButton = findViewById(R.id.faqButton);
         Button logoutButton = findViewById(R.id.logoutButton);
-
-
 
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
@@ -49,11 +48,18 @@ public class ProfileActivity extends AppCompatActivity {
         contactUsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Handle Contact Us action
                 Intent intent = new Intent(ProfileActivity.this, ContactActivity.class);
                 startActivity(intent);
+            }
+        });
 
+        faqButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción al presionar Preguntas Frecuentes
+                Intent intent = new Intent(ProfileActivity.this, FaqActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -65,4 +71,5 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
+
 }
