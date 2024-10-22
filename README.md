@@ -251,7 +251,8 @@ Puntos claves:
 
 
 <tr>
-<th> BackEnd </th>
+<th> BackEnd </th> </br>
+<img align="right" alt="GIF" src="https://media.giphy.com/media/iIqmM5tTjmpOB9mpbn/giphy.gif" />
 </tr>
 <tr>
 <td>
