@@ -57,36 +57,36 @@ class BookSerializer(serializers.ModelSerializer):
                 )
                 return book
         
-    def update(self, instance, validated_data):
-        author_data = validated_data.get('id_Author', None)
-        genre_data = validated_data.get('id_Genre', None)
-        editorial_data = validated_data.get('id_Editorial', None)
+        def update(self, instance, validated_data):
+            author_data = validated_data.get('id_Author', None)
+            genre_data = validated_data.get('id_Genre', None)
+            editorial_data = validated_data.get('id_Editorial', None)
 
-        if author_data:
-            author_serializer = AuthorSerializer(instance.id_Author, data=author_data)
-            if author_serializer.is_valid(raise_exception=True):
-                author_serializer.save()
+            if author_data:
+                author_serializer = AuthorSerializer(instance.id_Author, data=author_data)
+                if author_serializer.is_valid(raise_exception=True):
+                    author_serializer.save()
 
-        if genre_data:
-            genre_serializer = GenreSerializer(instance.id_Genre, data=genre_data)
-            if genre_serializer.is_valid(raise_exception=True):
-                genre_serializer.save()
+            if genre_data:
+                genre_serializer = GenreSerializer(instance.id_Genre, data=genre_data)
+                if genre_serializer.is_valid(raise_exception=True):
+                    genre_serializer.save()
 
-        if editorial_data:
-            editorial_serializer = EditorialSerializer(instance.id_Editorial, data=editorial_data)
-            if editorial_serializer.is_valid(raise_exception=True):
-                editorial_serializer.save()
+            if editorial_data:
+                editorial_serializer = EditorialSerializer(instance.id_Editorial, data=editorial_data)
+                if editorial_serializer.is_valid(raise_exception=True):
+                    editorial_serializer.save()
 
-        instance.description = validated_data.get('description', instance.description)
-        instance.price = validated_data.get('price', instance.price)
-        instance.stock = validated_data.get('stock', instance.stock)
+            instance.description = validated_data.get('description', instance.description)
+            instance.price = validated_data.get('price', instance.price)
+            instance.stock = validated_data.get('stock', instance.stock)
 
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
+            for attr, value in validated_data.items():
+                setattr(instance, attr, value)
 
-        instance.save()
+            instance.save()
 
-        return instance
+            return instance
         
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
