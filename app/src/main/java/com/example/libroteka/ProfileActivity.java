@@ -21,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
         Button contactUsButton = findViewById(R.id.contactUsButton);
         Button faqButton = findViewById(R.id.faqButton);
         Button logoutButton = findViewById(R.id.logoutButton);
-
+        Button goBackButton = findViewById(R.id.goBackButton);
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
         });
-
+        goBackButton.setOnClickListener(v -> finish());
     }
 
 }
