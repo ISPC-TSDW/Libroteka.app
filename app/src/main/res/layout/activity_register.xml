@@ -29,10 +29,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/etUsuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/roboto"
+        android:hint="Usuario"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/bark"
+        android:textColorLink="@color/bark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/etNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="200dp"
         android:fontFamily="@font/roboto"
         android:hint="Nombre"
         android:inputType="textPersonName"
@@ -42,7 +60,43 @@
         android:textColorLink="@color/bark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:fontFamily="@font/roboto"
+        android:hint="Apellido"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/bark"
+        android:textColorLink="@color/bark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etDNI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:fontFamily="@font/roboto"
+        android:hint="DNI"
+        android:inputType="number"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/bark"
+        android:textColorLink="@color/bark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +133,7 @@
         android:id="@+id/etContrasena"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/roboto"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -97,7 +151,7 @@
         android:id="@+id/etCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="124dp"
         android:fontFamily="@font/roboto"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
