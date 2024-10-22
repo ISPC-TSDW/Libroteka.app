@@ -1,5 +1,6 @@
 package com.example.libroteka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -33,6 +34,13 @@ public class ContactActivity extends AppCompatActivity {
                 submitContactForm();
             }
         });
+
+    }
+
+
+    public void goBackToProfile(View view) {
+        Intent profile = new Intent(this, ProfileActivity.class);
+        startActivity(profile);
     }
 
     // Handle form submission
@@ -69,4 +77,6 @@ public class ContactActivity extends AppCompatActivity {
         // Mostrar mensaje de éxito
         Toast.makeText(this, "¡Mensaje enviado con éxito!", Toast.LENGTH_SHORT).show();
     }
+
+
 }
