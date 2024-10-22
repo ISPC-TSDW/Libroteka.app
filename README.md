@@ -11,10 +11,10 @@
 <table align="center" style="border-collapse: collapse; width: 100%; max-width: 1200px;">
    <tbody align="center">
       <tr>
-        <td style="width: 25%; padding: 10px;">
+        <td width: "25%" padding: "10px">
           <div align="center">
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
-              <img src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" width="120" border: "2px, black, solid"/>
+              <img src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" width="120"/>
             </a>
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
               <h4 style="margin-top: 1rem;">Cano, Germán Gustavo</h4>
@@ -31,7 +31,7 @@
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">
-              <img style="border-radius: 50%; border: 2px, black, solid"; width="120" src="https://media.licdn.com/dms/image/v2/D4D03AQFnsDEiG0B-4A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678475039581?e=1735171200&v=beta&t=DTUmciFOv3_mfVD311PFqfDOqcVN5-2YRGQBPn5nyeI" />
+              <img width="120" src="https://media.licdn.com/dms/image/v2/D4D03AQFnsDEiG0B-4A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678475039581?e=1735171200&v=beta&t=DTUmciFOv3_mfVD311PFqfDOqcVN5-2YRGQBPn5nyeI" />
             </a>
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">
               <h4 style="margin-top: 1rem;">Haag, Romina Sol</h4>
@@ -146,10 +146,10 @@
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/orgs/ISPC-TSDW/people/valetommasini" target="_blank">
-              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label="/>
             </a>
             <a href="https://www.linkedin.com/in/facundo-salvatierra/" target="_blank">
-              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
             </a>
           </div>
         </td>
