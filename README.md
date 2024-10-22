@@ -13,8 +13,8 @@
       <tr>
         <td width: "25%" padding: "10px">
           <div align="center">
-            <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
-              <img src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" width="120" border-radius: "50%"/>
+            <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author" border-radius: "50%">
+              <img src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" width="120" />
             </a>
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
               <h4 style="margin-top: 1rem;">Cano, Germán Gustavo</h4>
