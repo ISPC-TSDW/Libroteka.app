@@ -1,10 +1,45 @@
+# ¡Hola Bienvenido! <img src="https://raw.githubusercontent.com/parth-27/parth-27/master/Hi.gif" width="30px">
+
 # Tecnicatura Superior en Desarrollo web y Aplicaciones Digitales
+
 ## Programación de Aplicaciones Móviles 1
 - Equipo: 8
 - Proyecto: Libroteka
 - Cohorte: 2022 - 2023
 
 # Libroteka.app
+
+## Introduccion:
+En este proyecto, el objetivo es poder fomentar y desarrollar las habilidades y la experiencia de un desarrollador web, bajo el marco de metodología ágil - Scrum y además poder trabajar como equipo en una aplicación móvil (app mobile). 
+Para lograrlo, estamos diseñando una aplicación en línea que permitirá a los usuarios buscar, filtrar y encontrar libros de su elección a través de búsquedas personalizadas. Este manual tiene como objetivo analizar y documentar las necesidades funcionales del sistema a desarrollar, identificando los requisitos y las necesidades actuales de los usuarios.
+Estableceremos prioridades para garantizar que el sistema final se ajuste a las necesidades del usuario y cumpla con los estándares deseados.
+
+
+## Proposito del Proyecto 📝
+<b>Facilitar el acceso a la lectura:</b> Permitir que los usuarios accedan a una amplia variedad de títulos y géneros desde cualquier lugar, eliminando la necesidad de desplazarse esencialmente a una librería.
+Ampliar la selección: Aprovechar el espacio virtual ilimitado para ofrecer una gama más amplia de libros, incluyendo títulos menos conocidos o difíciles de encontrar en tiendas locales, ampliando así las opciones de lectura.
+Comodidad: Ofrecer la ventaja de acceder al catálogo en línea en cualquier momento y desde cualquier lugar, especialmente beneficio para aquellos con horarios ocupados o acceso limitado a tiendas físicas.
+Facilitar la búsqueda y descubrimiento: Proporcionar herramientas de búsqueda para ayudar a los usuarios a descubrir nuevos libros basados en sus intereses y preferencias anteriores.
+Promoción de la lectura: Fomentar la cultura de la lectura y crear una comunidad de lectores a través de un entorno en línea donde se discuten y recomiendan libros.
+Servicio al cliente: Brindar soporte al cliente, resolver dudas sobre la plataforma y proporcionar información sobre los productos para mejorar la experiencia del usuario.
+Internacionalización: Llegar a audiencias globales, proporcionando acceso a títulos que de otra manera serían inaccesibles para muchas personas.
+
+## Características Principales ✨
+1. Navegación Intuitiva😎:
+La aplicación cuenta con una navegación bien definida entre diferentes Activities, permitiendo a los usuarios desplazarse de manera fluida entre pantallas.
+Implementación de herencia entre pantallas, asegurando que los usuarios puedan regresar fácilmente a la pantalla anterior.
+
+2. Gestión CRUD👨🏽‍💻:
+Los usuarios pueden gestionar su información personal, productos, favoritos, reseñas, entre otros, utilizando un sistema CRUD que está sincronizado con el backend en Django.
+La persistencia de datos se asegura a través de la integración con las APIs del backend.
+
+3. Actividad Multimedia🎞:
+La aplicación incluye una Activity que presenta recursos multimedia (imágenes), mejorando la interacción del usuario.
+
+4. Seguridad🚨🏴‍☠️:
+La aplicación implementa un sistema de autenticación basado en JWT (JSON Web Tokens) para asegurar que solo los usuarios autorizados puedan acceder a la plataforma.
+El uso de JWT se justifica por su seguridad en la transmisión de datos y su compatibilidad con las tecnologías móviles.
+
 
 ## 👩‍💻 DESARROLLADORES:
 
@@ -13,7 +48,7 @@
       <tr>
         <td width: "25%" padding: "10px">
           <div align="center">
-            <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author" border-radius: "50%">
+            <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
               <img src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" width="120" />
             </a>
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
