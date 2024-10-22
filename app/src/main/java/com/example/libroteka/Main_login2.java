@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.UserResponse;
+
+
 
 public class Main_login2 extends AppCompatActivity {
 
@@ -21,7 +25,6 @@ public class Main_login2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_login2);
 
         //ref campos de entrada
@@ -57,8 +60,7 @@ public class Main_login2 extends AppCompatActivity {
         String password = passwordEditText.getText().toString().trim();
 
         if (validateInputs(email, password)) {
-            Intent inicio = new Intent(this, Home.class);
-            startActivity(inicio);
+            loginUser(email, password);
         }
     }
 
@@ -108,4 +110,20 @@ public class Main_login2 extends AppCompatActivity {
         startActivity(recuperarContraseña);
     }
 
+    private void loginUser(String email, String password) {
+        ApiManager apiManager = new ApiManager();
+        apiManager.loginUser(email, password, new ApiManager.ApiCallback<UserResponse>() {
+            @Override
+            public void onSuccess(UserResponse response) {
+                Intent intent = new Intent(Main_login2.this, Home.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(Main_login2.this, "Login failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
