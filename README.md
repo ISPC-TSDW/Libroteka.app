@@ -8,7 +8,7 @@
 
 ## 👩‍💻 DESARROLLADORES:
 
-<table align="center" style="border-collapse: collapse; width: 100%; max-width: 1200px; background-color: rgb(226, 226, 226);">
+<table align="center" style="border-collapse: collapse; width: 100%; max-width: 1200px;">
    <tbody align="center">
       <tr>
         <td style="width: 25%; padding: 10px;">
