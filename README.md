@@ -9,34 +9,34 @@
 
 # Libroteka.app
 
-## Introduccion:
+## Introduccion 📖:
 En este proyecto, el objetivo es poder fomentar y desarrollar las habilidades y la experiencia de un desarrollador web, bajo el marco de metodología ágil - Scrum y además poder trabajar como equipo en una aplicación móvil (app mobile). 
 Para lograrlo, estamos diseñando una aplicación en línea que permitirá a los usuarios buscar, filtrar y encontrar libros de su elección a través de búsquedas personalizadas. Este manual tiene como objetivo analizar y documentar las necesidades funcionales del sistema a desarrollar, identificando los requisitos y las necesidades actuales de los usuarios.
 Estableceremos prioridades para garantizar que el sistema final se ajuste a las necesidades del usuario y cumpla con los estándares deseados.
 
 
 ## Proposito del Proyecto 📝
-<b>Facilitar el acceso a la lectura:</b> Permitir que los usuarios accedan a una amplia variedad de títulos y géneros desde cualquier lugar, eliminando la necesidad de desplazarse esencialmente a una librería.
-Ampliar la selección: Aprovechar el espacio virtual ilimitado para ofrecer una gama más amplia de libros, incluyendo títulos menos conocidos o difíciles de encontrar en tiendas locales, ampliando así las opciones de lectura.
-Comodidad: Ofrecer la ventaja de acceder al catálogo en línea en cualquier momento y desde cualquier lugar, especialmente beneficio para aquellos con horarios ocupados o acceso limitado a tiendas físicas.
-Facilitar la búsqueda y descubrimiento: Proporcionar herramientas de búsqueda para ayudar a los usuarios a descubrir nuevos libros basados en sus intereses y preferencias anteriores.
-Promoción de la lectura: Fomentar la cultura de la lectura y crear una comunidad de lectores a través de un entorno en línea donde se discuten y recomiendan libros.
-Servicio al cliente: Brindar soporte al cliente, resolver dudas sobre la plataforma y proporcionar información sobre los productos para mejorar la experiencia del usuario.
-Internacionalización: Llegar a audiencias globales, proporcionando acceso a títulos que de otra manera serían inaccesibles para muchas personas.
+<b>1. Facilitar el acceso a la lectura:</b> Permitir que los usuarios accedan a una amplia variedad de títulos y géneros desde cualquier lugar, eliminando la necesidad de desplazarse esencialmente a una librería.
+<b>2. Ampliar la selección:</b> Aprovechar el espacio virtual ilimitado para ofrecer una gama más amplia de libros, incluyendo títulos menos conocidos o difíciles de encontrar en tiendas locales, ampliando así las opciones de lectura.
+<b>3. Comodidad:</b> Ofrecer la ventaja de acceder al catálogo en línea en cualquier momento y desde cualquier lugar, especialmente beneficio para aquellos con horarios ocupados o acceso limitado a tiendas físicas.
+<b>4. Facilitar la búsqueda y descubrimiento:</b> Proporcionar herramientas de búsqueda para ayudar a los usuarios a descubrir nuevos libros basados en sus intereses y preferencias anteriores.
+<b>5. Promoción de la lectura:</b> Fomentar la cultura de la lectura y crear una comunidad de lectores a través de un entorno en línea donde se discuten y recomiendan libros.
+<b>6. Servicio al cliente:</b> Brindar soporte al cliente, resolver dudas sobre la plataforma y proporcionar información sobre los productos para mejorar la experiencia del usuario.
+<b>7. Internacionalización:</b> Llegar a audiencias globales, proporcionando acceso a títulos que de otra manera serían inaccesibles para muchas personas.
 
 ## Características Principales ✨
-1. Navegación Intuitiva😎:
+1. <b>Navegación Intuitiva</b> 😎:
 La aplicación cuenta con una navegación bien definida entre diferentes Activities, permitiendo a los usuarios desplazarse de manera fluida entre pantallas.
 Implementación de herencia entre pantallas, asegurando que los usuarios puedan regresar fácilmente a la pantalla anterior.
 
-2. Gestión CRUD👨🏽‍💻:
+2. <b>Gestión CRUD</b> 👨🏽‍💻:
 Los usuarios pueden gestionar su información personal, productos, favoritos, reseñas, entre otros, utilizando un sistema CRUD que está sincronizado con el backend en Django.
 La persistencia de datos se asegura a través de la integración con las APIs del backend.
 
-3. Actividad Multimedia🎞:
+3. <b>Actividad Multimedia</b> 🎞:
 La aplicación incluye una Activity que presenta recursos multimedia (imágenes), mejorando la interacción del usuario.
 
-4. Seguridad🚨🏴‍☠️:
+4. <b>Seguridad</b> 🚨 🏴‍☠️:
 La aplicación implementa un sistema de autenticación basado en JWT (JSON Web Tokens) para asegurar que solo los usuarios autorizados puedan acceder a la plataforma.
 El uso de JWT se justifica por su seguridad en la transmisión de datos y su compatibilidad con las tecnologías móviles.
 
