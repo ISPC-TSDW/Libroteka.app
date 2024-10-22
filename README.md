@@ -16,13 +16,26 @@ Estableceremos prioridades para garantizar que el sistema final se ajuste a las 
 
 
 ## Proposito del Proyecto 📝
-<b>1. Facilitar el acceso a la lectura:</b> Permitir que los usuarios accedan a una amplia variedad de títulos y géneros desde cualquier lugar, eliminando la necesidad de desplazarse esencialmente a una librería.
-<b>2. Ampliar la selección:</b> Aprovechar el espacio virtual ilimitado para ofrecer una gama más amplia de libros, incluyendo títulos menos conocidos o difíciles de encontrar en tiendas locales, ampliando así las opciones de lectura.
-<b>3. Comodidad:</b> Ofrecer la ventaja de acceder al catálogo en línea en cualquier momento y desde cualquier lugar, especialmente beneficio para aquellos con horarios ocupados o acceso limitado a tiendas físicas.
-<b>4. Facilitar la búsqueda y descubrimiento:</b> Proporcionar herramientas de búsqueda para ayudar a los usuarios a descubrir nuevos libros basados en sus intereses y preferencias anteriores.
-<b>5. Promoción de la lectura:</b> Fomentar la cultura de la lectura y crear una comunidad de lectores a través de un entorno en línea donde se discuten y recomiendan libros.
-<b>6. Servicio al cliente:</b> Brindar soporte al cliente, resolver dudas sobre la plataforma y proporcionar información sobre los productos para mejorar la experiencia del usuario.
-<b>7. Internacionalización:</b> Llegar a audiencias globales, proporcionando acceso a títulos que de otra manera serían inaccesibles para muchas personas.
+<b>1. Facilitar el acceso a la lectura:</b> 
+Permitir que los usuarios accedan a una amplia variedad de títulos y géneros desde cualquier lugar, eliminando la necesidad de desplazarse esencialmente a una librería.
+
+<b>2. Ampliar la selección:</b> 
+Aprovechar el espacio virtual ilimitado para ofrecer una gama más amplia de libros, incluyendo títulos menos conocidos o difíciles de encontrar en tiendas locales, ampliando así las opciones de lectura.
+
+<b>3. Comodidad:</b> 
+Ofrecer la ventaja de acceder al catálogo en línea en cualquier momento y desde cualquier lugar, especialmente beneficio para aquellos con horarios ocupados o acceso limitado a tiendas físicas.
+
+<b>4. Facilitar la búsqueda y descubrimiento:</b> 
+Proporcionar herramientas de búsqueda para ayudar a los usuarios a descubrir nuevos libros basados en sus intereses y preferencias anteriores.
+
+<b>5. Promoción de la lectura:</b> 
+Fomentar la cultura de la lectura y crear una comunidad de lectores a través de un entorno en línea donde se discuten y recomiendan libros.
+
+<b>6. Servicio al cliente:</b> 
+Brindar soporte al cliente, resolver dudas sobre la plataforma y proporcionar información sobre los productos para mejorar la experiencia del usuario.
+
+<b>7. Internacionalización:</b> 
+Llegar a audiencias globales, proporcionando acceso a títulos que de otra manera serían inaccesibles para muchas personas.
 
 ## Características Principales ✨
 1. <b>Navegación Intuitiva</b> 😎:
