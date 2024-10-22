@@ -49,7 +49,13 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, Home.class);
+                startActivity(intent);
+            }
+        });
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
         });
-        goBackButton.setOnClickListener(v -> finish());
+
     }
 
 }
