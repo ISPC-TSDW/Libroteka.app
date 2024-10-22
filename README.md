@@ -34,7 +34,7 @@
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">
-              <img style="border-radius: 50%; border: 2px, black, solid;" width="120"
+              <img style="border-radius: 50% border: 2px, black, solid" width="120"
                 src="https://media.licdn.com/dms/image/v2/D4D03AQFnsDEiG0B-4A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678475039581?e=1735171200&v=beta&t=DTUmciFOv3_mfVD311PFqfDOqcVN5-2YRGQBPn5nyeI" />
             </a>
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">
