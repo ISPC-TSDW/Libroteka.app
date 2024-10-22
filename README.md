@@ -54,7 +54,7 @@ La aplicación implementa un sistema de autenticación basado en JWT (JSON Web T
 El uso de JWT se justifica por su seguridad en la transmisión de datos y su compatibilidad con las tecnologías móviles.
 
 
-## 👩‍💻 DESARROLLADORES:
+## <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> DESARROLLADORES <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60">:
 
 <table align="center" style="border-collapse: collapse; width: 100%; max-width: 1200px;">
    <tbody align="center">
@@ -220,6 +220,7 @@ El uso de JWT se justifica por su seguridad en la transmisión de datos y su com
 <img src="https://img.shields.io/badge/-Python-black?style=flat&logo=python&logoColor=white"> 
 <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white">
 <img src="https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray">
+<img src="https://img.shields.io/badge/-Android-black?style=flat&logo=android">
 
 ---
 
