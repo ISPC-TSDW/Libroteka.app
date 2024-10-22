@@ -92,10 +92,8 @@
             </a>
           </div>
         </td>
-
       </tr>
       <tr>
-
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/daiana-zabala-3a5129212" target="_blank" rel="author">
@@ -175,6 +173,7 @@
             </a>
           </div>
         </td>
+      </tr>
 
 
     </tbody>
