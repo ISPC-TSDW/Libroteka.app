@@ -22,7 +22,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class UsersLibrotekaAdmin(admin.ModelAdmin):
-    list_display = ('username', 'first_name', 'last_name', 'dni', 'email', 'password')
+    list_display = ('username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active')
 
 class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('id', 'id_user', 'id_book', 'created_at')
