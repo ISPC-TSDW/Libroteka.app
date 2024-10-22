@@ -104,6 +104,7 @@ class RegisterAPI(generics.GenericAPIView):
 class OrdersViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    
 class LoginAPI(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -112,6 +113,8 @@ class LoginAPI(APIView):
             password = serializer.validated_data['password']
             try:
                 user = UsersLibroteka.objects.get(email=email)
+                if not user.is_active:
+                    return Response({"message": "User account is deactivated"}, status=status.HTTP_403_FORBIDDEN)
                 if check_password(password, user.password):
                     return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
                 else:
