@@ -62,6 +62,11 @@ public class Main_login2 extends AppCompatActivity {
         }
     }
 
+    public void goBackToStart(View view) {
+        Intent principalView = new Intent(this, main_login.class);
+        startActivity(principalView);
+    }
+
     //método para validar las entradas de usuario
     private boolean validateInputs(String email, String password) {
         if (email.isEmpty()) {
