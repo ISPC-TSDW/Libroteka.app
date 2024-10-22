@@ -6,8 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textColor="@color/bark"
-    android:background="@color/marble"
+    android:background="@color/bark"
     tools:context=".FaqActivity">
 
     <TextView
@@ -17,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lobster"
         android:text="@string/app_name"
-        android:textColor="@color/bark"
+        android:textColor="@color/marble"
         android:textSize="60sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
