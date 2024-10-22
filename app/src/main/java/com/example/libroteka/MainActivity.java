@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Initialize the toolbar
-       setSupportActionBar(binding.toolbar);
+        setSupportActionBar(binding.toolbar);
 
         // Setup navigation controller
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

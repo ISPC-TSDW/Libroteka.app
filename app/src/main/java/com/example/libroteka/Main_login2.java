@@ -45,10 +45,10 @@ public class Main_login2 extends AppCompatActivity {
 
     //evento para regresar a login
 
-    /*public void previo (View view){
+    public void previo (View view){
         Intent  previo = new Intent(this,main_login.class);
         startActivity(previo);
-    } */
+    }
 
 
     //método para el botón de inicio de sesión

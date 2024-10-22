@@ -35,12 +35,12 @@ public class main_login extends AppCompatActivity {
 
     // metodo para el btn crear cuenta
 
-    public void registro (View view){
-        Intent registro = new Intent(this, RegisterActivity.class);
-        startActivity(registro);
+    //public void crearCuenta (View view){
 
-    }
+        //Intent crearCuerta = new Intent(this, );
+        //startActivity(crearCuenta);
 
+    //}
 
 
 
