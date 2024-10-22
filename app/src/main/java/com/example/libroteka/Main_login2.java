@@ -13,10 +13,25 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.gson.Gson;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import java.io.IOException;
+
 public class Main_login2 extends AppCompatActivity {
 
     private EditText emailEditText;
     private EditText passwordEditText;
+
+    private Button button;
+    private OkHttpClient client = new OkHttpClient();
+    private static final String LOGIN_URL = "";//agregar url
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +48,76 @@ public class Main_login2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    // Método para simular el inicio de sesión
+   /* private void simulateLogin(String email, String password) {
+        if (email.equals("test@example.com") && password.equals("Password123!")) {
+            // Simulando una respuesta exitosa
+            String token = "dummy_jwt_token"; // Simulando un token
+            onLoginSuccess(token);
+        } else {
+            // Simulando un error de credenciales
+            onLoginFailed("Credenciales incorrectas");
+        }
+    }*/
+
+    /*private void login(String email, String password) {
+        User user = new User(email, password);
+        String json = new Gson().toJson(user);
+
+        RequestBody body = RequestBody.create(json, MediaType.parse("application/json"));
+        Request request = new Request.Builder()
+                .url(LOGIN_URL)
+                .post(body)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Toast.makeText(Main_login2.this, "Error de conexión", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String token = response.body().string();
+                    onLoginSuccess(token);
+                } else {
+                    onLoginFailed("Credenciales incorrectas");
+                }
+            }
+        });
+    }*/
+
+    // Clase de usuario
+    private static class User {
+        String email;
+        String password;
+
+        User(String email, String password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+
+    // Método que se llama en caso de éxito en el inicio de sesión
+    private void onLoginSuccess(String token) {
+        // Guarda el token en SharedPreferences
+        getSharedPreferences("app_prefs", MODE_PRIVATE)
+                .edit()
+                .putString("jwt_token", token)
+                .apply();
+
+        runOnUiThread(() -> {
+            Toast.makeText(Main_login2.this, "Login exitoso!", Toast.LENGTH_SHORT).show();
+            // Aquí puedes llamar a un método para acceder a recursos protegidos si lo deseas
+        });
+    }
+
+    // Método que se llama en caso de error en el inicio de sesión
+    private void onLoginFailed(String errorMessage) {
+        runOnUiThread(() -> Toast.makeText(Main_login2.this, errorMessage, Toast.LENGTH_SHORT).show());
     }
 
     //método para el btn crear cuenta
