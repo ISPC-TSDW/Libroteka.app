@@ -3,6 +3,8 @@ package com.example.libroteka;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -14,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,20 +33,23 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the toolbar
        setSupportActionBar(binding.toolbar);
 
-        // Setup navigation controller
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        appBarConfiguration = new AppBarConfiguration.Builder(R.id.home).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        // FloatingActionButton click listener
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
+        // Show back button if applicable
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            // If the destination is not the home fragment, show the up button
+            if (destination.getId() != R.id.home) {
+                Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+            } else {
+                Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
             }
         });
+
+        // Setup buttons
+        setupButtons();
+
 
         // Access the content_main layout
         ContentMainBinding contentMainBinding = ContentMainBinding.bind(findViewById(R.id.nav_host_fragment_content_main));
@@ -66,7 +73,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    private void setupButtons() {
+        ContentMainBinding contentMainBinding = ContentMainBinding.bind(findViewById(R.id.nav_host_fragment_content_main));
 
+        Button profileButton = contentMainBinding.profileButton;
+        profileButton.setOnClickListener(this::goToProfile);
+
+        Button editProfileButton = findViewById(R.id.editProfileButton);
+        editProfileButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, EditProfileActivity.class);
+            startActivity(intent);
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,20 +94,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Handle up navigation
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed(); // Navigate back in the activity stack
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
     }
 
     public void goToProfile(View view) {

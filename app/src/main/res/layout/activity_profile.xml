@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,22 +10,23 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="83dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="50dp">
+            android:padding="60dp">
 
             <ImageView
                 android:id="@+id/profileImage"
                 android:layout_width="134dp"
                 android:layout_height="135dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="12dp"
                 android:contentDescription="@string/email_placeholder"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -38,7 +40,7 @@
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintHorizontal_bias="0.431"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,14 +48,13 @@
                 android:id="@+id/userName"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="36dp"
                 android:text="@string/username_placeholder"
                 android:textAlignment="center"
                 android:textColor="@color/bark"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.476"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileImage" />
 
@@ -67,7 +68,6 @@
                 android:textColor="@color/bark"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/userName" />
 
@@ -76,56 +76,13 @@
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/editar_perfil"
-                android:textSize="18sp"
                 android:textAlignment="center"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.666"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/userEmail" />
-
-            <Button
-                android:id="@+id/addressButton"
-                style="@style/buttonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/tus_favoritos"
-                android:textSize="18sp"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.666"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editProfileButton" />
-
-            <Button
-                android:id="@+id/ordersButton"
-                style="@style/buttonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/tus_reseñas"
-                android:textSize="18sp"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/addressButton" />
-
-            <Button
-                android:id="@+id/contactUsButton"
-                style="@style/buttonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/contacto"
-                android:textSize="18sp"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ordersButton" />
 
             <Button
                 android:id="@+id/faqButton"
@@ -134,29 +91,51 @@
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/preguntas_frecuentes"
-                android:textSize="16sp"
                 android:textAlignment="center"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
+                app:layout_constraintTop_toBottomOf="@id/editProfileButton" />
+
+            <Button
+                android:id="@+id/contactUsButton"
+                style="@style/buttonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/contacto"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/faqButton" />
 
             <Button
                 android:id="@+id/logoutButton"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:onClick="previo"
                 android:text="@string/cerrar_sesi_n"
-                android:textSize="18sp"
                 android:textAlignment="center"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.666"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/faqButton" />
+                app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
 
-
+            <Button
+                android:id="@+id/goBackButton"
+                style="@style/buttonStyle"
+                android:layout_width="113dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/volver"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logoutButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

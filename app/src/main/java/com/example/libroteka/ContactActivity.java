@@ -60,6 +60,12 @@ public class ContactActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public void goBackToProfile(View view) {
+        Intent profile = new Intent(this, ProfileActivity.class);
+        startActivity(profile);
 
     }
 
@@ -102,4 +108,6 @@ public class ContactActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 }
