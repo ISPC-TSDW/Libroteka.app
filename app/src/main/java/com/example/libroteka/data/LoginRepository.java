@@ -9,11 +9,7 @@ import com.example.libroteka.data.model.LoggedInUser;
 public class LoginRepository {
 
     private static volatile LoginRepository instance;
-
     private LoginDataSource dataSource;
-
-    // If user credentials will be cached in local storage, it is recommended it be encrypted
-    // @see https://developer.android.com/training/articles/keystore
     private LoggedInUser user = null;
 
     // private constructor : singleton access
@@ -39,17 +35,30 @@ public class LoginRepository {
 
     private void setLoggedInUser(LoggedInUser user) {
         this.user = user;
-        // If user credentials will be cached in local storage, it is recommended it be encrypted
-        // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
-        // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
-        if (result instanceof Result.Success) {
-            setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
-        }
-        return result;
+    // Ajustar el login para usar callback
+    public void login(String username, String password, LoginCallback callback) {
+        dataSource.login(username, password, new LoginDataSource.LoginCallback() {
+            @Override
+            public void onLoginSuccess(Result<LoggedInUser> result) {
+                // Si el login fue exitoso, actualiza el usuario y notifica el éxito
+                setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
+                callback.onLoginSuccess(result);
+            }
+
+            @Override
+            public void onLoginError(Result.Error error) {
+                // Si hay un error, notifica el fallo
+                callback.onLoginError(error);
+            }
+        });
+    }
+
+    // Interfaz de callback para manejar el login desde LoginRepository
+    public interface LoginCallback {
+        void onLoginSuccess(Result<LoggedInUser> result);
+        void onLoginError(Result.Error error);
     }
 
 }

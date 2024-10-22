@@ -8,6 +8,7 @@ import okhttp3.Response;
 import java.io.IOException;
 
 public class AuthInterceptor implements Interceptor {
+
     private SharedPreferences sharedPreferences;
 
     public AuthInterceptor(SharedPreferences sharedPreferences) {

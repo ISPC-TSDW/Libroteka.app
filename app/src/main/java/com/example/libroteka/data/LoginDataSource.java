@@ -1,7 +1,10 @@
 package com.example.libroteka.data;
 
-import com.example.libroteka.data.model.LoggedInUser;
+import android.content.Context;
+import android.content.SharedPreferences;
 
+import com.example.libroteka.data.model.LoggedInUser;
+import com.example.libroteka.data.UserResponse;
 import java.io.IOException;
 
 /**
@@ -9,21 +12,50 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result<LoggedInUser> login(String username, String password) {
+    private ApiManager apiManager;
+    private SharedPreferences sharedPreferences;
 
-        try {
-            // TODO: handle loggedInUser authentication
-            LoggedInUser fakeUser =
-                    new LoggedInUser(
-                            java.util.UUID.randomUUID().toString(),
-                            "Jane Doe");
-            return new Result.Success<>(fakeUser);
-        } catch (Exception e) {
-            return new Result.Error(new IOException("Error logging in", e));
-        }
+    public LoginDataSource(Context context) {
+        // Inicializa ApiManager, que maneja las solicitudes HTTP con Retrofit
+        this.apiManager = new ApiManager(context);
+    }
+
+    // Cambiar para utilizar el callback asíncrono para manejar la respuesta
+    public void login(String username, String password, LoginCallback callback) {
+        // Llama al método de login en ApiManager
+        apiManager.loginUser(username, password, new ApiManager.ApiCallback<UserResponse>() {
+            @Override
+            public void onSuccess(UserResponse response) {
+                // Si la autenticación es exitosa, crea el usuario autenticado
+                LoggedInUser loggedInUser = new LoggedInUser(
+                        java.util.UUID.randomUUID().toString(),
+                        username);
+
+                // Devuelve el resultado exitoso utilizando el callback
+                callback.onLoginSuccess(new Result.Success<>(loggedInUser));
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // En caso de error, devuelve un error
+                callback.onLoginError(new Result.Error(new IOException(errorMessage)));
+            }
+        });
     }
 
     public void logout() {
-        // TODO: revoke authentication
+        // Eliminar el token JWT de SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("JWT_ACCESS_TOKEN");
+        editor.apply();
     }
+
+
+    // Interfaz de callback para manejar el login
+    public interface LoginCallback {
+        void onLoginSuccess(Result<LoggedInUser> result);
+        void onLoginError(Result.Error error);
+    }
+
+
 }
