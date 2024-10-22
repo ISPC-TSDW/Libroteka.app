@@ -14,60 +14,51 @@
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
-              <img style="border-radius: 50%; border: 2px, black, solid;" width="120"
-                src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" />
+              <img style="border-radius: 50%; border: 2px, black, solid;" width="120" src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" />
             </a>
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
               <h4 style="margin-top: 1rem;">Cano, Germán Gustavo</h4>
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/GERGUSCANO" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/emilce-robles/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">
-              <img style="border-radius: 50% border: 2px, black, solid" width="120"
-                src="https://media.licdn.com/dms/image/v2/D4D03AQFnsDEiG0B-4A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678475039581?e=1735171200&v=beta&t=DTUmciFOv3_mfVD311PFqfDOqcVN5-2YRGQBPn5nyeI" />
+              <img style="border-radius: 50%; border: 2px, black, solid"; width="120" src="https://media.licdn.com/dms/image/v2/D4D03AQFnsDEiG0B-4A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678475039581?e=1735171200&v=beta&t=DTUmciFOv3_mfVD311PFqfDOqcVN5-2YRGQBPn5nyeI" />
             </a>
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">
               <h4 style="margin-top: 1rem;">Haag, Romina Sol</h4>
               <h4 style="margin-top: 1rem;">QA, Fullstack Developer</h4>
             </a>
             <a href="https://github.com/rominasolhaag" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/giuliana-gesto/" target="_blank" rel="author">
-              <img style="border-radius: 50%; border: 2px, black, solid;" width="120"
-                src="https://media.licdn.com/dms/image/v2/D4D03AQEac4ooYAclQA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1703026272818?e=1735171200&v=beta&t=TLg26MY-6FAAfjmVK08cUVlFWImS-ypeZDQbITwH4GA" />
+              <img style="border-radius: 50%; border: 2px, black, solid;" width="120" src="https://media.licdn.com/dms/image/v2/D4D03AQEac4ooYAclQA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1703026272818?e=1735171200&v=beta&t=TLg26MY-6FAAfjmVK08cUVlFWImS-ypeZDQbITwH4GA" />
             </a>
             <a href="https://www.linkedin.com/in/giuliana-gesto/" target="_blank" rel="author">
               <h4 style="margin-top: 1rem;">Gesto, Giuliana</h4>
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/gsgesto" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label="/>
             </a>
             <a href="https://www.linkedin.com/in/giuliana-gesto/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
@@ -82,12 +73,10 @@
               <h4 style="margin-top: 1rem;">DevOps Engineer, Fullstack Developer</h4>
             </a>
             <a href="https://github.com/JuanPSuarez/" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/suarez-juan-pablo/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
@@ -104,12 +93,10 @@
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/DZabala7" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/daiana-zabala-3a5129212/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
@@ -124,12 +111,10 @@
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/orgs/ISPC-TSDW/people/ADizanzo" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/augusto-dizanzo-918482210/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
@@ -144,12 +129,10 @@
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/orgs/ISPC-TSDW/people/FacKuSalvatierra" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/facundo-salvatierra/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
@@ -163,12 +146,10 @@
               <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
             </a>
             <a href="https://github.com/orgs/ISPC-TSDW/people/valetommasini" target="_blank">
-              <img
-                src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
+              <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=000000&logo=GitHub&logoColor=FFFFFF&label=" />
             </a>
             <a href="https://www.linkedin.com/in/facundo-salvatierra/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+              <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
             </a>
           </div>
         </td>
