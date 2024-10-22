@@ -249,10 +249,10 @@ Puntos claves:
 
 ---
 
-
-<tr>
-<th> BackEnd </th> </br>
+## BACKEND 
 <img align="right" alt="GIF" src="https://media.giphy.com/media/iIqmM5tTjmpOB9mpbn/giphy.gif" />
+<tr>
+<th> - </th>
 </tr>
 <tr>
 <td>
