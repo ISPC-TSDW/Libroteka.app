@@ -2,11 +2,11 @@ package com.example.libroteka.data;
 
 // Login Request Model
 public class LoginRequest {
-    private String username;
+    private String email;
     private String password;
 
     public LoginRequest(String username, String password) {
-        this.username = username;
+        this.email = username;
         this.password = password;
     }
 }

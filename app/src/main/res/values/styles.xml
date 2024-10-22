@@ -19,16 +19,18 @@
         <item name="windowActionBar">true</item>
         <!-- Other theme attributes -->
     </style>
-    
+
     <style name="AppTheme.TemaPopup">
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
 
-
-
-
-
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#7D5642</item> <!-- Color de acento (rosa) -->
+        <item name="android:textColorPrimary">#000000</item> <!-- Color de texto principal (negro) -->
+        <item name="android:background">#FEEBDD</item> <!-- Fondo blanco -->
+        <item name="android:textColorSecondary">#757575</item> <!-- Color de texto secundario (gris) -->
     </style>
 
 

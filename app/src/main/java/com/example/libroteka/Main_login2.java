@@ -1,7 +1,6 @@
 package com.example.libroteka;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.UserResponse;
+
+
 
 public class Main_login2 extends AppCompatActivity {
 
@@ -25,7 +25,6 @@ public class Main_login2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_login2);
 
         //ref campos de entrada
@@ -61,40 +60,14 @@ public class Main_login2 extends AppCompatActivity {
         String password = passwordEditText.getText().toString().trim();
 
         if (validateInputs(email, password)) {
-            // Llama a la función de autenticación
             loginUser(email, password);
         }
     }
 
-    private void loginUser(String email, String password) {
-        // Configura Retrofit
-        ApiManager apiManager = new ApiManager(this);
-
-        // Realiza la solicitud de inicio de sesión
-        apiManager.loginUser(email, password, new ApiManager.ApiCallback<UserResponse>() {
-            @Override
-            public void onSuccess(UserResponse response) {
-                // Guarda el token en SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("JWT_ACCESS_TOKEN", response.getAccess());
-                editor.apply();
-
-                // Redirige al usuario a la pantalla principal
-                Intent intent = new Intent(Main_login2.this, Home.class);
-                startActivity(intent);
-                finish();  // Cierra la actividad de login
-            }
-
-            @Override
-            public void onFailure(String errorMessage) {
-                // Muestra el error al usuario
-                Toast.makeText(Main_login2.this, "Error de autenticación: " + errorMessage, Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void goBackToStart(View view) {
+        Intent principalView = new Intent(this, main_login.class);
+        startActivity(principalView);
     }
-
-
 
     //método para validar las entradas de usuario
     private boolean validateInputs(String email, String password) {
@@ -135,6 +108,23 @@ public class Main_login2 extends AppCompatActivity {
 
         Intent recuperarContraseña = new Intent(this, Main_forgotten.class);
         startActivity(recuperarContraseña);
+    }
+
+    private void loginUser(String email, String password) {
+        ApiManager apiManager = new ApiManager();
+        apiManager.loginUser(email, password, new ApiManager.ApiCallback<UserResponse>() {
+            @Override
+            public void onSuccess(UserResponse response) {
+                Intent intent = new Intent(Main_login2.this, Home.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(Main_login2.this, "Login failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

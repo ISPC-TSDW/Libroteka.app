@@ -24,8 +24,8 @@ public class Main_forgotten extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_forgotten);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -57,8 +57,8 @@ public class Main_forgotten extends AppCompatActivity {
     }
 
     // Evento para regresar a login
-    public void previo1(View view) {
-        Intent previo1 = new Intent(this, main_login.class);
+    public void goBackToLogin(View view) {
+        Intent previo1 = new Intent(this, Main_login2.class);
         startActivity(previo1);
     }
 
@@ -81,5 +81,7 @@ public class Main_forgotten extends AppCompatActivity {
             // Aquí iría la lógica para enviar el correo de recuperación
             Toast.makeText(this, "Se ha enviado un correo de recuperación a " + emailEditText.getText().toString(), Toast.LENGTH_SHORT).show();
         }
+
     }
+
 }

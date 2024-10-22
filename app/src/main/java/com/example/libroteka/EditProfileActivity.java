@@ -1,5 +1,6 @@
 package com.example.libroteka;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -45,7 +48,7 @@ public class EditProfileActivity extends AppCompatActivity {
         emailEditText.addTextChangedListener(textWatcher);
 
         // Acción para el botón "Guardar"
-        saveButton.setOnClickListener(new View.OnClickListener() {
+       /* saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -61,6 +64,34 @@ public class EditProfileActivity extends AppCompatActivity {
                     // Mostrar un mensaje de error si algo falla
                     Toast.makeText(EditProfileActivity.this, "Error al guardar los datos: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+            }
+        });*/
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Creación del alertDialog
+                AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
+                alerta.setMessage("¿Desea por editar sus datos?")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirmar" , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //finish();
+                                saveData();
+                            }
+
+                        })
+                        .setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Confirmar edición");
+                titulo.show();
             }
         });
 
@@ -93,6 +124,22 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     };
 
+    private void saveData() {
+        try {
+            // Aquí iría la lógica para actualizar los datos del usuario
+            // Mostrar un mensaje de éxito
+            Toast.makeText(EditProfileActivity.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+
+            // Volver a la pantalla principal
+            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // Finaliza esta actividad para que no quede en el historial
+        } catch (Exception e) {
+            // Mostrar un mensaje de error si algo falla
+            Toast.makeText(EditProfileActivity.this, "Error al guardar los datos: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
     // Función para habilitar o deshabilitar el botón de guardar
     private void validateChanges() {
         // Comparar los valores actuales con los originales
@@ -124,4 +171,5 @@ public class EditProfileActivity extends AppCompatActivity {
         boolean isChanged = !currentUsername.equals(originalUsername) || !currentEmail.equals(originalEmail);
         saveButton.setEnabled(isChanged);
     }
+
 }

@@ -1,9 +1,12 @@
 package com.example.libroteka;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -15,12 +18,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Initialize views
         Button editProfileButton = findViewById(R.id.editProfileButton);
-        Button addressButton = findViewById(R.id.addressButton);
-        Button ordersButton = findViewById(R.id.ordersButton);
         Button contactUsButton = findViewById(R.id.contactUsButton);
         Button faqButton = findViewById(R.id.faqButton);
         Button logoutButton = findViewById(R.id.logoutButton);
-
+        Button goBackButton = findViewById(R.id.goBackButton);
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,20 +29,6 @@ public class ProfileActivity extends AppCompatActivity {
                 // Navigate to the EditProfileActivity
                 Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        addressButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle Address action
-            }
-        });
-
-        ordersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle Orders action
             }
         });
 
@@ -66,10 +53,33 @@ public class ProfileActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle Logout action
-            }
-        });
 
+                AlertDialog.Builder alerta = new AlertDialog.Builder(ProfileActivity.this, R.style.AlertDialog);
+                alerta.setMessage("¿Quieres cerrar la app?")
+                        .setCancelable(false)
+                        .setPositiveButton("Aceptar" , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                        })
+                        .setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Cerrar sesión");
+                titulo.show();
+            }
+
+        });
+        goBackButton.setOnClickListener(v -> finish());
     }
+
 
 }

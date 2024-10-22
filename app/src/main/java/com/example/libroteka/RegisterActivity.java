@@ -16,6 +16,9 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // Definimos las referencias a los campos de entrada
+        EditText etUsuario = findViewById(R.id.etUsuario);
+        EditText etDni = findViewById(R.id.etDNI);
+        EditText etApellido = findViewById(R.id.etApellido);
         EditText etNombre = findViewById(R.id.etNombre);
         EditText etCorreo = findViewById(R.id.etCorreo);
         EditText etContrasena = findViewById(R.id.etContrasena);
@@ -24,8 +27,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Configuramos el botón de registro
         btnRegistrar.setOnClickListener(v -> {
+            String usuario = etUsuario.getText().toString().trim();
             String nombre = etNombre.getText().toString().trim();
             String correo = etCorreo.getText().toString().trim();
+            String apellido = etApellido.getText().toString().trim();
+            String dni = etDni.getText().toString().trim();
             String contrasena = etContrasena.getText().toString().trim();
 
             // Validamos los campos
