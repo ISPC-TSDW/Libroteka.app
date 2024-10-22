@@ -24,39 +24,39 @@ class BookSerializer(serializers.ModelSerializer):
     id_Editorial = EditorialSerializer()
     avg_rating = serializers.FloatField(read_only=True)
 
-class Meta:
-    model = Book
-    fields = ['id_Book', 'title', 'id_Author', 'id_Genre', 'id_Editorial', 'description', 'price', 'stock', 'avg_rating']
+    class Meta:
+        model = Book
+        fields = ['id_Book', 'title', 'id_Author', 'id_Genre', 'id_Editorial', 'description', 'price', 'stock', 'avg_rating']
 
-    def create(self, validated_data):
-            author_data = validated_data.pop('id_Author', None)
-            genre_data = validated_data.pop('id_Genre', None)
-            editorial_data = validated_data.pop('id_Editorial', None)
+        def create(self, validated_data):
+                author_data = validated_data.pop('id_Author', None)
+                genre_data = validated_data.pop('id_Genre', None)
+                editorial_data = validated_data.pop('id_Editorial', None)
 
-            try:
-                author = Author.objects.get(name=author_data['name'])
-                genre = Genre.objects.get(name=genre_data['name'])
-                editorial = Editorial.objects.get(name=editorial_data['name'])
-            except (Author.DoesNotExist, Genre.DoesNotExist, Editorial.DoesNotExist):
-                # Si no se encuentra, crear nuevos registros
-                author = Author.objects.create(**author_data)
-                genre = Genre.objects.create(**genre_data)
-                editorial = Editorial.objects.create(**editorial_data)
+                try:
+                    author = Author.objects.get(name=author_data['name'])
+                    genre = Genre.objects.get(name=genre_data['name'])
+                    editorial = Editorial.objects.get(name=editorial_data['name'])
+                except (Author.DoesNotExist, Genre.DoesNotExist, Editorial.DoesNotExist):
+                    # Si no se encuentra, crear nuevos registros
+                    author = Author.objects.create(**author_data)
+                    genre = Genre.objects.create(**genre_data)
+                    editorial = Editorial.objects.create(**editorial_data)
 
-            # Verificar si el libro ya existe
-            existing_book = Book.objects.filter(title=validated_data['title']).first()
-            if existing_book:
-                raise serializers.ValidationError({"detail": "Este libro ya está registrado."})
+                # Verificar si el libro ya existe
+                existing_book = Book.objects.filter(title=validated_data['title']).first()
+                if existing_book:
+                    raise serializers.ValidationError({"detail": "Este libro ya está registrado."})
 
-            # Crear el libro con los IDs obtenidos o nuevos si no existían
-            book = Book.objects.create(
-                id_Author=author,
-                id_Genre=genre,
-                id_Editorial=editorial,
-                **validated_data
-            )
-            return book
-    
+                # Crear el libro con los IDs obtenidos o nuevos si no existían
+                book = Book.objects.create(
+                    id_Author=author,
+                    id_Genre=genre,
+                    id_Editorial=editorial,
+                    **validated_data
+                )
+                return book
+        
     def update(self, instance, validated_data):
         author_data = validated_data.get('id_Author', None)
         genre_data = validated_data.get('id_Genre', None)
@@ -133,7 +133,7 @@ class UsersLibrotekaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UsersLibroteka
-        fields = ['username', 'first_name', 'last_name', 'dni', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active']
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
@@ -148,7 +148,6 @@ class LoginSerializer(serializers.Serializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    # books = serializers.JSONField()
     class Meta:
         model = Order
         fields = '__all__'
@@ -156,9 +155,21 @@ class OrderSerializer(serializers.ModelSerializer):
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorite
-        fields = ['id', 'id_user', 'id_book', 'created_at']
+        fields = '__all__'
+
+    def validate(self, data):
+
+        if not data['id_user'].is_active:
+            raise serializers.ValidationError({"detail": "User account is deactivated."})
+        return data
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-        fields = ['id', 'id_user', 'id_book', 'rating', 'created_at', 'updated_at']
+        fields = '__all__'
+
+    def validate(self, data):
+
+        if not data['id_user'].is_active:
+            raise serializers.ValidationError({"detail": "User account is deactivated."})
+        return data
