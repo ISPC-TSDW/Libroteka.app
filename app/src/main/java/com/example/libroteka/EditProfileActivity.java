@@ -16,10 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    private EditText usernameEditText;
-    private EditText emailEditText;
     private Button saveButton;
     private Button cancelButton;
+    private EditText etEditarUsuario;
+    private EditText etEditarNombre;
+    private EditText etEditarApellido;
+    private EditText etEditarDNI;
+    private EditText etEditarContrasena;
+    private EditText etEditarCorreo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,12 @@ public class EditProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
         // Inicializar los campos del formulario
-        usernameEditText = findViewById(R.id.usernameEditText);
-        emailEditText = findViewById(R.id.emailEditText);
+        etEditarUsuario = findViewById(R.id.etEditarUsuario);
+        etEditarNombre = findViewById(R.id.etEditarNombre);
+        etEditarApellido = findViewById(R.id.etEditarApellido);
+        etEditarDNI = findViewById(R.id.etEditarDNI);
+        etEditarContrasena = findViewById(R.id.etEditarContrasena);
+        etEditarCorreo = findViewById(R.id.etEditarCorreo);
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
 
@@ -39,15 +47,19 @@ public class EditProfileActivity extends AppCompatActivity {
         saveButton.setEnabled(false);
 
         // Agregar TextWatcher para validar cambios en los campos de texto
-        usernameEditText.addTextChangedListener(textWatcher);
-        emailEditText.addTextChangedListener(textWatcher);
-
+        etEditarUsuario.addTextChangedListener(textWatcher);
+        etEditarCorreo.addTextChangedListener(textWatcher);
+        etEditarNombre.addTextChangedListener(textWatcher);
+        etEditarApellido.addTextChangedListener(textWatcher);
+        etEditarDNI.addTextChangedListener(textWatcher);
+        etEditarContrasena.addTextChangedListener(textWatcher);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = usernameEditText.getText().toString().trim();
-                String email = emailEditText.getText().toString().trim();
+                String username = etEditarUsuario.getText().toString().trim();
+                String email = etEditarCorreo.getText().toString().trim();
+                
 
         AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
         alerta.setMessage("¿Desea por editar sus datos?")
@@ -118,8 +130,8 @@ public class EditProfileActivity extends AppCompatActivity {
     // Función para habilitar o deshabilitar el botón de guardar
     private void validateChanges() {
         // Comparar los valores actuales con los originales
-        String currentUsername = usernameEditText.getText().toString().trim();
-        String currentEmail = emailEditText.getText().toString().trim();
+        String currentUsername = etEditarUsuario.getText().toString().trim();
+        String currentEmail = etEditarCorreo.getText().toString().trim();
 
         // Verificar si los campos están vacíos
         if (currentUsername.isEmpty()) {
@@ -153,8 +165,12 @@ public class EditProfileActivity extends AppCompatActivity {
         String emailApi = obtenerEmailDesdeAPI(); // Simula obtener el correo
 
         // Asigna los datos a los EditText
-        usernameEditText.setText(usernameApi);
-        emailEditText.setText(emailApi);
+        etEditarUsuario.setText(usernameApi);
+        etEditarCorreo.setText(emailApi);
+        etEditarNombre.setText(usernameApi);
+        etEditarApellido.setText(usernameApi);
+        etEditarDNI.setText(usernameApi);
+        etEditarContrasena.setText(usernameApi);
     }
     private String obtenerUsernameDesdeAPI() {
         return "NombreDeUsuarioReal"; // Simulación de respuesta de API
