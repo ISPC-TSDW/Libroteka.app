@@ -12,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="150dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/id_18"
+        android:src="@drawable/ic_book_juegodetronos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

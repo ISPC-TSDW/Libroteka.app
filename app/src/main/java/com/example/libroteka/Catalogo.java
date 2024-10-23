@@ -93,27 +93,27 @@ public class Catalogo extends AppCompatActivity {
     // Método para cargar libros sin filtrar (originales)
     private void cargarLibrosOriginales() {
         listaLibrosOriginales = new ArrayList<>();
-        listaLibrosOriginales.add(new Libro("Romeo y Julieta", R.drawable.id_12, "Drama"));
-        listaLibrosOriginales.add(new Libro("Hamlet", R.drawable.id_13, "Drama"));
-        listaLibrosOriginales.add(new Libro("Cumbres borrascosas", R.drawable.id_14, "Drama"));
+        listaLibrosOriginales.add(new Libro("Romeo y Julieta", R.drawable.ic_book_romeoyjulieta, "Drama"));
+        listaLibrosOriginales.add(new Libro("Hamlet", R.drawable.ic_book_hamlet, "Drama"));
+        listaLibrosOriginales.add(new Libro("Cumbres borrascosas", R.drawable.ic_book_cumbresborrascosas, "Drama"));
         listaLibrosOriginales.add(new Libro("El silencio de lo perdido", R.drawable.ic_book_elsilenciodeloperdido, "Suspenso"));
-        listaLibrosOriginales.add(new Libro("El resplandor", R.drawable.id_16, "Suspenso"));
-        listaLibrosOriginales.add(new Libro("La hora azul", R.drawable.id_17, "Suspenso"));
-        listaLibrosOriginales.add(new Libro("Harry Potter y la Piedra Filosofal", R.drawable.id_3, "Fantasia"));
-        listaLibrosOriginales.add(new Libro("El hobbit", R.drawable.id_4, "Fantasia"));
-        listaLibrosOriginales.add(new Libro("Juego de tronos", R.drawable.id_18, "Fantasia"));
-        listaLibrosOriginales.add(new Libro("El principito", R.drawable.id_19, "Juvenil"));
-        listaLibrosOriginales.add(new Libro("Los juegos del hambre", R.drawable.id_20, "Juvenil"));
-        listaLibrosOriginales.add(new Libro("Divergente", R.drawable.id_21, "Juvenil"));
-        listaLibrosOriginales.add(new Libro("1984", R.drawable.id_22, "Ciencia ficción"));
-        listaLibrosOriginales.add(new Libro("Fahrenheit 451", R.drawable.id_23, "Ciencia ficción"));
-        listaLibrosOriginales.add(new Libro("Dune", R.drawable.id_24, "Ciencia ficción"));
-        listaLibrosOriginales.add(new Libro("Orgullo y prejuicio", R.drawable.id_25, "Romance"));
-        listaLibrosOriginales.add(new Libro("Bajo la misma estrella", R.drawable.id_26, "Romance"));
-        listaLibrosOriginales.add(new Libro("After", R.drawable.id_27, "Romance"));
-        listaLibrosOriginales.add(new Libro("IT", R.drawable.id_6, "Terror"));
-        listaLibrosOriginales.add(new Libro("Drácula", R.drawable.id_28, "Terror"));
-        listaLibrosOriginales.add(new Libro("La llamada de Cthulhu", R.drawable.id_29, "Terror"));
+        listaLibrosOriginales.add(new Libro("El resplandor", R.drawable.ic_book_elresplandor, "Suspenso"));
+        listaLibrosOriginales.add(new Libro("La hora azul", R.drawable.ic_book_lahoraazul, "Suspenso"));
+        listaLibrosOriginales.add(new Libro("Harry Potter y la Piedra Filosofal", R.drawable.ic_book_harrypotterylapiedrafilosofal, "Fantasia"));
+        listaLibrosOriginales.add(new Libro("El hobbit", R.drawable.ic_book_elhobbit, "Fantasia"));
+        listaLibrosOriginales.add(new Libro("Juego de tronos", R.drawable.ic_book_juegodetronos, "Fantasia"));
+        listaLibrosOriginales.add(new Libro("El principito", R.drawable.ic_book_elprincipito, "Juvenil"));
+        listaLibrosOriginales.add(new Libro("Los juegos del hambre", R.drawable.ic_book_losjuegosdelhambre, "Juvenil"));
+        listaLibrosOriginales.add(new Libro("Divergente", R.drawable.ic_book_divergente, "Juvenil"));
+        listaLibrosOriginales.add(new Libro("1984", R.drawable.ic_book_1984, "Ciencia ficción"));
+        listaLibrosOriginales.add(new Libro("Fahrenheit 451", R.drawable.ic_book_fahrenheit451, "Ciencia ficción"));
+        listaLibrosOriginales.add(new Libro("Dune", R.drawable.ic_book_dune, "Ciencia ficción"));
+        listaLibrosOriginales.add(new Libro("Orgullo y prejuicio", R.drawable.ic_book_orgulloyprejuicio, "Romance"));
+        listaLibrosOriginales.add(new Libro("Bajo la misma estrella", R.drawable.ic_book_bajolamismaestrella, "Romance"));
+        listaLibrosOriginales.add(new Libro("After", R.drawable.ic_book_after, "Romance"));
+        listaLibrosOriginales.add(new Libro("IT", R.drawable.ic_book_it, "Terror"));
+        listaLibrosOriginales.add(new Libro("Drácula", R.drawable.ic_book_dracula, "Terror"));
+        listaLibrosOriginales.add(new Libro("La llamada de Cthulhu", R.drawable.ic_book_lallamadadecthulhu, "Terror"));
     }
 
     // Método para cargar libros filtrados por categoría

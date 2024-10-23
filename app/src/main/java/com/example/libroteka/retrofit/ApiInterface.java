@@ -12,18 +12,13 @@ import retrofit2.http.POST;
 
 public interface ApiInterface {
 
-    @GET("api/protected/")
-    Call<ProtectedResponse> getProtectedData(@Header("Authorization") String token);
-
-
-    // Endpoint autentica y obtiene el token- 
-    @POST("api/token/")
+    // Login Endpoint
+    @POST("api/login/")
     Call<UserResponse> loginUser(@Body LoginRequest loginRequest);
 
     // Get User Data
     @GET("api/users/")
     Call<UserResponse> getUser();
-
 
     @POST("api/users/")
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
