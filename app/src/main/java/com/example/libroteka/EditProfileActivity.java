@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.GetUserResponse;
 import com.example.libroteka.data.UpdateProfileRequest;
 import com.example.libroteka.data.UpdateResponse;
 
@@ -34,7 +35,6 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-
         // Inicializar los campos del formulario
         etEditarUsuario = findViewById(R.id.etEditarUsuario);
         etEditarNombre = findViewById(R.id.etEditarNombre);
@@ -45,11 +45,31 @@ public class EditProfileActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
 
+        String currentUsername = "user123"; // Example username, get it dynamically as needed
+        apiManager.getUser(currentUsername, new ApiManager.ApiCallback<GetUserResponse>() {
+            @Override
+            public void onSuccess(GetUserResponse response) {
+                etEditarUsuario.setText(response.getUsername());
+                etEditarCorreo.setText(response.getEmail());
+                etEditarNombre.setText(response.getFirstName());
+                etEditarApellido.setText(response.getLastName());
+                etEditarDNI.setText(response.getDni());
+
+                // Now enable the save button after data has been loaded
+                saveButton.setEnabled(true);
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(EditProfileActivity.this, "Error fetching user details: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // Cargar los datos del usuario
         cargarData();
 
         // Deshabilitar el botón de guardar al inicio
-        saveButton.setEnabled(false);
+//        saveButton.setEnabled(false);
 
         // Agregar TextWatcher para validar cambios en los campos de texto
         etEditarUsuario.addTextChangedListener(textWatcher);
