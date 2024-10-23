@@ -60,6 +60,25 @@ public class ApiManager {
             }
         });
     }
+    public void updateUserProfile(UpdateProfileRequest updateProfileRequest, final ApiCallback<UpdateResponse> callback) {
+        Call<UpdateResponse> call = apiInterface.updateUserProfile(updateProfileRequest);
+
+        call.enqueue(new Callback<UpdateResponse>() {
+            @Override
+            public void onResponse(Call<UpdateResponse> call, Response<UpdateResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onFailure("Profile update failed: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UpdateResponse> call, Throwable t) {
+                callback.onFailure("Profile update failed: " + t.getMessage());
+            }
+        });
+    }
 
     public interface ApiCallback<T> {
         void onSuccess(T response);
