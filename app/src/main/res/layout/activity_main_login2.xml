@@ -98,11 +98,28 @@
         android:text="@string/title_activity_login"
         android:textColor="@color/marble"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvOlvidasteContrasena"
+        app:layout_constraintBottom_toTopOf="@+id/back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pass" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_rounded"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:onClick="goBackToStart"
+        android:text="@string/volver"
+        android:textColor="@color/marble"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvOlvidasteContrasena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <!--seccion de btn de inicio de sesion-->
 

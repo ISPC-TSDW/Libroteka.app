@@ -85,6 +85,7 @@ class Book(models.Model):
     id_Editorial = models.ForeignKey(Editorial, to_field='id_Editorial', on_delete=models.CASCADE, blank=True, null=True)
     avg_rating = models.FloatField(default=0.0, blank=True)
 
+
     class Meta:
         db_table= 'book'
         verbose_name = "Libro"
@@ -132,6 +133,8 @@ class UsersLibroteka(models.Model):
     dni = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')], unique=True)
     email = models.EmailField(primary_key=True, unique=True)
     password = models.CharField(max_length=128)
+    is_active = models.BooleanField(blank=False, default=True)
+
 
     
     class Meta:
@@ -153,7 +156,7 @@ class Order(models.Model):
     books_amount = models.IntegerField(blank=False)
 
     class Meta:
-        db_table= 'Order'
+        db_table= 'Orders'
         verbose_name = "Orden"
         verbose_name_plural = "Órdenes"
 

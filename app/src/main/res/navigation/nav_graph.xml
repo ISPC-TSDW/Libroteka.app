@@ -10,8 +10,16 @@
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
     <activity
-        android:id="@+id/main_login2"
-        android:name="com.example.libroteka.Main_login2"
-        android:label="activity_main_login2"
-        tools:layout="@layout/activity_main_login2" />
+    android:id="@+id/main_login2"
+    android:name="com.example.libroteka.Main_login2"
+    android:label="activity_main_login2"
+    tools:layout="@layout/activity_main_login2" />
+    <activity
+        android:id="@+id/home"
+        android:name="com.example.libroteka.Home"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+    <action
+        android:id="@+id/action_main_login_to_main_login2"
+        app:destination="@id/main_login2" />
 </navigation>
