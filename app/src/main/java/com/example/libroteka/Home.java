@@ -117,7 +117,7 @@ public class Home extends AppCompatActivity {
         // Update the RecyclerView adapter with the fetched books
         runOnUiThread(() -> {
             rvDestacados.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-            rvDestacados.setAdapter(new BookAdapter(listaLibros));
+            rvDestacados.setAdapter(new BookAdapter(this, listaLibros));
         });
     }
 

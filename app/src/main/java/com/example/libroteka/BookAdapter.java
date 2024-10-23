@@ -1,6 +1,8 @@
 package com.example.libroteka;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +18,11 @@ import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     private final List<BookResponse> listaLibros;
+    private final Context context; // Change this to final
 
-    // Constructor para pasar la lista de libros
-    public BookAdapter(List<BookResponse> listaLibros) {
+    // Constructor for passing context and list of books
+    public BookAdapter(Context context, List<BookResponse> listaLibros) {
+        this.context = context; // Initialize the context
         this.listaLibros = listaLibros;
     }
 
@@ -26,21 +30,34 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate the item layout
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_destacado, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_destacado, parent, false); // Use context here
         return new ViewHolder(view);  // Return the ViewHolder with the inflated view
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BookResponse libro = listaLibros.get(position);
-        holder.tvTitulo.setText(libro.getTitle());
+        BookResponse book = listaLibros.get(position);
+        holder.tvTitulo.setText(book.getTitle());
         holder.ivImagen.setImageResource(R.drawable.ic_book_dracula);  // Static image, you can customize it
-        if (libro.getPrice() != null) {
-            holder.tvPrice.setText("$" + libro.getPrice().toString());
+        if (book.getPrice() != null) {
+            holder.tvPrice.setText("$" + book.getPrice().toString());
         } else {
             holder.tvPrice.setText("N/A");  // Set a default value
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductoActivity.class);
+            intent.putExtra("book_id", book.getId_Book());
+            intent.putExtra("title", book.getTitle());
+            intent.putExtra("author", book.getAuthorName());
+            intent.putExtra("genre", book.getGenreName());
+            intent.putExtra("editorial", book.getEditorialName());
+            intent.putExtra("description", book.getDescription());
+            intent.putExtra("price", book.getPrice());
+            intent.putExtra("avg_rating", book.getAvg_rating());
+            context.startActivity(intent);
+        });
     }
 
     @Override
