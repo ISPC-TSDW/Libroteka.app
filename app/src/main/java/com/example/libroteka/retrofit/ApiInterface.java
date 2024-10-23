@@ -24,6 +24,7 @@ public interface ApiInterface {
     @GET("api/users/")
     Call<UserResponse> getUser();
 
+
     @POST("api/users/")
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
 

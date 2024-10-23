@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 import os
 import environ
 env = environ.Env()
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
     'books',
     'knox',
@@ -123,7 +125,7 @@ WSGI_APPLICATION = 'Libroteka.wsgi.application'
 import connection_url
 
 
-DATABASES = {
+#DATABASES = {
 #     'default': {
 #        'ENGINE': 'django.db.backends.mysql',
 #        'NAME': env('MYSQL_DATABASE'),
@@ -133,13 +135,14 @@ DATABASES = {
 #        'PORT': env('MYSQLPORT'), 
     
 #     }
-}
+#}
 HOST = env('MYSQL_PUBLIC_URL')
 
+
 DATABASES['default'] = connection_url.config(HOST, {
-                      'ENGINE': 'django.db.backends.mysql',
-                      'CONN_MAX_AGE': 1000,
-                      }, ENGINE='django.db.backends.mysql')
+                    'ENGINE': 'django.db.backends.mysql',
+                   'CONN_MAX_AGE': 1000,
+                  }, ENGINE='django.db.backends.mysql')
 
 
 # Password validation
@@ -193,5 +196,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'knox.auth.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
+}
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
 }

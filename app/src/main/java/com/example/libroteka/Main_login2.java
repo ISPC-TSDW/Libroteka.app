@@ -16,7 +16,6 @@ import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.UserResponse;
 
 
-
 import com.google.gson.Gson;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,46 +52,6 @@ public class Main_login2 extends AppCompatActivity {
         });
     }
 
-    // Método para simular el inicio de sesión
-   /* private void simulateLogin(String email, String password) {
-        if (email.equals("test@example.com") && password.equals("Password123!")) {
-            // Simulando una respuesta exitosa
-            String token = "dummy_jwt_token"; // Simulando un token
-            onLoginSuccess(token);
-        } else {
-            // Simulando un error de credenciales
-            onLoginFailed("Credenciales incorrectas");
-        }
-    }*/
-
-    /*private void login(String email, String password) {
-        User user = new User(email, password);
-        String json = new Gson().toJson(user);
-
-        RequestBody body = RequestBody.create(json, MediaType.parse("application/json"));
-        Request request = new Request.Builder()
-                .url(LOGIN_URL)
-                .post(body)
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runOnUiThread(() -> Toast.makeText(Main_login2.this, "Error de conexión", Toast.LENGTH_SHORT).show());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    String token = response.body().string();
-                    onLoginSuccess(token);
-                } else {
-                    onLoginFailed("Credenciales incorrectas");
-                }
-            }
-        });
-    }*/
-
     // Clase de usuario
     private static class User {
         String email;
@@ -117,12 +76,10 @@ public class Main_login2 extends AppCompatActivity {
             // Aquí puedes llamar a un método para acceder a recursos protegidos si lo deseas
         });
     }
-
     // Método que se llama en caso de error en el inicio de sesión
     private void onLoginFailed(String errorMessage) {
         runOnUiThread(() -> Toast.makeText(Main_login2.this, errorMessage, Toast.LENGTH_SHORT).show());
     }
-
     //método para el btn crear cuenta
 
     public void register (View view){
@@ -130,14 +87,6 @@ public class Main_login2 extends AppCompatActivity {
         Intent register = new Intent(this, main_login.class);
         startActivity(register);
     }
-
-    //evento para regresar a login
-
-    /*public void previo (View view){
-        Intent  previo = new Intent(this,main_login.class);
-        startActivity(previo);
-    } */
-
 
     //método para el botón de inicio de sesión
     public void onLoginClick(View view) {
@@ -149,11 +98,12 @@ public class Main_login2 extends AppCompatActivity {
         }
     }
 
+    //evento para regresar a login
+
     public void goBackToStart(View view) {
         Intent principalView = new Intent(this, main_login.class);
         startActivity(principalView);
     }
-
     //método para validar las entradas de usuario
     private boolean validateInputs(String email, String password) {
         if (email.isEmpty()) {
@@ -186,6 +136,40 @@ public class Main_login2 extends AppCompatActivity {
         }
         return true;
     }
+    /*private void login(String email, String password) {
+        User user = new User(email, password);
+        String json = new Gson().toJson(user);
+
+        RequestBody body = RequestBody.create(json, MediaType.parse("application/json"));
+        Request request = new Request.Builder()
+                .url(LOGIN_URL)
+                .post(body)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Toast.makeText(Main_login2.this, "Error de conexión", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String token = response.body().string();
+                    onLoginSuccess(token);
+                } else {
+                    onLoginFailed("Credenciales incorrectas");
+                }
+            }
+        });
+    }*/
+
+    //evento para regresar a login
+
+    /*public void previo (View view){
+        Intent  previo = new Intent(this,main_login.class);
+        startActivity(previo);
+    } */
 
 //metodo para el btn olvido contraseña
 
