@@ -1,5 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+    TokenBlacklistView,
+)
 from knox import views as knox_views
 from .views import *
 
@@ -29,6 +35,10 @@ urlpatterns = [
     path('ratings/', RatingManageView.as_view(), name='post_rating'),
     path('ratings/<int:pk>/', ModifyRatingView.as_view(), name='modify_rating'),
     path('user/update/', UpdateUserAPI.as_view(), name='user-update'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/token/blacklist/', TokenBlacklistView.as_view(), name='token_blacklist'),
 
 
 
