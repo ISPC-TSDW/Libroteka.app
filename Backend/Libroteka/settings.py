@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'Libroteka.wsgi.application'
 import connection_url
 
 
-DATABASES = {
+#DATABASES = {
 #     'default': {
 #        'ENGINE': 'django.db.backends.mysql',
 #        'NAME': env('MYSQL_DATABASE'),
@@ -135,15 +135,29 @@ DATABASES = {
 #        'PASSWORD': env('MYSQL_ROOT_PASSWORD'),
 #        'HOST': env('MYSQL_PUBLIC_URL'),
 #        'PORT': env('MYSQLPORT'), 
-    
+#}
 #     }
-}
-HOST = env('MYSQL_PUBLIC_URL')
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'libroteka', #cambia por la el nombre de db que quieras
+       'USER': 'root',
+       'PASSWORD': 'Facundo95!', #cambia por la contraseña de root
+       'HOST': 'localhost',
+       'PORT': '3306',
+       'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
 
-DATABASES['default'] = connection_url.config(HOST, {
-                      'ENGINE': 'django.db.backends.mysql',
-                      'CONN_MAX_AGE': 1000,
-                      }, ENGINE='django.db.backends.mysql')
+    }
+}
+
+#HOST = env('MYSQL_PUBLIC_URL')
+
+#DATABASES['default'] = connection_url.config(HOST, {
+#                      'ENGINE': 'django.db.backends.mysql',
+#                      'CONN_MAX_AGE': 1000,
+#                     }, ENGINE='django.db.backends.mysql')
 
 
 # Password validation
@@ -207,10 +221,10 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
-    "UPDATE_LAST_LOGIN": False,
+    "UPDATE_LAST_LOGIN": True,
 
     "ALGORITHM": "HS256",
-    "SIGNING_KEY": settings.SECRET_KEY,
+    "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": "",
     "AUDIENCE": None,
     "ISSUER": None,

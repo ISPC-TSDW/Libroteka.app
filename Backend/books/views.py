@@ -15,8 +15,6 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 from drf_yasg.utils import swagger_auto_schema
-
-
 from .serializer import *
 from .models import *
 from .utils import update_average_rating
@@ -155,6 +153,8 @@ class OrdersViewSet(viewsets.ModelViewSet):
 class LoginAPI(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
+        authentication_classes = [TokenAuthentication]  
+        permission_classes = [IsAuthenticated]
         if serializer.is_valid():
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
