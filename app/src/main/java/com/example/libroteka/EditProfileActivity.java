@@ -11,10 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.UpdateProfileRequest;
+import com.example.libroteka.data.UpdateResponse;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfileActivity extends AppCompatActivity {
+    private ApiManager apiManager;
 
     private Button saveButton;
     private Button cancelButton;
@@ -59,41 +64,51 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = etEditarUsuario.getText().toString().trim();
                 String email = etEditarCorreo.getText().toString().trim();
-                
+                String firstName = etEditarNombre.getText().toString().trim();
+                String lastName = etEditarApellido.getText().toString().trim();
+                String password = etEditarContrasena.getText().toString().trim();
+                String dni = etEditarDNI.getText().toString().trim();
 
-        AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
-        alerta.setMessage("¿Desea por editar sus datos?")
-                .setCancelable(false)
-                .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Aquí iría la lógica para actualizar los datos del usuario
-                        try {
-                            // Lógica para guardar los datos (por ejemplo, en una base de datos)
-                            // Simulación de guardado exitoso
-                            Toast.makeText(EditProfileActivity.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
 
-                            // Volver a la pantalla principal
-                            Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
-                            startActivity(intent);
-                            finish(); // Finaliza esta actividad para que no quede en el historial
-                        } catch (Exception e) {
-                            // Mostrar un mensaje de error si algo falla
-                            Toast.makeText(EditProfileActivity.this, "Error al guardar los datos: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog titulo = alerta.create();
-        titulo.setTitle("Confirmar edición");
-        titulo.show();
-    }
-});
+                AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
+                alerta.setMessage("¿Desea por editar sus datos?")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Create an UpdateProfileRequest object
+                                UpdateProfileRequest updateRequest = new UpdateProfileRequest(email, firstName, lastName, password, dni, username);
+
+                                // Call the updateUserProfile method from ApiManager
+                                apiManager.updateUserProfile(updateRequest, new ApiManager.ApiCallback<UpdateResponse>() {
+                                    @Override
+                                    public void onSuccess(UpdateResponse response) {
+                                        Toast.makeText(EditProfileActivity.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+
+                                        // Navigate back to the profile activity
+                                        Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
+                                        startActivity(intent);
+                                        finish(); // Close the activity
+                                    }
+
+                                    @Override
+                                    public void onFailure(String errorMessage) {
+                                        Toast.makeText(EditProfileActivity.this, "Error al guardar los datos: " + errorMessage, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Confirmar edición");
+                titulo.show();
+            }
+        });
 
         // Acción para el botón "Cancelar"
         cancelButton.setOnClickListener(new View.OnClickListener() {
