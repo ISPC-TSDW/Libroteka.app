@@ -4,6 +4,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 
 import com.example.libroteka.data.LoginRequest;
+import com.example.libroteka.data.RegisterRequest;
+import com.example.libroteka.data.RegisterResponse;
 import com.example.libroteka.data.UserResponse;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -17,4 +19,8 @@ public interface ApiInterface {
     // Get User Data
     @GET("api/users/")
     Call<UserResponse> getUser();
+
+    @POST("api/users/")
+    Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
+
 }
