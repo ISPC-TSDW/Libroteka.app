@@ -12,7 +12,6 @@ import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.RegisterRequest;
 import com.example.libroteka.data.RegisterResponse;
 
-
 public class RegisterActivity extends AppCompatActivity {
 
     private ApiManager apiManager;
@@ -22,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         apiManager = new ApiManager();
+
         // Definimos las referencias a los campos de entrada
         EditText etUsuario = findViewById(R.id.etUsuario);
         EditText etDni = findViewById(R.id.etDNI);
@@ -98,15 +98,13 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                 }
             });
-
         });
 
-
-    // Set up the login TextView click listener
-    tvIniciarSesion.setOnClickListener(v -> {
-        // Navigate to the login activity
-        Intent intent = new Intent(RegisterActivity.this, main_login.class);
-        startActivity(intent);
+        // Set up the login TextView click listener
+        tvIniciarSesion.setOnClickListener(v -> {
+            // Navigate to the login activity
+            Intent intent = new Intent(RegisterActivity.this, main_login.class);
+            startActivity(intent);
         });
     }
 }
