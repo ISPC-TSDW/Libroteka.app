@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/a_la_caza_de_jack_el_destripador" />
+        app:srcCompat="@drawable/id_10" />
 
     <TextView
         android:id="@+id/txtVerJack"

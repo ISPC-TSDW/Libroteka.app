@@ -20,3 +20,6 @@ local.properties
 .idea/other.xml
 gradle/libs.versions.toml
 .env
+__pycache__/
+/backend/env
+ Backend/.backendLibroteka-env/

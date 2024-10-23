@@ -5,16 +5,19 @@ from django.shortcuts import get_object_or_404
 from django.views import View
 from knox.models import AuthToken
 from rest_framework import viewsets, generics, permissions, status
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-# from rest_framework.permissions import IsAuthenticated
-
+from rest_framework.decorators import api_view, permission_classes
 
 from .serializer import *
 from .models import *
 from .utils import update_average_rating
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def vista_protegida(request):
+    return Response({'mensaje': 'Acceso concedido', 'user': request.UsersLibroteka.username})
 
 class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
