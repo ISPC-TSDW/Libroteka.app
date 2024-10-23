@@ -23,6 +23,8 @@ public class ApiManager {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful()) {
+                    String token = response.body().getAccess();  // Obtén el token de acceso
+                    saveToken(token);
                     callback.onSuccess(response.body());
                 } else {
                     callback.onFailure("Login failed: " + response.message());
@@ -35,6 +37,46 @@ public class ApiManager {
             }
         });
     }
+
+    private void saveToken(String token) {
+        // Guardar el token en SharedPreferences
+        context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                .edit()
+                .putString("jwt_token", "Bearer " + token) 
+                .apply();
+    }
+
+    // Método para acceder a una vista protegida usando el token JWT
+    public void getProtectedData(final ApiCallback<UserResponse> callback) {
+        String token = getToken();  // Obtener el token de SharedPreferences
+        Call<UserResponse> call = apiInterface.getUser(token);
+        
+        call.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                if (response.isSuccessful()) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onFailure("Access failed: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                callback.onFailure("Access failed: " + t.getMessage());
+            }
+        });
+    }
+
+    private String getToken() {
+        // Obtener el token de SharedPreferences
+        return context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                .getString("jwt_token", null);
+    }
+}
+
+
+
 
     public void registerUser(RegisterRequest registerRequest, final ApiCallback<RegisterResponse> callback) {
         // Make the call to the register API

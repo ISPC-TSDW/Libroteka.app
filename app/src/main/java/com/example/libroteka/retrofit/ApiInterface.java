@@ -13,12 +13,12 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     // Login Endpoint
-    @POST("api/login/")
+    @POST("api/token/")
     Call<UserResponse> loginUser(@Body LoginRequest loginRequest);
 
     // Get User Data
     @GET("api/users/")
-    Call<UserResponse> getUser();
+    Call<UserResponse> getUser(@Header("Authorization") String authToken);
 
     @POST("api/users/")
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
