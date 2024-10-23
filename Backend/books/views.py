@@ -127,7 +127,19 @@ class LoginAPI(APIView):
             except UsersLibroteka.DoesNotExist:
                 return Response({"message": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class UpdateUserAPI(APIView):
+    # TODO: Implementar update con usuario auth
+    def put(self, request):
+        try:
+            user = UsersLibroteka.objects.get(email=request.data.get('email'))
+        except UsersLibroteka.DoesNotExist:
+            return Response({'error': 'User not found.'}, status=404)
 
+        serializer = UserUpdateSerializer(user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class RoleListCreateAPIView(generics.ListCreateAPIView):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
