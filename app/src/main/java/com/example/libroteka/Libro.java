@@ -3,8 +3,7 @@ package com.example.libroteka;
 public class Libro {
     private final String titulo;
     private final int imagenResId;
-    private final String categoria; // Nuevo campo para categoría
-
+    private final String categoria; // Nuevo ca
     // Constructor que ahora incluye el parámetro de categoría
     public Libro(String titulo, int imagenResId, String categoria) {
         this.titulo = titulo;
@@ -24,6 +23,7 @@ public class Libro {
     public String getCategoria() {
         return categoria;
     }
+
 }
 
 

@@ -2,6 +2,7 @@ package com.example.libroteka;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.BookResponse;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -24,7 +27,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        getBooks();
         // Icono del perfil y listener para navegar a ProfileActivity
         ImageView profileImageView = findViewById(R.id.profileIcon);
         profileImageView.setOnClickListener(new View.OnClickListener() {
@@ -40,13 +43,6 @@ public class Home extends AppCompatActivity {
         listaCategorias.add(new Categoria("Aventura", R.drawable.ic_category_placeholder));
         listaCategorias.add(new Categoria("Fantasía", R.drawable.ic_category_placeholder));
 
-        // Lista de libros destacados
-        List<Libro> listaLibros = new ArrayList<>();
-        listaLibros.add(new Libro("El Instituto", R.drawable.el_instituto,"Suspenso"));
-        listaLibros.add(new Libro("El laberinto del Fauno", R.drawable.el_laberinto_del_fauno,"Suspenso"));
-        listaLibros.add(new Libro("El Visitante", R.drawable.el_visitante,"Suspenso"));
-        listaLibros.add(new Libro("Terapia", R.drawable.terapia,"Suspenso"));
-        listaLibros.add(new Libro("A la caza de Jack el destripador", R.drawable.a_la_caza_de_jack_el_destripador,"Terror"));
 
         // Inicializamos RecyclerView y BottomNavigationView
         RecyclerView rvCategorias = findViewById(R.id.rvCategorias);
@@ -59,7 +55,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onCategoriaClick(Categoria categoria) {
                 // Acción cuando se selecciona una categoría (mostrar libros relacionados)
-                mostrarLibrosPorCategoria(categoria);
+                goToCategories();
             }
         });
         rvCategorias.setAdapter(categoriasAdapter);
@@ -70,7 +66,7 @@ public class Home extends AppCompatActivity {
 
         // Configuramos el RecyclerView horizontal para libros destacados
         rvDestacados.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        rvDestacados.setAdapter(new LibrosAdapter(listaLibros));
+//        rvDestacados.setAdapter(new LibrosAdapter(listaLibros));
 
         // Menú de navegación inferior
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -94,29 +90,35 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Método para manejar el clic en la categoría y mostrar los libros relacionados
-    private void mostrarLibrosPorCategoria(Categoria categoria) {
-        List<Libro> librosFiltrados = new ArrayList<>();
 
-        // Filtrar libros según la categoría seleccionada
-        switch (categoria.getNombre()) {
-            case "Acción":
-                librosFiltrados.add(new Libro("Libro de Acción 1", R.drawable.ic_book_juegodetronos, "Acción"));
-                librosFiltrados.add(new Libro("Libro de Acción 2", R.drawable.ic_book_juegodetronos, "Acción"));
-                break;
-            case "Aventura":
-                librosFiltrados.add(new Libro("Libro de Aventura 1", R.drawable.ic_book_juegodetronos, "Aventura"));
-                librosFiltrados.add(new Libro("Libro de Aventura 2", R.drawable.ic_book_juegodetronos, "Aventura"));
-                break;
-            case "Fantasía":
-                librosFiltrados.add(new Libro("Libro de Fantasía 1", R.drawable.ic_book_juegodetronos, "Fantasía"));
-                librosFiltrados.add(new Libro("Libro de Fantasía 2", R.drawable.ic_book_juegodetronos, "Fantasía"));
-                break;
+    private void getBooks() {
+        ApiManager apiManager = new ApiManager();
+        apiManager.getBooks(new ApiManager.ApiCallback<List<BookResponse>>() {
+            @Override
+            public void onSuccess(List<BookResponse> response) {
+                // Update the list of books and refresh the RecyclerView
+                updateBooksList(response);
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // Log the error or show a message to the user
+                Log.e("API Error", errorMessage);
+            }
+        });
+    }
+    private void updateBooksList(List<BookResponse> bookList) {
+        // Create the list of Libro objects for the adapter
+        List<BookResponse> listaLibros = new ArrayList<>();
+        for (BookResponse book : bookList) {
+            listaLibros.add(new BookResponse(book.getId_Book(), book.getTitle(),book.getId_Author(),book.getId_Genre(),book.getId_Editorial(),book.getDescription(),book.getPrice(),book.getPrice(),book.getAvg_rating()));
         }
 
-        // Actualizamos el RecyclerView de los libros destacados
-        LibrosAdapter librosAdapter = new LibrosAdapter(librosFiltrados);
-        rvDestacados.setAdapter(librosAdapter);
+        // Update the RecyclerView adapter with the fetched books
+        runOnUiThread(() -> {
+            rvDestacados.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            rvDestacados.setAdapter(new BookAdapter(this, listaLibros));
+        });
     }
 
     // Método para navegar a la pantalla de categorías
