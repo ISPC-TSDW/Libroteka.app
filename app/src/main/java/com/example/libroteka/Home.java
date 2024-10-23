@@ -93,7 +93,7 @@ public class Home extends AppCompatActivity {
 
     private void getBooks() {
         ApiManager apiManager = new ApiManager();
-        apiManager.getBooks(new ApiManager.BookApiCallback<List<BookResponse>>() {
+        apiManager.getBooks(new ApiManager.ApiCallback<List<BookResponse>>() {
             @Override
             public void onSuccess(List<BookResponse> response) {
                 // Update the list of books and refresh the RecyclerView

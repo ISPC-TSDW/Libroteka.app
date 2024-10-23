@@ -65,12 +65,12 @@
 
             android:textAlignment="center"
             android:textColor="@color/bark"
-            app:layout_constraintEnd_toStartOf="@+id/favorito1"
+            app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
             app:layout_constraintStart_toStartOf="@+id/srcImg"
             app:layout_constraintTop_toBottomOf="@+id/srcImg" />
 
-        <ImageView
-            android:id="@+id/favorito1"
+        <ImageButton
+            android:id="@+id/btnFavorite"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:textAlignment="center"
