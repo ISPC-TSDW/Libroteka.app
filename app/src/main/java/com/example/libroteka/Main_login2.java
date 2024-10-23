@@ -112,7 +112,7 @@ public class Main_login2 extends AppCompatActivity {
 
     private void loginUser(String email, String password) {
         ApiManager apiManager = new ApiManager();
-        apiManager.loginUser(email, password, new ApiManager.ApiCallback<UserResponse>() {
+        apiManager.loginUser(email, password, new ApiManager.UserApiCallback<UserResponse>() {
             @Override
             public void onSuccess(UserResponse response) {
                 Intent intent = new Intent(Main_login2.this, Home.class);
