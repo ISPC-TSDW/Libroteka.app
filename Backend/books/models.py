@@ -156,7 +156,7 @@ class Order(models.Model):
     books_amount = models.IntegerField(blank=False)
 
     class Meta:
-        db_table= 'Order'
+        db_table= 'Orders'
         verbose_name = "Orden"
         verbose_name_plural = "Órdenes"
 

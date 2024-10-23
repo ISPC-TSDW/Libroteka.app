@@ -50,12 +50,12 @@ CREATE TABLE book (
     avg_rating FLOAT DEFAULT 0.0
 );
 
-CREATE TABLE order_status (
+CREATE TABLE OrderStatus (
     id_Order_Status SERIAL PRIMARY KEY,
     status VARCHAR(15) NOT NULL
 );
 
-CREATE TABLE users_libroteka (
+CREATE TABLE UsersLibroteka (
     email VARCHAR(254) PRIMARY KEY UNIQUE NOT NULL,
     username VARCHAR(30) UNIQUE NOT NULL,
     first_name VARCHAR(30) NOT NULL,
@@ -65,10 +65,10 @@ CREATE TABLE users_libroteka (
     is_active BOOLEAN DEFAULT TRUE
 );
 
-CREATE TABLE order_user (
+CREATE TABLE Orders (
     id_Order SERIAL PRIMARY KEY,
-    id_Order_Status INT REFERENCES order_status(id_Order_Status) ON DELETE CASCADE,
-    id_User VARCHAR(254) REFERENCES users_libroteka(email) ON DELETE CASCADE,
+    id_Order_Status INT REFERENCES OrderStatus(id_Order_Status) ON DELETE CASCADE,
+    id_User VARCHAR(254) REFERENCES UsersLibroteka(email) ON DELETE CASCADE,
     date TIMESTAMP NOT NULL,
     books JSON NOT NULL,
     total DECIMAL(10, 2) NOT NULL,
@@ -76,17 +76,18 @@ CREATE TABLE order_user (
 );
 
 CREATE TABLE favorite (
-    id_user VARCHAR(254) REFERENCES users_libroteka(email) ON DELETE CASCADE,
+    id_user VARCHAR(254) REFERENCES UsersLibroteka(email) ON DELETE CASCADE,
     id_book INT REFERENCES book(id_Book) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_user, id_book)
 );
 
 CREATE TABLE rating (
-    id_user VARCHAR(254) REFERENCES users_libroteka(email) ON DELETE CASCADE,
+    id_user VARCHAR(254) REFERENCES UsersLibroteka(email) ON DELETE CASCADE,
     id_book INT REFERENCES book(id_Book) ON DELETE CASCADE,
     rating SMALLINT CHECK (rating BETWEEN 1 AND 5),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_user, id_book)
 );
+
