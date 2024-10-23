@@ -58,7 +58,7 @@
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/id_11" />
+            app:srcCompat="@drawable/el_instituto" />
 
         <TextView
             android:id="@+id/txtVerInstituto"

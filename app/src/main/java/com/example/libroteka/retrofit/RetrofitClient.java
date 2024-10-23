@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://libroback.koyeb.app";
+    private static final String BASE_URL = "https://libroback.koyeb.app/";
 
     public static Retrofit getRetrofitInstance() {
         // Create a logging interceptor for monitoring requests and responses
