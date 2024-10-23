@@ -139,7 +139,24 @@ class UsersLibrotekaSerializer(serializers.ModelSerializer):
         validated_data['password'] = make_password(validated_data['password'])
         return super().create(validated_data)
     
-
+class UserUpdateSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(required=False)
+    last_name = serializers.CharField(required=False)
+    dni = serializers.CharField(required=False)
+    password = serializers.CharField(required=False, write_only=True)
+    is_active = serializers.BooleanField(required=False)
+    class Meta:
+        model = UsersLibroteka
+        fields = ['username', 'first_name', 'last_name', 'dni', 'email', 'password',  'is_active']
+        extra_kwargs = {
+            'email': {'read_only': True}, 
+            'password': {'write_only': True},
+        }
+    def update(self, instance, validated_data):
+        password = validated_data.pop('password', None)
+        if password:
+            instance.set_password(password)
+        return super().update(instance, validated_data)
 
 
 class LoginSerializer(serializers.Serializer):
