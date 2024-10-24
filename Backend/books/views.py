@@ -6,14 +6,15 @@ from django.views import View
 from knox.models import AuthToken
 from rest_framework import viewsets, generics, permissions, status
 from rest_framework.permissions import AllowAny, IsAuthenticated
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import (
     TokenBlacklistView,
     TokenObtainPairView,
     TokenRefreshView,
-    TokenVerifyView,
-)
+    TokenVerifyView)
 from drf_yasg.utils import swagger_auto_schema
 from .serializer import *
 from .models import *
@@ -153,8 +154,6 @@ class OrdersViewSet(viewsets.ModelViewSet):
 class LoginAPI(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
-        authentication_classes = [TokenAuthentication]  
-        permission_classes = [IsAuthenticated]
         if serializer.is_valid():
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
@@ -162,8 +161,13 @@ class LoginAPI(APIView):
                 user = UsersLibroteka.objects.get(email=email)
                 if not user.is_active:
                     return Response({"message": "User account is deactivated"}, status=status.HTTP_403_FORBIDDEN)
-                if check_password(password, user.password):
-                    return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
+                if user.check_password(password):
+                    refresh = RefreshToken.for_user(user)
+                    return Response({
+                        "message": "Login successful",
+                        "refresh": str(refresh),
+                        "access": str(refresh.access_token),
+                    }, status=status.HTTP_200_OK)
                 else:
                     return Response({"message": "Invalid password"}, status=status.HTTP_401_UNAUTHORIZED)
             except UsersLibroteka.DoesNotExist:
