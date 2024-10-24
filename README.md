@@ -7,6 +7,8 @@
 - Proyecto: Libroteka
 - Cohorte: 2022 - 2023
 
+### IMPORTANTE
+Al usar servicios gratuitos de Cloud Computing (Koyeb y Railway), estas instancias se configuraron para que cuando exista inactividad se SUSPENDEN. Es por ello que si no hay usuarios usando la app, la proxima interaccion (Login, Registro, etc) puede fallar. Basta de intentar nuevamente despues de unos segundos para solucionarlo.
 # Libroteka.app
 
 ## Introduccion 📖:
