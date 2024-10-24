@@ -6,9 +6,12 @@
     <color name="leaves">#506D2F</color>
     <color name="bark">#2A2922</color>
     <color name="marble">#FEEBDD</color>
+    <color name="light">#F8D1BF</color>
     <color name="brownstone">#7D5642</color>
+    <color name="beige">#A88374</color>
 
     <color name="bottom_nav_icon_color">#FF0000</color>
     <color name="bottom_nav_text_color">#FFFFFF</color>
+
 
 </resources>
