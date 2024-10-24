@@ -3,12 +3,15 @@ package com.example.libroteka;
 public class Libro {
     private final String titulo;
     private final int imagenResId;
-
-    public Libro(String titulo, int imagenResId) {
+    private final String categoria; // Nuevo ca
+    // Constructor que ahora incluye el parámetro de categoría
+    public Libro(String titulo, int imagenResId, String categoria) {
         this.titulo = titulo;
         this.imagenResId = imagenResId;
+        this.categoria = categoria;
     }
 
+    // Getters
     public String getTitulo() {
         return titulo;
     }
@@ -16,6 +19,12 @@ public class Libro {
     public int getImagenResId() {
         return imagenResId;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
 }
+
 
 

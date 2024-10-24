@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/marble"
     android:backgroundTint="@color/ic_google_background"
-    tools:context=".Producto_fauno_Activity">
+    tools:context=".ProductoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -17,10 +17,8 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/et_tituloprod"
@@ -32,7 +30,6 @@
             android:textColor="@color/bark"
             android:textSize="60sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,63 +41,71 @@
             android:layout_marginEnd="16dp"
             android:onClick="irPerfil"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/et_tituloprod"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon_login" />
 
         <ImageView
-            android:id="@+id/img_jack"
-            android:layout_width="354dp"
-            android:layout_height="523dp"
-            android:layout_marginTop="144dp"
-            app:layout_constraintBottom_toTopOf="@+id/txtVerFauno"
+            android:id="@+id/srcImg"
+            android:layout_width="184dp"
+            android:layout_height="304dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_tituloprod"
             app:srcCompat="@drawable/el_laberinto_del_fauno" />
 
         <TextView
-            android:id="@+id/txtVerFauno"
-            android:layout_width="178dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="178dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="178dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="@string/vermas"
+            android:id="@+id/txtTitle"
+            android:layout_width="151dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+
+            android:textAlignment="center"
             android:textColor="@color/bark"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_jack" />
+            app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
+            app:layout_constraintStart_toStartOf="@+id/srcImg"
+            app:layout_constraintTop_toBottomOf="@+id/srcImg" />
 
-        <ImageView
-            android:id="@+id/favorito1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="53dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtVerFauno"
-            app:srcCompat="@mipmap/ic_favorite_basic_round"/>
-
-        <ImageView
-            android:id="@+id/home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="52dp"
-            android:layout_marginBottom="53dp"
-            android:onClick="irHome"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/txtTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtVerFauno"
-            app:srcCompat="@mipmap/ic_home_basic" />
+            app:layout_constraintStart_toEndOf="@+id/txtTitle"
+            app:layout_constraintTop_toTopOf="@+id/txtTitle"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/ic_favorite_basic_round" />
+
+        <TextView
+            android:id="@+id/txtAuthor"
+            android:layout_width="185dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/bark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.561"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="334dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/bark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAuthor" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

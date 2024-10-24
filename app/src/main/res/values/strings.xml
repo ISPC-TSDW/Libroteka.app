@@ -23,9 +23,8 @@
     <string name="editar_perfil">Editar perfil</string>
     <string name="email_placeholder">masanchez@gmail.com</string>
     <string name="username_placeholder">Maria Sanchez</string>
-    <string name="tus_reseñas">Tus reseñas</string>
-    <string name="tus_favoritos">Tus favoritos</string>
     <string name="contacto">Contacto</string>
+    <string name="preguntas_frecuentes">Preguntas Frecuentes</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="go_to_profile">Ir al perfil</string>
     <string name="email_fab">Email</string>
@@ -51,5 +50,7 @@
     <string name="sinopsis_terapia"> Ni testigos ni pistas ni cadáver. Josy, la hija de doce años del conocido psiquiatra Viktor Larenz, desaparece en misteriosas circunstancias de la consulta del medico que la trata de una inexplicable dolencia. Cuatro años despues, Viktor, sumido en una profunda tristeza, se ha retirado a una remota casa en una isla del Mar del Norte. Allí lo localiza una hermosa desconocida que padece alucinaciones: ve constantemente a una niña pequeña, una niña que sufre una extraña enfermedad y que desaparece sin dejar rastro de la consulta del medico. Viktor inicia entonces un tratamiento con la desconocida, pero la terapia se convierte paulatinamente en un dramático interrogatorio. ¿Es posible lo inconcebible? ¿Describen los delirios de Anna los últimos días de Josy?</string>
     <string name="sinopsis_jackDestripador"> Audrey Rose Wadsworth, de diecisiete años, nació como la hija de un Lord, con toda una vida de riqueza y privilegios por delante. Pero entre las fiestas de té y los vestidos de seda lleva una vida secreta prohibida. En contra de los deseos de su severo padre y las expectativas de la sociedad, Audrey se escapa frecuentemente al laboratorio de su tío para estudiar la espantosa práctica de la medicina forense. Cuando su trabajo en una serie de cadáveres asesinados salvajemente la arrastra a la investigación de un asesino serial, su búsqueda de respuestas la llevará muy cerca de su propio mundo protegido.</string>
     <string name="vermas">Ver mas</string>
+    <string name="volver">Volver</string>
+
 
 </resources>

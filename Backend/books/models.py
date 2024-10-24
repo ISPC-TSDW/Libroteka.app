@@ -1,9 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.core.validators import RegexValidator
-from jsonfield import JSONField
-import json
-from django.conf import settings
+
 
 class User(AbstractUser):
     first_name = models.CharField(max_length=30)
@@ -85,7 +83,9 @@ class Book(models.Model):
     price= models.DecimalField(blank=False, decimal_places=2, max_digits=10)
     stock= models.IntegerField(blank=False, default=1000)
     id_Editorial = models.ForeignKey(Editorial, to_field='id_Editorial', on_delete=models.CASCADE, blank=True, null=True)
-    
+    avg_rating = models.FloatField(default=0.0, blank=True)
+
+
     class Meta:
         db_table= 'book'
         verbose_name = "Libro"
@@ -133,6 +133,8 @@ class UsersLibroteka(models.Model):
     dni = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')], unique=True)
     email = models.EmailField(primary_key=True, unique=True)
     password = models.CharField(max_length=128)
+    is_active = models.BooleanField(blank=False, default=True)
+
 
     
     class Meta:
@@ -152,13 +154,9 @@ class Order(models.Model):
     books = models.JSONField(default=list)
     total = models.DecimalField(blank=False, decimal_places=2, max_digits=10)
     books_amount = models.IntegerField(blank=False)
-    
-    # def save(self, *args, **kwargs):
-    #     # Serialize the list of books to JSON
-    #     self.books = json.dumps(list(self.books))
-    #     super().save(*args, **kwargs)
+
     class Meta:
-        db_table= 'Order'
+        db_table= 'Orders'
         verbose_name = "Orden"
         verbose_name_plural = "Órdenes"
 
@@ -167,3 +165,33 @@ class Order(models.Model):
 
     def __str__(self):
         return self.id_Order
+
+class Favorite(models.Model):
+    id_user = models.ForeignKey(UsersLibroteka, on_delete=models.CASCADE)
+    id_book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('id_user', 'id_book')
+        db_table = 'Favorite'
+        verbose_name = 'Favorito'
+        verbose_name_plural = 'Favoritos'
+
+    def __str__(self):
+        return f"{self.id_user} - {self.id_book.title}"
+
+class Rating(models.Model):
+    id_user = models.ForeignKey(UsersLibroteka, on_delete=models.CASCADE)
+    id_book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    rating = models.PositiveSmallIntegerField(choices=((1, '1 star'), (2, '2 stars'), (3, '3 stars'), (4, '4 stars'), (5, '5 stars')))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('id_user', 'id_book')
+        db_table = 'Rating'
+        verbose_name = 'Valoracion'
+        verbose_name_plural = 'Valoraciones'
+
+    def __str__(self):
+        return f"{self.id_user} - {self.id_book.title} - {self.rating} estrellas"

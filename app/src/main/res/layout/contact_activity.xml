@@ -1,92 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:androiid="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/marble">
 
+    <!-- App Name TextView -->
+
+    <!-- "Contact Us" TextView -->
+
+    <!-- Name Input EditText -->
+
+    <!-- Email Input EditText -->
 
     <TextView
-
-        android:id="@+id/titleText"
+        android:id="@+id/et_appname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contactanos"
+        android:fontFamily="@font/lobster"
+        android:text="@string/app_name"
         android:textColor="@color/bark"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_contacto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.2" />
 
-    <EditText
-        android:id="@+id/nameText"
+    <TextView
+        android:id="@+id/et_contacto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autofillHints=""
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Contáctanos"
+        android:textColor="@color/bark"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/et_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_appname"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
         android:ems="10"
-        android:gravity="center"
+        android:fontFamily="@font/roboto"
+        android:gravity="center|start"
         android:hint="Tu nombre"
         android:inputType="textPersonName"
         android:textColor="@color/bark"
         android:textColorHint="@color/bark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintTop_toBottomOf="@+id/et_contacto"
+        app:layout_constraintWidth_percent="0.8" />
 
     <EditText
         android:id="@+id/emailText"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
         android:hint="Ingresa un correo"
         android:inputType="textEmailAddress"
+        android:fontFamily="@font/roboto"
+        android:ems="10"
         android:textColor="@color/bark"
         android:textColorHint="@color/bark"
-        androiid:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/et_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <!-- Message Input EditText -->
+
+    <!-- Submit Button -->
+
+    <!-- Go Back Button -->
 
     <EditText
         android:id="@+id/descriptionText"
-        android:layout_width="216dp"
-        android:layout_height="132dp"
-        android:autofillHints=""
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="top|start"
         android:hint="Ingresa un mensaje..."
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
+        android:maxLines="10"
+        android:minLines="4"
+        android:scrollbars="vertical"
         android:textColor="@color/bark"
         android:textColorHint="@color/bark"
-        androiid:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/submitButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintTop_toBottomOf="@+id/emailText"
+        app:layout_constraintWidth_percent="0.8" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_rounded"
         android:text="Enviar"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionText"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/goBackButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
 
+    <Button
+        android:id="@+id/goBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_rounded"
+        android:text="@string/volver"
+        android:onClick="goBackToProfile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

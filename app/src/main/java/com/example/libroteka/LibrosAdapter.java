@@ -9,19 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class DestacadosAdapter extends RecyclerView.Adapter<DestacadosAdapter.ViewHolder> {
+public class LibrosAdapter extends RecyclerView.Adapter<LibrosAdapter.ViewHolder> {
 
     private final List<Libro> listaLibros;
 
     // Constructor para pasar la lista de libros
-    public DestacadosAdapter(List<Libro> listaLibros) {
+    public LibrosAdapter(List<Libro> listaLibros) {
         this.listaLibros = listaLibros;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_destacado, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_libro, parent, false);
         return new ViewHolder(view);
     }
 
@@ -48,5 +48,6 @@ public class DestacadosAdapter extends RecyclerView.Adapter<DestacadosAdapter.Vi
         }
     }
 }
+
 
 

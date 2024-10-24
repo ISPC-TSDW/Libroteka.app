@@ -2,67 +2,61 @@ package com.example.libroteka;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.LoginRequest;
+import com.example.libroteka.data.UserResponse;
 
 public class Main_login2 extends AppCompatActivity {
 
     private EditText emailEditText;
     private EditText passwordEditText;
+    private Button button;
+    private ApiManager apiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_login2);
 
-        //ref campos de entrada
+        apiManager = new ApiManager();
         emailEditText = findViewById(R.id.et_email);
         passwordEditText = findViewById(R.id.et_pass);
+        button = findViewById(R.id.button); // Asegúrate de que este ID sea correcto
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        button.setOnClickListener(v -> {
+            String email = emailEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
+
+            if (validateInputs(email, password)) {
+                loginUser(email, password);
+            }
         });
     }
 
-    //método para el btn crear cuenta
+    private void loginUser(String email, String password) {
+        LoginRequest loginRequest = new LoginRequest(email, password);
 
-    public void register (View view){
+        apiManager.loginUser(loginRequest, new ApiManager.ApiCallback<UserResponse>() {
+            @Override
+            public void onSuccess(UserResponse response) {
+                Toast.makeText(Main_login2.this, "Login exitoso!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Main_login2.this, Home.class);
+                startActivity(intent);
+                finish();
+            }
 
-        Intent register = new Intent(this, main_login.class);
-        startActivity(register);
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(Main_login2.this, "Login fallido: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    //evento para regresar a login
-
-    /*public void previo (View view){
-        Intent  previo = new Intent(this,main_login.class);
-        startActivity(previo);
-    } */
-
-
-    //método para el botón de inicio de sesión
-    public void onLoginClick(View view) {
-        String email = emailEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
-
-        if (validateInputs(email, password)) {
-            Intent inicio = new Intent(this, Home.class);
-            startActivity(inicio);
-        }
-    }
-
-    //método para validar las entradas de usuario
     private boolean validateInputs(String email, String password) {
         if (email.isEmpty()) {
             Toast.makeText(this, "El correo electrónico no puede estar vacío", Toast.LENGTH_SHORT).show();
@@ -80,27 +74,7 @@ public class Main_login2 extends AppCompatActivity {
             Toast.makeText(this, "La contraseña debe tener al menos 8 caracteres", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (!password.matches(".*[A-Z].*")) {
-            Toast.makeText(this, "La contraseña debe incluir al menos una letra mayúscula", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if (!password.matches(".*[0-9].*")) {
-            Toast.makeText(this, "La contraseña debe incluir al menos un número", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if (!password.matches(".*[!@#$%^&*+=?-].*")) {
-            Toast.makeText(this, "La contraseña debe incluir al menos un carácter especial (!@#$%^&*+=?-)", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+        // Añadir validaciones adicionales de contraseña aquí si es necesario.
         return true;
     }
-
-//metodo para el btn olvido contraseña
-
-    public void recuperarContraseña (View view){
-
-        Intent recuperarContraseña = new Intent(this, Main_forgotten.class);
-        startActivity(recuperarContraseña);
-    }
-
 }
