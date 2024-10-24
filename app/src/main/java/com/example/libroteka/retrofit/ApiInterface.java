@@ -48,8 +48,8 @@ public interface ApiInterface {
     @DELETE("api/favorites/")
     Call<Void> removeFavorite(@Body FavoriteRequest favoriteRequest);
 
-    @GET("api/favorites/{id_user}/")
-    Call<List<FavoriteRequest>> getFavorites();
+    @GET("api/favorites/")
+    Call<List<FavoriteRequest>> getFavorites(@Query("id_user") String userId);
 
     @GET("api/favorites/id_user={id_user}&id_book={id_book}")
     Call<Boolean> getFavoriteStatus(

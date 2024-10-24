@@ -82,8 +82,8 @@ public class ApiManager {
         });
     }
 
-    public void getFavorites(final ApiCallback<List<FavoriteRequest>> callback) {
-        Call<List<FavoriteRequest>> call = apiInterface.getFavorites();
+    public void getFavorites(String userId, final ApiCallback<List<FavoriteRequest>> callback) {
+        Call<List<FavoriteRequest>> call = apiInterface.getFavorites(userId);
 
         call.enqueue(new Callback<List<FavoriteRequest>>() {
             @Override

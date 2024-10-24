@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".data.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,6 +16,9 @@
         tools:targetApi="31">
         <activity
             android:name=".FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FavoritosActivity"
             android:exported="false" />
         <activity
             android:name=".Popup_verJackD"
