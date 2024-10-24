@@ -1,6 +1,6 @@
 package com.example.libroteka.data;
 
-
+import android.content.Context;
 
 public class BookResponse {
     private Integer id_Book;
@@ -24,6 +24,7 @@ public class BookResponse {
         this.price = price;
         this.avg_rating = avg_rating;
     }
+
     // Getters
     public Integer getId_Book() {
         return id_Book;
@@ -69,4 +70,14 @@ public class BookResponse {
         return avg_rating;
     }
 
+    // Generate the image resource name based on id_Book
+    public String getImageName() {
+        return "id_" + id_Book; // Example: id_1234
+    }
+
+    // You could add another method to get the resource ID (this is optional)
+    public int getImageResourceId(Context context) {
+        String imageName = getImageName();
+        return context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+    }
 }

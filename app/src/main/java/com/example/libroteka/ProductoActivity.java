@@ -5,6 +5,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,38 +21,58 @@ public class ProductoActivity extends AppCompatActivity {
     private boolean isFavorite = false; // Track favorite status
     private String userId; // Set this with the current user ID
     private Integer bookId; // Store the book ID from Intent
+    private ImageView imgBook; // Assuming you have an ImageView to display the book image
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto);
 
-        // Initialize your views
         txtTitle = findViewById(R.id.txtTitle);
         txtAuthor = findViewById(R.id.txtAuthor);
         txtDescription = findViewById(R.id.txtDescription);
-       ImageButton btnFavorite = findViewById(R.id.btnFavorite); // Ensure you have a button in your layout
+        ImageButton btnFavorite = findViewById(R.id.btnFavorite); // Ensure there's an ImageButton in your layout
+        imgBook = findViewById(R.id.srcImg); // Ensure you have an ImageView with this ID in your layout
 
-        // Get data from the Intent
+        // Retrieve data from the Intent
         Intent intent = getIntent();
         if (intent != null) {
+            // Retrieve the data passed from the previous activity
             String title = intent.getStringExtra("title");
             String author = intent.getStringExtra("author");
             String description = intent.getStringExtra("description");
-            bookId = intent.getIntExtra("book_id", -1); // Store the book ID
-            userId = "libroReg@gmail.com"; // Get this dynamically as needed
+            Float price = intent.getFloatExtra("price", 0.0f);
+            Float avgRating = intent.getFloatExtra("avg_rating", 0.0f);
+            bookId = intent.getIntExtra("book_id", -1);  // Store the book ID from the intent
+            userId = "libroReg@gmail.com"; // You can dynamically set this to the actual user if necessary
 
-            // Set data to the views
-            txtTitle.setText(title);
-            txtAuthor.setText(author);
-            txtDescription.setText(description);
+            // Get the image resource ID
+            int imageResId = intent.getIntExtra("image_res_id", -1);
+
+            // Set the book image if available
+            if (imageResId != -1) {
+                imgBook.setImageResource(imageResId);
+            } else {
+                imgBook.setImageResource(R.drawable.ic_book_dracula); // Set a default image if no image is found
+            }
+
+            // Set the book details to the corresponding TextViews
+            txtTitle.setText(title != null ? title : "Unknown Title");
+            txtAuthor.setText(author != null ? author : "Unknown Author");
+            txtDescription.setText(description != null ? description : "No description available");
+
+            // You can display the price and rating somewhere in the UI if needed
+            // Example: txtPrice.setText("$" + price.toString());
+            // Example: txtRating.setText(avgRating.toString());
         }
 
         // Initialize the ApiManager
         apiManager = new ApiManager();
-        getFavoriteStatus();
+        getFavoriteStatus(); // Check if the book is already in favorites
+
         // Set up favorite button click listener
-        btnFavorite.setOnClickListener(v -> toggleFavorite());
+        btnFavorite.setOnClickListener(v -> toggleFavorite()); // Toggle favorite status when clicked
     }
 
     private void getFavoriteStatus() {
