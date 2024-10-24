@@ -38,14 +38,30 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         BookResponse book = listaLibros.get(position);
+
+        // Dynamically get the resource ID for the image
+        int imageResId = context.getResources().getIdentifier(
+                "id_" + book.getId_Book(), "drawable", context.getPackageName());
+
+        // Set the book title
         holder.tvTitulo.setText(book.getTitle());
-        holder.ivImagen.setImageResource(R.drawable.ic_book_dracula);  // Static image, you can customize it
+
+        // If the resource ID is valid, set the image resource
+        if (imageResId != 0) {  // Check if the resource ID is found
+            holder.ivImagen.setImageResource(imageResId);
+        } else {
+            // Use a default image if the resource ID is not found
+            holder.ivImagen.setImageResource(R.drawable.ic_book_dracula);
+        }
+
+        // Set the price or a default value
         if (book.getPrice() != null) {
             holder.tvPrice.setText("$" + book.getPrice().toString());
         } else {
             holder.tvPrice.setText("N/A");  // Set a default value
         }
 
+        // Set up the click listener to pass data to ProductoActivity
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductoActivity.class);
             intent.putExtra("book_id", book.getId_Book());
@@ -56,6 +72,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             intent.putExtra("description", book.getDescription());
             intent.putExtra("price", book.getPrice());
             intent.putExtra("avg_rating", book.getAvg_rating());
+            intent.putExtra("image_res_id", imageResId);  // Pass the image resource ID
+
             context.startActivity(intent);
         });
     }
