@@ -21,7 +21,7 @@
             android:exported="false"
             android:theme="@style/AppTheme.TemaPopup" />
         <activity
-            android:name=".Producto_Jack_destripador"
+            android:name=".ProductoActivity"
             android:exported="false" />
         <activity
             android:name=".Popup_verTerapia"

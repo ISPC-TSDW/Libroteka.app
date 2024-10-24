@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvDestacados"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_libro"
+        tools:listitem="@layout/item_destacado"
         android:orientation="horizontal"/>
 
     <!-- Barra de navegación inferior -->
