@@ -23,7 +23,6 @@ public class RegisterActivity extends AppCompatActivity {
         apiManager = new ApiManager();
 
         // Definimos las referencias a los campos de entrada
-        EditText etUsuario = findViewById(R.id.etUsuario);
         EditText etDni = findViewById(R.id.etDNI);
         EditText etApellido = findViewById(R.id.etApellido);
         EditText etNombre = findViewById(R.id.etNombre);
@@ -34,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Configuramos el botón de registro
         btnRegistrar.setOnClickListener(v -> {
-            String usuario = etUsuario.getText().toString().trim();
+            String usuario = etCorreo.getText().toString().trim();
             String nombre = etNombre.getText().toString().trim();
             String apellido = etApellido.getText().toString().trim();
             String dni = etDni.getText().toString().trim();
