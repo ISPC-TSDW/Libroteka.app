@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    >
 
     <RadioGroup
         android:id="@+id/radioGroupCategorias"
@@ -14,25 +15,30 @@
             android:id="@+id/radioButtonDrama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Drama" />
+            android:text="Drama"
+            style="@style/CustomAlertDialog"
+            />
 
         <RadioButton
             android:id="@+id/radioButtonSuspenso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Suspenso" />
+            android:text="Suspenso"
+            style="@style/CustomAlertDialog"/>
 
         <RadioButton
             android:id="@+id/radioButtonFantasia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fantasía" />
+            android:text="Fantasía"
+            style="@style/CustomAlertDialog"/>
 
         <RadioButton
             android:id="@+id/radioButtonJuvenil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Juvenil" />
+            android:text="Juvenil"
+            style="@style/CustomAlertDialog"/>
 
     </RadioGroup>
 </LinearLayout>

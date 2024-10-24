@@ -8,6 +8,7 @@
     android:padding="60dp"
     tools:context=".EditProfileActivity">
 
+
     <TextView
         android:id="@+id/userName"
         android:layout_width="337dp"
@@ -29,22 +30,25 @@
         android:layout_marginTop="196dp"
         android:hint="@string/nombre_de_usuario"
         android:inputType="textPersonName"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/formtext"
+        />
 
     <Button
         android:id="@+id/cancelButton"
         style="@style/buttonStyle"
-        android:layout_width="115dp"
+        android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="88dp"
-        android:background="@color/marble"
+        android:layout_marginTop="80dp"
+
         android:text="@string/cancelar"
-        android:textColor="@color/brownstone"
+        android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailEditText" />
@@ -52,9 +56,9 @@
     <Button
         android:id="@+id/saveButton"
         style="@style/buttonStyle"
-        android:layout_width="157dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+
         android:layout_marginTop="20dp"
         android:text="@string/guardar"
         android:textSize="16sp"
@@ -68,10 +72,13 @@
         android:layout_marginTop="32dp"
         android:hint="@string/correo_electr_nico"
         android:inputType="textEmailAddress"
-        android:textColor="@color/black"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameEditText" />
+        app:layout_constraintTop_toBottomOf="@id/usernameEditText"
+        android:background="@drawable/formtext"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

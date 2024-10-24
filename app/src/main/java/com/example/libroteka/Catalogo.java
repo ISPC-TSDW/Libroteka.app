@@ -7,6 +7,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,7 @@ public class Catalogo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
+
 
         // Icono del perfil y listener para navegar a ProfileActivity
         ImageView profileImageView = findViewById(R.id.icon_profile);
@@ -150,10 +155,10 @@ public class Catalogo extends AppCompatActivity {
 
     // Método para mostrar el diálogo de filtro de categorías
     private void mostrarFiltroCategorias() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialog);
         builder.setTitle("Seleccionar Categoría");
 
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_filtro_categorias, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_filtro_categorias,  null);
         builder.setView(dialogView);
 
         RadioGroup radioGroup = dialogView.findViewById(R.id.radioGroupCategorias);
