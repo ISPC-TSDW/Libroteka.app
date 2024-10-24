@@ -36,9 +36,9 @@ public class Home extends AppCompatActivity {
 
         // Lista de categorías
         List<Categoria> listaCategorias = new ArrayList<>();
-        listaCategorias.add(new Categoria("Acción", R.drawable.ic_category_placeholder));
-        listaCategorias.add(new Categoria("Aventura", R.drawable.ic_category_placeholder));
-        listaCategorias.add(new Categoria("Fantasía", R.drawable.ic_category_placeholder));
+        listaCategorias.add(new Categoria("Acción", R.drawable.accion));
+        listaCategorias.add(new Categoria("Aventura", R.drawable.aventura));
+        listaCategorias.add(new Categoria("Fantasía", R.drawable.fantasia));
 
         // Lista de libros destacados
         List<Libro> listaLibros = new ArrayList<>();
