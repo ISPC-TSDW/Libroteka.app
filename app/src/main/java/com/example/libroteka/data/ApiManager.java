@@ -47,24 +47,37 @@ public class ApiManager {
                     callback.onSuccess(response.body());
                 } else {
                     callback.onFailure("Hubo un error al intentar recuperar los libros: " + response.message());
-
-    public void registerUser(RegisterRequest registerRequest, final ApiCallback<RegisterResponse> callback) {
-        Call<RegisterResponse> call = apiInterface.registerUser(registerRequest);
-
-        call.enqueue(new Callback<RegisterResponse>() {
-            @Override
-            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    callback.onSuccess(response.body());
-                } else {
-                    callback.onFailure("Registro fallido: " + response.message());
                 }
             }
 
             @Override
-
             public void onFailure(Call<List<BookResponse>> call, Throwable t) {
                 callback.onFailure("Hubo un error al intentar recuperar los libros: " + t.getMessage());
+            }
+        });
+    }
+
+    public void registerUser(RegisterRequest registerRequest, final ApiCallback<RegisterResponse> callback) {
+        // Make the call to the register API
+        Call<RegisterResponse> call = apiInterface.registerUser(registerRequest);
+
+        // Handle the API response asynchronously
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    // Registration successful, return the success callback
+                    callback.onSuccess(response.body());
+                } else {
+                    // Registration failed, return the failure callback
+                    callback.onFailure("Registration failed: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                // Handle the error during the call (e.g., network issue)
+                callback.onFailure("Registration failed: " + t.getMessage());
             }
         });
     }
@@ -152,9 +165,6 @@ public class ApiManager {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 callback.onFailure("Toggle favorite failed: " + t.getMessage());
-
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                callback.onFailure("Registro fallido: " + t.getMessage());
             }
         });
     }
