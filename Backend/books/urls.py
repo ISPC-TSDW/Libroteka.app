@@ -28,6 +28,8 @@ urlpatterns = [
     path('favorites/<int:pk>/', DeleteFavoriteView.as_view(), name='delete_favorite'),
     path('ratings/', RatingManageView.as_view(), name='post_rating'),
     path('ratings/<int:pk>/', ModifyRatingView.as_view(), name='modify_rating'),
+    path('user/update/', UpdateUserAPI.as_view(), name='user-update'),
+
 
 
     path('', include(router.urls)),

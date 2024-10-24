@@ -1,10 +1,8 @@
 package com.example.libroteka.data;
 
-public class RegisterResponse {
+public class UpdateResponse {
     private String message;
     public String getMessage() {
         return message;
     }
 }
-
-

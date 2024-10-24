@@ -8,15 +8,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.RegisterRequest;
+import com.example.libroteka.data.RegisterResponse;
+
 public class RegisterActivity extends AppCompatActivity {
+
+    private ApiManager apiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        apiManager = new ApiManager();
 
         // Definimos las referencias a los campos de entrada
-        EditText etUsuario = findViewById(R.id.etUsuario);
         EditText etDni = findViewById(R.id.etDNI);
         EditText etApellido = findViewById(R.id.etApellido);
         EditText etNombre = findViewById(R.id.etNombre);
@@ -27,11 +33,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Configuramos el botón de registro
         btnRegistrar.setOnClickListener(v -> {
-            String usuario = etUsuario.getText().toString().trim();
+            String usuario = etCorreo.getText().toString().trim();
             String nombre = etNombre.getText().toString().trim();
-            String correo = etCorreo.getText().toString().trim();
             String apellido = etApellido.getText().toString().trim();
             String dni = etDni.getText().toString().trim();
+            String correo = etCorreo.getText().toString().trim();
             String contrasena = etContrasena.getText().toString().trim();
 
             // Validamos los campos
@@ -75,13 +81,27 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             // Aquí enviamos los datos a una base de datos o backend
-            Toast.makeText(RegisterActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+            RegisterRequest registerRequest = new RegisterRequest(usuario, nombre, apellido, dni, contrasena, correo);
+
+            apiManager.registerUser(registerRequest, new ApiManager.ApiCallback<RegisterResponse>() {
+                @Override
+                public void onSuccess(RegisterResponse response) {
+                    Toast.makeText(RegisterActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                    // Navigate to login activity after successful registration
+                    Intent intent = new Intent(RegisterActivity.this, main_login.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(String errorMessage) {
+                    Toast.makeText(RegisterActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                }
+            });
         });
 
-
-        // Si hacemos clic en "Iniciar sesión"
+        // Set up the login TextView click listener
         tvIniciarSesion.setOnClickListener(v -> {
-            // Navegamos a la actividad de inicio de sesión
+            // Navigate to the login activity
             Intent intent = new Intent(RegisterActivity.this, main_login.class);
             startActivity(intent);
         });
