@@ -35,21 +35,22 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+        apiManager = new ApiManager();
         // Inicializar los campos del formulario
-        etEditarUsuario = findViewById(R.id.etEditarUsuario);
+        etEditarUsuario = findViewById(R.id.etEditarCorreo);
+        etEditarCorreo = findViewById(R.id.etEditarCorreo);
         etEditarNombre = findViewById(R.id.etEditarNombre);
         etEditarApellido = findViewById(R.id.etEditarApellido);
         etEditarDNI = findViewById(R.id.etEditarDNI);
         etEditarContrasena = findViewById(R.id.etEditarContrasena);
-        etEditarCorreo = findViewById(R.id.etEditarCorreo);
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
 
-        String currentUsername = "user123"; // Example username, get it dynamically as needed
+        String currentUsername = "pruebita@gmail.com"; // Example username, get it dynamically as needed
         apiManager.getUser(currentUsername, new ApiManager.ApiCallback<GetUserResponse>() {
             @Override
             public void onSuccess(GetUserResponse response) {
-                etEditarUsuario.setText(response.getUsername());
+                etEditarUsuario.setText(response.getEmail());
                 etEditarCorreo.setText(response.getEmail());
                 etEditarNombre.setText(response.getFirstName());
                 etEditarApellido.setText(response.getLastName());
@@ -97,7 +98,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // Create an UpdateProfileRequest object
-                                UpdateProfileRequest updateRequest = new UpdateProfileRequest(email, firstName, lastName, password, dni, username);
+                                UpdateProfileRequest updateRequest = new UpdateProfileRequest(email, firstName, lastName, dni, username);
 
                                 // Call the updateUserProfile method from ApiManager
                                 apiManager.updateUserProfile(updateRequest, new ApiManager.ApiCallback<UpdateResponse>() {
@@ -169,11 +170,11 @@ public class EditProfileActivity extends AppCompatActivity {
         String currentEmail = etEditarCorreo.getText().toString().trim();
 
         // Verificar si los campos están vacíos
-        if (currentUsername.isEmpty()) {
-            saveButton.setEnabled(false);
-            Toast.makeText(this, "El nombre de usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        //if (currentUsername.isEmpty()) {
+        //    saveButton.setEnabled(false);
+        //    Toast.makeText(this, "El nombre de usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
+        //    return;
+        //}
 
         if (currentEmail.isEmpty()) {
             saveButton.setEnabled(false);
@@ -200,7 +201,7 @@ public class EditProfileActivity extends AppCompatActivity {
         String emailApi = obtenerEmailDesdeAPI(); // Simula obtener el correo
 
         // Asigna los datos a los EditText
-        etEditarUsuario.setText(usernameApi);
+        //etEditarUsuario.setText(usernameApi);
         etEditarCorreo.setText(emailApi);
         etEditarNombre.setText(usernameApi);
         etEditarApellido.setText(usernameApi);

@@ -79,7 +79,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/editar_perfil"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/userEmail" />
@@ -105,7 +105,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/contacto"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/faqButton" />
@@ -119,7 +119,7 @@
                 android:onClick="previo"
                 android:text="@string/cerrar_sesi_n"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
@@ -127,12 +127,12 @@
             <Button
                 android:id="@+id/goBackButton"
                 style="@style/buttonStyle"
-                android:layout_width="113dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/volver"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/logoutButton" />
