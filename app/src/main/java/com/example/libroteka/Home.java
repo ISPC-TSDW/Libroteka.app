@@ -129,7 +129,8 @@ public class Home extends AppCompatActivity {
 
     // Método para navegar a la pantalla de favoritos (agregar cuando esté lista)
     private void goToFavorites() {
-        // Agregar cuando esté lista la pantalla de favoritos
+        Intent intent = new Intent(Home.this, FavoritosActivity.class); // Asegúrate que tienes ProfileActivity creada
+        startActivity(intent);
     }
 }
 

@@ -9,6 +9,8 @@ public class FavoriteRequest {
             this.id_book = id_book;
         }
 
-        // Getters and Setters (if needed)
+    public Integer getId_book() {
+            return id_book;
+    }
 
 }
