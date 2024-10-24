@@ -35,16 +35,17 @@
         android:layout_marginTop="200dp"
         android:fontFamily="@font/roboto"
         android:hint="Nombre"
+        android:padding="16dp"
         android:inputType="textPersonName"
-        android:textColor="@android:color/black"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/bark"
-        android:textColorLink="@color/bark"
-        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/formtext"/>
 
     <EditText
         android:id="@+id/etApellido"
@@ -53,16 +54,18 @@
         android:layout_marginTop="260dp"
         android:fontFamily="@font/roboto"
         android:hint="Apellido"
+        android:padding="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="textPersonName"
-        android:textColor="@android:color/black"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/bark"
         android:textColorLink="@color/bark"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/formtext"/>
 
     <EditText
         android:id="@+id/etDNI"
@@ -71,16 +74,18 @@
         android:layout_marginTop="320dp"
         android:fontFamily="@font/roboto"
         android:hint="DNI"
+        android:padding="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="number"
-        android:textColor="@android:color/black"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/bark"
         android:textColorLink="@color/bark"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/formtext"/>
 
     <TextView
         android:id="@+id/tvIniciarSesion"
@@ -90,7 +95,7 @@
         android:fontFamily="@font/roboto"
         android:text="Ya tengo cuenta. Iniciar sesión"
         android:textColor="@color/brownstone"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +110,7 @@
         android:fontFamily="@font/roboto"
         android:text="Registrar"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,16 +123,18 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/roboto"
         android:hint="Contraseña"
+        android:padding="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="textPassword"
-        android:textColor="@android:color/black"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/bark"
         android:textColorLink="@color/bark"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etCorreo" />
+        app:layout_constraintTop_toBottomOf="@id/etCorreo"
+        android:background="@drawable/formtext"/>
 
     <EditText
         android:id="@+id/etCorreo"
@@ -136,16 +143,18 @@
         android:layout_marginTop="124dp"
         android:fontFamily="@font/roboto"
         android:hint="Correo Electrónico"
+        android:padding="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="textEmailAddress"
-        android:textColor="@android:color/black"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/bark"
         android:textColorLink="@color/bark"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
+        android:background="@drawable/formtext"/>
 
     <!-- Campo de entrada para la Contraseña -->
 
