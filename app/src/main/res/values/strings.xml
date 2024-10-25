@@ -51,6 +51,8 @@
     <string name="sinopsis_jackDestripador"> Audrey Rose Wadsworth, de diecisiete años, nació como la hija de un Lord, con toda una vida de riqueza y privilegios por delante. Pero entre las fiestas de té y los vestidos de seda lleva una vida secreta prohibida. En contra de los deseos de su severo padre y las expectativas de la sociedad, Audrey se escapa frecuentemente al laboratorio de su tío para estudiar la espantosa práctica de la medicina forense. Cuando su trabajo en una serie de cadáveres asesinados salvajemente la arrastra a la investigación de un asesino serial, su búsqueda de respuestas la llevará muy cerca de su propio mundo protegido.</string>
     <string name="vermas">Ver mas</string>
     <string name="volver">Volver</string>
+    <string name="mis_favoritos">Mis Favoritos</string>
+    <string name="delete_button">Quitar de favoritos</string>
 
 
 </resources>

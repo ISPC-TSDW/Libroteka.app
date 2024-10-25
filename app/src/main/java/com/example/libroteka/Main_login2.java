@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.LoginRequest;
+import com.example.libroteka.data.MyApp;
 import com.example.libroteka.data.UserResponse;
 
 public class Main_login2 extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class Main_login2 extends AppCompatActivity {
     private EditText passwordEditText;
     private Button button;
     private ApiManager apiManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,8 @@ public class Main_login2 extends AppCompatActivity {
         apiManager.loginUser(loginRequest, new ApiManager.ApiCallback<UserResponse>() {
             @Override
             public void onSuccess(UserResponse response) {
+                MyApp app = (MyApp) getApplicationContext();
+                app.setUserEmail(email);
                 Toast.makeText(Main_login2.this, "Login exitoso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Main_login2.this, Home.class);
                 startActivity(intent);

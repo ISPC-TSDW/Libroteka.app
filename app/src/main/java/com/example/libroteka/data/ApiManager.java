@@ -82,8 +82,8 @@ public class ApiManager {
         });
     }
 
-    public void getFavorites(final ApiCallback<List<FavoriteRequest>> callback) {
-        Call<List<FavoriteRequest>> call = apiInterface.getFavorites();
+    public void getFavorites(String userId, final ApiCallback<List<FavoriteRequest>> callback) {
+        Call<List<FavoriteRequest>> call = apiInterface.getFavorites(userId);
 
         call.enqueue(new Callback<List<FavoriteRequest>>() {
             @Override
@@ -148,9 +148,8 @@ public class ApiManager {
         });
     }
 
-    public void removeFavorite(String userId, Integer bookId, final ApiCallback<Void> callback) {
-        FavoriteRequest favoriteRequest = new FavoriteRequest(userId, bookId);
-        Call<Void> call = apiInterface.toggleFavorite(favoriteRequest);
+    public void removeFavorite(Integer favId, final ApiCallback<Void> callback) {
+        Call<Void> call = apiInterface.removeFavorite(favId);
 
         call.enqueue(new Callback<Void>() {
             @Override
