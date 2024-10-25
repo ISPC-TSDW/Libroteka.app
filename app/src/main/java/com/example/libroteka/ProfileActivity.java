@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.MyApp;
 import com.example.libroteka.data.GetUserResponse;
 import com.example.libroteka.data.GetUserRequest;
 
@@ -30,13 +31,22 @@ public class ProfileActivity extends AppCompatActivity {
         Button logoutButton = findViewById(R.id.logoutButton);
         Button goBackButton = findViewById(R.id.goBackButton);
         TextView emailTextView = findViewById(R.id.userEmail);
+        TextView fullNameTextView = findViewById(R.id.userFullName);
+
+
 
         apiManager = new ApiManager();
-        String email = getIntent().getStringExtra("email");
-        apiManager.getUser(email, new ApiManager.ApiCallback<GetUserResponse>() {
+        MyApp app = (MyApp) getApplicationContext();
+        String userEmail = app.getUserEmail();
+
+        apiManager.getUser(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
                 @Override
                 public void onSuccess(GetUserResponse response) {
+                    String fullName = response.getFirstName() + " " + response.getLastName();
+
                     emailTextView.setText(response.getEmail());
+                    fullNameTextView.setText(fullName);
+
                 };
                 @Override
                 public void onFailure(String errorMessage) {

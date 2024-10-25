@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.GetUserResponse;
+import com.example.libroteka.data.MyApp;
 import com.example.libroteka.data.UpdateProfileRequest;
 import com.example.libroteka.data.UpdateResponse;
 
@@ -28,7 +29,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private EditText etEditarNombre;
     private EditText etEditarApellido;
     private EditText etEditarDNI;
-    private EditText etEditarContrasena;
     private EditText etEditarCorreo;
 
     @Override
@@ -36,21 +36,23 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         apiManager = new ApiManager();
+        MyApp app = (MyApp) getApplicationContext();
+        String userEmail = app.getUserEmail();
         // Inicializar los campos del formulario
-        etEditarUsuario = findViewById(R.id.etEditarCorreo);
+        etEditarUsuario = findViewById(R.id.etEditarUsuario);
         etEditarCorreo = findViewById(R.id.etEditarCorreo);
         etEditarNombre = findViewById(R.id.etEditarNombre);
         etEditarApellido = findViewById(R.id.etEditarApellido);
         etEditarDNI = findViewById(R.id.etEditarDNI);
-        etEditarContrasena = findViewById(R.id.etEditarContrasena);
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
 
-        String currentUsername = "pruebita@gmail.com"; // Example username, get it dynamically as needed
-        apiManager.getUser(currentUsername, new ApiManager.ApiCallback<GetUserResponse>() {
+
+        // Example username, get it dynamically as needed
+        apiManager.getUser(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
             @Override
             public void onSuccess(GetUserResponse response) {
-                etEditarUsuario.setText(response.getEmail());
+                etEditarUsuario.setText(response.getUsername());
                 etEditarCorreo.setText(response.getEmail());
                 etEditarNombre.setText(response.getFirstName());
                 etEditarApellido.setText(response.getLastName());
@@ -67,7 +69,7 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 
         // Cargar los datos del usuario
-        cargarData();
+//        cargarData();
 
         // Deshabilitar el botón de guardar al inicio
 //        saveButton.setEnabled(false);
@@ -78,7 +80,6 @@ public class EditProfileActivity extends AppCompatActivity {
         etEditarNombre.addTextChangedListener(textWatcher);
         etEditarApellido.addTextChangedListener(textWatcher);
         etEditarDNI.addTextChangedListener(textWatcher);
-        etEditarContrasena.addTextChangedListener(textWatcher);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +88,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 String email = etEditarCorreo.getText().toString().trim();
                 String firstName = etEditarNombre.getText().toString().trim();
                 String lastName = etEditarApellido.getText().toString().trim();
-                String password = etEditarContrasena.getText().toString().trim();
                 String dni = etEditarDNI.getText().toString().trim();
 
 
@@ -195,19 +195,18 @@ public class EditProfileActivity extends AppCompatActivity {
         saveButton.setEnabled(isChanged);
     }
 
-    private void cargarData() {
-        // Simular la carga de datos desde el backend
-        String usernameApi = obtenerUsernameDesdeAPI(); // Simula obtener el nombre
-        String emailApi = obtenerEmailDesdeAPI(); // Simula obtener el correo
-
-        // Asigna los datos a los EditText
-        //etEditarUsuario.setText(usernameApi);
-        etEditarCorreo.setText(emailApi);
-        etEditarNombre.setText(usernameApi);
-        etEditarApellido.setText(usernameApi);
-        etEditarDNI.setText(usernameApi);
-        etEditarContrasena.setText(usernameApi);
-    }
+//    private void cargarData() {
+//        // Simular la carga de datos desde el backend
+//        String usernameApi = obtenerUsernameDesdeAPI(); // Simula obtener el nombre
+//        String emailApi = obtenerEmailDesdeAPI(); // Simula obtener el correo
+//
+//        // Asigna los datos a los EditText
+//        //etEditarUsuario.setText(usernameApi);
+//        etEditarCorreo.setText(emailApi);
+//        etEditarNombre.setText(usernameApi);
+//        etEditarApellido.setText(usernameApi);
+//        etEditarDNI.setText(usernameApi);
+//    }
     private String obtenerUsernameDesdeAPI() {
         return "NombreDeUsuarioReal"; // Simulación de respuesta de API
     }
