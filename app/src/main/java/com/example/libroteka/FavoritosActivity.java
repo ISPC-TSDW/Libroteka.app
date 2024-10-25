@@ -1,5 +1,6 @@
 package com.example.libroteka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.FavoriteRequest;
 import com.example.libroteka.data.MyApp;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,22 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritesAda
 
         // Fetch the favorites
         fetchFavorites(userId);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_favorites) {
+                return true;
+            } else if (id == R.id.navigation_categories) {
+                goToCategories(); // Navegar a la pantalla de categorías
+                return true;
+            } else if (id == R.id.navigation_home) {
+                goToHome();
+                return true;
+            }
+            return false;
+        });
     }
 
     private void fetchFavorites(String userId) {
@@ -102,4 +119,16 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritesAda
             }
         });
     }
+
+    private void goToCategories() {
+        Intent intent = new Intent(FavoritosActivity.this, Catalogo.class); // Asegúrate de tener Catalogo.java creado
+        startActivity(intent);
+    }
+
+    // Método para navegar a la pantalla de favoritos (agregar cuando esté lista)
+    private void goToHome() {
+        Intent intent = new Intent(FavoritosActivity.this, Home.class); // Asegúrate que tienes ProfileActivity creada
+        startActivity(intent);
+    }
+
 }
