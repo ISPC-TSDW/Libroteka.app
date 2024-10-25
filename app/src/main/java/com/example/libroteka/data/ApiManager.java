@@ -187,8 +187,8 @@ public class ApiManager {
             }
         });
     }
-    public void getUser(String username, final ApiCallback<GetUserResponse> callback) {
-        Call<GetUserResponse> call = apiInterface.getUser(username);
+    public void getUser(String email, final ApiCallback<GetUserResponse> callback) {
+        Call<GetUserResponse> call = apiInterface.getUser(email);
 
         call.enqueue(new Callback<GetUserResponse>() {
             @Override
