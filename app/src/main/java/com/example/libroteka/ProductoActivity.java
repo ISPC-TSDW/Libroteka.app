@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -92,35 +93,22 @@ public class ProductoActivity extends AppCompatActivity {
 
 
     private void toggleFavorite() {
-        if (isFavorite) {
-            // Call API to remove from favorites
-            apiManager.removeFavorite(userId, bookId, new ApiManager.ApiCallback<Void>() {
-                @Override
-                public void onSuccess(Void response) {
-                    isFavorite = false; // Update favorite status
-                    updateFavoriteIcon(); // Change the icon to outline
-                }
 
-                @Override
-                public void onFailure(String errorMessage) {
-                    // Handle the error appropriately (e.g., show a toast)
-                }
-            });
-        } else {
-            // Call API to add to favorites
             apiManager.toggleFavorite(userId, bookId, new ApiManager.ApiCallback<Void>() {
                 @Override
                 public void onSuccess(Void response) {
                     isFavorite = true; // Update favorite status
-                    updateFavoriteIcon(); // Change the icon to filled
+                    updateFavoriteIcon();
+                    Toast.makeText(ProductoActivity.this, "Agregado a Favoritos", Toast.LENGTH_SHORT).show();
+
                 }
 
                 @Override
                 public void onFailure(String errorMessage) {
-                    // Handle the error appropriately (e.g., show a toast)
+                    Toast.makeText(ProductoActivity.this, "Ya tienes este libro en favoritos", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
+
     }
 
     private void updateFavoriteIcon() {

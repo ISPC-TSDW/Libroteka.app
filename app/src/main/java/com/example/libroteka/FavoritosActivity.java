@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,47 +15,90 @@ import com.example.libroteka.data.MyApp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavoritosActivity extends AppCompatActivity {
+public class FavoritosActivity extends AppCompatActivity implements FavoritesAdapter.OnDeleteClickListener {
 
     private RecyclerView recyclerViewFavorites;
-    private FavoritesAdapter favoritesAdapter;
-    private List<FavoriteRequest> favoriteList;
+    private FavoritesAdapter adapter;
+    private ApiManager apiManager;
+    private String userId;
+    private List<FavoriteRequest> favoritesList; // Store the favorites list
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
-        MyApp app = (MyApp) getApplicationContext();
+
         recyclerViewFavorites = findViewById(R.id.recyclerViewFavorites);
-        recyclerViewFavorites.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewFavorites.setLayoutManager(new GridLayoutManager(this, 2));
 
-        favoriteList = new ArrayList<>();
-        favoritesAdapter = new FavoritesAdapter(favoriteList);
-        recyclerViewFavorites.setAdapter(favoritesAdapter);
+        apiManager = new ApiManager();
+        MyApp app = (MyApp) getApplicationContext();
+        userId = app.getUserEmail();  // Assume userId is the email
 
-        // Replace with the actual user ID or email stored in SharedPreferences
-        String userId = app.getUserEmail();
-        if (userId != null) {
-            loadFavorites(userId);
-        } else {
-            Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
-        }
+        // Fetch the favorites
+        fetchFavorites(userId);
     }
 
-    private void loadFavorites(String userId) {
-        // Assuming you have an APIClient instance and ApiCallback interface
-        ApiManager apiClient = new ApiManager();
-        apiClient.getFavorites(userId, new ApiManager.ApiCallback<List<FavoriteRequest>>() {
+    private void fetchFavorites(String userId) {
+        apiManager.getFavorites(userId, new ApiManager.ApiCallback<List<FavoriteRequest>>() {
             @Override
-            public void onSuccess(List<FavoriteRequest> result) {
-                favoriteList.clear();
-                favoriteList.addAll(result);
-                favoritesAdapter.notifyDataSetChanged();
+            public void onSuccess(List<FavoriteRequest> favorites) {
+                favoritesList = favorites;
+                adapter = new FavoritesAdapter(favoritesList, FavoritosActivity.this);
+                recyclerViewFavorites.setAdapter(adapter);
+
+                // Handle empty list state initially
+                if (favoritesList.isEmpty()) {
+                    Toast.makeText(FavoritosActivity.this, "No favorites available", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(String errorMessage) {
-                Toast.makeText(FavoritosActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(FavoritosActivity.this, "Failed to fetch favorites: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onDeleteClick(int favId, int position) {
+        // Call the API to remove the favorite
+        apiManager.removeFavorite(favId, new ApiManager.ApiCallback<Void>() {
+            @Override
+            public void onSuccess(Void result) {
+                // Remove the item from the list and notify the adapter
+                favoritesList.remove(position);
+                adapter.notifyItemRemoved(position);
+
+                // Notify the adapter of range change to update other item positions
+                adapter.notifyItemRangeChanged(position, favoritesList.size());
+
+                // Check if the list is empty after deletion
+                if (favoritesList.isEmpty()) {
+                    Toast.makeText(FavoritosActivity.this, "No more favorites", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // Check if the item is already deleted (404 error)
+                if (errorMessage.contains("404")) {
+                    Toast.makeText(FavoritosActivity.this, "Favorite not found", Toast.LENGTH_SHORT).show();
+                    // Remove the item locally and update the list
+                    favoritesList.remove(position);
+                    adapter.notifyItemRemoved(position);
+                    adapter.notifyItemRangeChanged(position, favoritesList.size());
+
+                    if (favoritesList.isEmpty()) {
+                        Toast.makeText(FavoritosActivity.this, "No more favorites", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    favoritesList.remove(position);
+                    adapter.notifyItemRemoved(position);
+                    adapter.notifyItemRangeChanged(position, favoritesList.size());
+                    Toast.makeText(FavoritosActivity.this, "Favorito eliminado", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
     }
