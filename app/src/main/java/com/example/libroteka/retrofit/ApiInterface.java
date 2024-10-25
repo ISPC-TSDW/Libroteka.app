@@ -45,15 +45,17 @@ public interface ApiInterface {
     @POST("api/favorites/")
     Call<Void> toggleFavorite(@Body FavoriteRequest favoriteRequest);
 
-    @DELETE("api/favorites/")
-    Call<Void> removeFavorite(@Body FavoriteRequest favoriteRequest);
+    @DELETE("api/favorites/{id}/")
+    Call<Void> removeFavorite(
+            @Path("id") int favId
+    );
 
     @GET("api/favorites/")
     Call<List<FavoriteRequest>> getFavorites(@Query("id_user") String userId);
 
-    @GET("api/favorites/id_user={id_user}&id_book={id_book}")
+    @GET("api/favorites/")
     Call<Boolean> getFavoriteStatus(
-            @Path("id_user") String userId,
-            @Path("id_book") int bookId
+            @Query("id_user") String userId,
+            @Query("id_book") int bookId
     );
 }
