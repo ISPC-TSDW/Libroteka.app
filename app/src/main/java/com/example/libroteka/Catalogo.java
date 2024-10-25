@@ -63,13 +63,14 @@ public class Catalogo extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.navigation_home) {
-                startActivity(new Intent(Catalogo.this, Home.class));
+            if (id == R.id.navigation_categories) {
+                return true;
+            } else if (id == R.id.navigation_home) {
+                goToHome();
                 return true;
             } else if (id == R.id.navigation_favorites) {
-                //Cuando esté la activity
-                //startActivity(new Intent(Catalogo.this, Favoritos.class));
-                //return true;
+                goToFavourites();
+                return true;
             }
             return false;
         });
@@ -180,6 +181,17 @@ public class Catalogo extends AppCompatActivity {
     // Método para navegar a ProfileActivity
     private void goToProfile() {
         Intent intent = new Intent(Catalogo.this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToFavourites() {
+        Intent intent = new Intent(Catalogo.this, FavoritosActivity.class); // Asegúrate de tener Catalogo.java creado
+        startActivity(intent);
+    }
+
+    // Método para navegar a la pantalla de favoritos (agregar cuando esté lista)
+    private void goToHome() {
+        Intent intent = new Intent(Catalogo.this, Home.class); // Asegúrate que tienes ProfileActivity creada
         startActivity(intent);
     }
 }
