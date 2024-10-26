@@ -22,6 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
         Button faqButton = findViewById(R.id.faqButton);
         Button logoutButton = findViewById(R.id.logoutButton);
         Button goBackButton = findViewById(R.id.goBackButton);
+        //Textview userName = findViewById(R.id.first_name);
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
