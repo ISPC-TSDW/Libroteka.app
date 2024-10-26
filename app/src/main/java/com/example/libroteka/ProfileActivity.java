@@ -17,12 +17,14 @@ import com.example.libroteka.data.GetUserResponse;
 import com.example.libroteka.data.GetUserRequest;
 
 public class ProfileActivity extends AppCompatActivity {
-    private ApiManager apiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        MyApp app = (MyApp) getApplicationContext();
+        String userEmail = app.getUserEmail();
+
 
         // Initialize views
         Button editProfileButton = findViewById(R.id.editProfileButton);
@@ -31,28 +33,12 @@ public class ProfileActivity extends AppCompatActivity {
         Button logoutButton = findViewById(R.id.logoutButton);
         Button goBackButton = findViewById(R.id.goBackButton);
         TextView emailTextView = findViewById(R.id.userEmail);
+        emailTextView.setText(userEmail);
         TextView fullNameTextView = findViewById(R.id.userFullName);
 
 
 
-        apiManager = new ApiManager();
-        MyApp app = (MyApp) getApplicationContext();
-        String userEmail = app.getUserEmail();
 
-        apiManager.getUser(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
-                @Override
-                public void onSuccess(GetUserResponse response) {
-                    String fullName = response.getFirstName() + " " + response.getLastName();
-
-                    emailTextView.setText(response.getEmail());
-                    fullNameTextView.setText(fullName);
-
-                };
-                @Override
-                public void onFailure(String errorMessage) {
-                    Toast.makeText(ProfileActivity.this, "Error fetching user details: " + errorMessage, Toast.LENGTH_SHORT).show();
-                };
-            });
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
