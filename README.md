@@ -59,7 +59,7 @@ El uso de JWT se justifica por su seguridad en la transmisión de datos y su com
 <table align="center" style="border-collapse: collapse; width: 100%; max-width: 1200px;">
    <tbody align="center">
       <tr>
-        <td width: "25%" padding: "10px">
+        <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/germán-gustavo-cano/" target="_blank" rel="author">
               <img src="https://media.licdn.com/dms/image/v2/D4D03AQGsyKaJ_gB18A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715265325585?e=1735171200&v=beta&t=wjgpfZ1GD_GwLa3von4FTehNGcXdeKnBf1ZvO6Z309k" width="120" />
@@ -76,6 +76,8 @@ El uso de JWT se justifica por su seguridad en la transmisión de datos y su com
             </a>
           </div>
         </td>
+    </tr>
+    <tr>
         <td style="width: 25%; padding: 10px;">
           <div align="center">
             <a href="https://www.linkedin.com/in/romina-sol-haag/" target="_blank" rel="author">

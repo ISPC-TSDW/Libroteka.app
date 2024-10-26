@@ -2,6 +2,7 @@ package com.example.libroteka;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,11 @@ public class EditProfileActivity extends AppCompatActivity {
     private EditText etEditarApellido;
     private EditText etEditarDNI;
     private EditText etEditarCorreo;
+    private String username;
+    private String email;
+    private String name;
+    private String lastName;
+    private Integer DNI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,8 @@ public class EditProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
         apiManager = new ApiManager();
         MyApp app = (MyApp) getApplicationContext();
-        String userEmail = app.getUserEmail();
+        String userEmail = app.getUserEmail(); // Obtener el email del usuario
+
         // Inicializar los campos del formulario
         etEditarUsuario = findViewById(R.id.etEditarUsuario);
         etEditarCorreo = findViewById(R.id.etEditarCorreo);
@@ -48,18 +55,16 @@ public class EditProfileActivity extends AppCompatActivity {
         cancelButton = findViewById(R.id.cancelButton);
 
 
-        // Example username, get it dynamically as needed
-        apiManager.getUser(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
+//         Cargar los datos del usuario usando el API manager
+        apiManager.getUserByEmail(userEmail, new ApiManager.ApiCallback<GetUserResponse>() { // Obtener el usuario por email
             @Override
             public void onSuccess(GetUserResponse response) {
-                etEditarUsuario.setText(response.getUsername());
-                etEditarCorreo.setText(response.getEmail());
-                etEditarNombre.setText(response.getFirstName());
-                etEditarApellido.setText(response.getLastName());
-                etEditarDNI.setText(response.getDni());
-
-                // Now enable the save button after data has been loaded
-                saveButton.setEnabled(true);
+                if (response != null) { // Verifica que la respuesta contenga datos del usuario
+                    cargarData(response);
+                    saveButton.setEnabled(true);
+                } else {
+                    Toast.makeText(EditProfileActivity.this, "No se encontraron datos para este usuario", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -68,15 +73,13 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
-        // Cargar los datos del usuario
-//        cargarData();
 
-        // Deshabilitar el botón de guardar al inicio
-//        saveButton.setEnabled(false);
+//         Deshabilitar el botón de guardar al inicio
+        saveButton.setEnabled(false);
 
         // Agregar TextWatcher para validar cambios en los campos de texto
         etEditarUsuario.addTextChangedListener(textWatcher);
-        etEditarCorreo.addTextChangedListener(textWatcher);
+        //etEditarCorreo.addTextChangedListener(textWatcher);
         etEditarNombre.addTextChangedListener(textWatcher);
         etEditarApellido.addTextChangedListener(textWatcher);
         etEditarDNI.addTextChangedListener(textWatcher);
@@ -88,8 +91,10 @@ public class EditProfileActivity extends AppCompatActivity {
                 String email = etEditarCorreo.getText().toString().trim();
                 String firstName = etEditarNombre.getText().toString().trim();
                 String lastName = etEditarApellido.getText().toString().trim();
-                String dni = etEditarDNI.getText().toString().trim();
+                Integer dni = Integer.parseInt(etEditarDNI.getText().toString().trim());    // Convertir el String a Integer
 
+                // Create an UpdateProfileRequest object
+                UpdateProfileRequest updateRequest = new UpdateProfileRequest(email, firstName, lastName, dni, username);
 
                 AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
                 alerta.setMessage("¿Desea por editar sus datos?")
@@ -97,14 +102,14 @@ public class EditProfileActivity extends AppCompatActivity {
                         .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // Create an UpdateProfileRequest object
-                                UpdateProfileRequest updateRequest = new UpdateProfileRequest(email, firstName, lastName, dni, username);
 
                                 // Call the updateUserProfile method from ApiManager
                                 apiManager.updateUserProfile(updateRequest, new ApiManager.ApiCallback<UpdateResponse>() {
                                     @Override
                                     public void onSuccess(UpdateResponse response) {
                                         Toast.makeText(EditProfileActivity.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+                                        // Guardar los datos actualizados en SharedPreferences
+                                        actualizarDatosLocales(updateRequest);
 
                                         // Navigate back to the profile activity
                                         Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
@@ -141,6 +146,18 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
+    // Método para actualizar los datos locales
+    private void actualizarDatosLocales(UpdateProfileRequest updateRequest) {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username", updateRequest.getUsername());
+        editor.putString("email", updateRequest.getEmail());
+        editor.putString("firstName", updateRequest.getFirstName());
+        editor.putString("lastName", updateRequest.getLastName());
+        editor.putInt("dni", updateRequest.getDni());
+        editor.apply();
+    }
+
 
 
     // TextWatcher común para los dos EditText
@@ -162,77 +179,68 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     };
 
+    private void cargarData(GetUserResponse response) {
+        String username = response.getUsername();
+        String email = response.getEmail();
+        String name = response.getFirstName();
+        String lastName = response.getLastName();
+        Integer DNI = response.getDni();
+        // Asigna los datos a los EditText
+        etEditarUsuario.setText(username);
+        etEditarCorreo.setText(email);
+        etEditarNombre.setText(name);
+        etEditarApellido.setText(lastName);
+        etEditarDNI.setText(DNI);
+        // Desactiva el campo de correo electrónico para que no sea editable
+        etEditarCorreo.setEnabled(false);
+    }
+
 
     // Función para habilitar o deshabilitar el botón de guardar
     private void validateChanges() {
         // Comparar los valores actuales con los originales
         String currentUsername = etEditarUsuario.getText().toString().trim();
-        String currentEmail = etEditarCorreo.getText().toString().trim();
+        String currentNombre = etEditarNombre.getText().toString().trim();
+        String currentApellido = etEditarApellido.getText().toString().trim();
+        String currentDNI = etEditarDNI.getText().toString().trim();
 
-        // Verificar si los campos están vacíos
-        //if (currentUsername.isEmpty()) {
-        //    saveButton.setEnabled(false);
-        //    Toast.makeText(this, "El nombre de usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
-        //    return;
-        //}
+        // Limpiar errores anteriores
+        etEditarUsuario.setError(null);
+        etEditarNombre.setError(null);
+        etEditarApellido.setError(null);
+        etEditarDNI.setError(null);
 
-        if (currentEmail.isEmpty()) {
+         //Verificar si los campos están vacíos
+
+        if (currentUsername.isEmpty()) {
+            etEditarUsuario.setError("El nombre de usuario no puede estar vacío");
             saveButton.setEnabled(false);
-            Toast.makeText(this, "El correo electrónico no puede estar vacío", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        // Validar formato del correo electrónico
-        if (!Patterns.EMAIL_ADDRESS.matcher(currentEmail).matches()) {
+        if (currentNombre.isEmpty()) {
+            etEditarNombre.setError("El nombre no puede estar vacío");
             saveButton.setEnabled(false);
-            Toast.makeText(this, "Por favor, ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (currentApellido.isEmpty()) {
+            etEditarApellido.setError("El apellido no puede estar vacío");
+            saveButton.setEnabled(false);
+            return;
+        }
+        if (currentDNI.isEmpty()) {
+            etEditarDNI.setError("El DNI no puede estar vacío");
+            saveButton.setEnabled(false);
             return;
         }
 
 
         // Habilitar el botón solo si alguno de los valores ha cambiado
-        boolean isChanged = !currentUsername.equals(obtenerUsernameDesdeAPI()) || !currentEmail.equals(obtenerEmailDesdeAPI());
+        boolean isChanged = !currentUsername.equals(username) || !currentNombre.equals(name) || !currentApellido.equals(lastName) || !currentDNI.equals(DNI);
         saveButton.setEnabled(isChanged);
     }
 
-//    private void cargarData() {
-//        // Simular la carga de datos desde el backend
-//        String usernameApi = obtenerUsernameDesdeAPI(); // Simula obtener el nombre
-//        String emailApi = obtenerEmailDesdeAPI(); // Simula obtener el correo
-//
-//        // Asigna los datos a los EditText
-//        //etEditarUsuario.setText(usernameApi);
-//        etEditarCorreo.setText(emailApi);
-//        etEditarNombre.setText(usernameApi);
-//        etEditarApellido.setText(usernameApi);
-//        etEditarDNI.setText(usernameApi);
-//    }
-    private String obtenerUsernameDesdeAPI() {
-        return "NombreDeUsuarioReal"; // Simulación de respuesta de API
-    }
 
-    private String obtenerEmailDesdeAPI() {
-        return "usuarioreal@ejemplo.com"; // Simulación de respuesta de API
-    }
 
-    //traer datos de la base de datos si es que se hace esta accion
-   /* private void cargarData() {
-        // Simular la carga de datos desde el backend
-        String usernameFromAPI = obtenerUsernameDesdeAPI(); // Simula obtener el nombre
-        String emailFromAPI = obtenerEmailDesdeAPI(); // Simula obtener el correo
 
-        // Asigna los datos a los EditText
-        usernameEditText.setText(usernameFromAPI);
-        emailEditText.setText(emailFromAPI);
-    }
 
-    private String obtenerUsernameDesdeAPI() {
-        // Simulación de respuesta de API
-        return "NombreDeUsuarioReal";
-    }
-
-    private String obtenerEmailDesdeAPI() {
-        // Simulación de respuesta de API
-        return "usuarioreal@ejemplo.com";
-    }*/
 }
