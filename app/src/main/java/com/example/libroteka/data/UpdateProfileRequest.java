@@ -7,11 +7,11 @@ public class UpdateProfileRequest {
     private Integer dni;
     private String username;
 
-    public UpdateProfileRequest(String email, String first_name, String last_name, Integer dni, String username) {
+    public UpdateProfileRequest(String email, String first_name, String last_name, String dni, String username) {
         this.email = email;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.dni = dni;
+        this.dni = Integer.valueOf(dni);
         this.username = username;
     }
 

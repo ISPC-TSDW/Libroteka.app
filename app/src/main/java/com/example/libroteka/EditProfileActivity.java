@@ -24,7 +24,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private Button saveButton;
     private Button cancelButton;
-    private EditText etEditarUsuario;
     private EditText etEditarNombre;
     private EditText etEditarApellido;
     private EditText etEditarDNI;
@@ -38,8 +37,6 @@ public class EditProfileActivity extends AppCompatActivity {
         MyApp app = (MyApp) getApplicationContext();
         String userEmail = app.getUserEmail();
         // Inicializar los campos del formulario
-        etEditarUsuario = findViewById(R.id.etEditarUsuario);
-        etEditarUsuario.setText(userEmail);
         etEditarCorreo = findViewById(R.id.etEditarCorreo);
         etEditarCorreo.setText(userEmail);
         etEditarNombre = findViewById(R.id.etEditarNombre);
@@ -57,7 +54,6 @@ public class EditProfileActivity extends AppCompatActivity {
 //        saveButton.setEnabled(false);
 
         // Agregar TextWatcher para validar cambios en los campos de texto
-        etEditarUsuario.addTextChangedListener(textWatcher);
         etEditarCorreo.addTextChangedListener(textWatcher);
         etEditarNombre.addTextChangedListener(textWatcher);
         etEditarApellido.addTextChangedListener(textWatcher);
@@ -66,7 +62,7 @@ public class EditProfileActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = etEditarUsuario.getText().toString().trim();
+                String username = etEditarCorreo.getText().toString().trim();
                 String email = etEditarCorreo.getText().toString().trim();
                 String firstName = etEditarNombre.getText().toString().trim();
                 String lastName = etEditarApellido.getText().toString().trim();
@@ -148,7 +144,6 @@ public class EditProfileActivity extends AppCompatActivity {
     // Función para habilitar o deshabilitar el botón de guardar
     private void validateChanges() {
         // Comparar los valores actuales con los originales
-        String currentUsername = etEditarUsuario.getText().toString().trim();
         String currentEmail = etEditarCorreo.getText().toString().trim();
 
         // Verificar si los campos están vacíos
@@ -173,8 +168,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
         // Habilitar el botón solo si alguno de los valores ha cambiado
-        boolean isChanged = !currentUsername.equals(obtenerUsernameDesdeAPI()) || !currentEmail.equals(obtenerEmailDesdeAPI());
-        saveButton.setEnabled(isChanged);
     }
 
 //    private void cargarData() {
