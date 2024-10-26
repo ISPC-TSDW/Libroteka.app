@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.MyApp;
 
 public class ProductoActivity extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class ProductoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto);
+        MyApp app = (MyApp) getApplicationContext();
+        String email = app.getUserEmail();
 
         txtTitle = findViewById(R.id.txtTitle);
         txtAuthor = findViewById(R.id.txtAuthor);
@@ -45,8 +48,8 @@ public class ProductoActivity extends AppCompatActivity {
             String description = intent.getStringExtra("description");
             Float price = intent.getFloatExtra("price", 0.0f);
             Float avgRating = intent.getFloatExtra("avg_rating", 0.0f);
-            bookId = intent.getIntExtra("book_id", -1);  // Store the book ID from the intent
-            userId = "libroReg@gmail.com"; // You can dynamically set this to the actual user if necessary
+            bookId = intent.getIntExtra("book_id", -1);// Store the book ID from the intent
+            userId = email;// You can dynamically set this to the actual user if necessary
 
             // Get the image resource ID
             int imageResId = intent.getIntExtra("image_res_id", -1);

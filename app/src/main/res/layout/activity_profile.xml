@@ -23,9 +23,8 @@
                 android:id="@+id/profileImage"
                 android:layout_width="134dp"
                 android:layout_height="135dp"
-                android:layout_marginTop="12dp"
-                android:contentDescription="@string/email_placeholder"
-                android:src="@android:drawable/ic_menu_camera"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/libromain3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -36,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/lobster"
-                android:text="Libroteka"
+                android:text="@string/app_name"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -45,11 +44,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/userFullName"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
-                android:text="@string/username_placeholder"
                 android:textAlignment="center"
                 android:textColor="@color/bark"
                 android:textSize="20sp"
@@ -63,13 +61,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/email_placeholder"
                 android:textAlignment="center"
                 android:textColor="@color/bark"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/userName" />
+                app:layout_constraintTop_toBottomOf="@id/userFullName" />
 
             <Button
                 android:id="@+id/editProfileButton"

@@ -50,6 +50,7 @@ public class Main_login2 extends AppCompatActivity {
                 app.setUserEmail(email);
                 Toast.makeText(Main_login2.this, "Login exitoso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Main_login2.this, Home.class);
+                intent.putExtra("email", email);
                 startActivity(intent);
                 finish();
             }

@@ -5,7 +5,7 @@ public class GetUserResponse {
     private String email;
     private String first_name;
     private String last_name;
-    private String dni;
+    private Integer dni;
     private String username;
 
     // Getters and setters
@@ -41,11 +41,11 @@ public class GetUserResponse {
         this.last_name = last_name;
     }
 
-    public String getDni() {
+    public Integer getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 

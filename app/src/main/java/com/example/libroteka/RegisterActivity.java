@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
             String usuario = etCorreo.getText().toString().trim();
             String nombre = etNombre.getText().toString().trim();
             String apellido = etApellido.getText().toString().trim();
-            String dni = etDni.getText().toString().trim();
+            Integer dni = Integer.parseInt(etDni.getText().toString().trim());    // Convertir el String a Integer
             String correo = etCorreo.getText().toString().trim();
             String contrasena = etContrasena.getText().toString().trim();
 
