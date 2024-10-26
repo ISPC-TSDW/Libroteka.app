@@ -36,9 +36,6 @@ public class ProfileActivity extends AppCompatActivity {
         emailTextView.setText(userEmail);
         TextView fullNameTextView = findViewById(R.id.userFullName);
 
-
-
-
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
