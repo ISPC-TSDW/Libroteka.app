@@ -186,8 +186,30 @@ public class ApiManager {
             }
         });
     }
-    public void getUser(String username, final ApiCallback<GetUserResponse> callback) {
-        Call<GetUserResponse> call = apiInterface.getUser(username);
+
+
+    public void getUser(String email, final ApiCallback<GetUserResponse> callback) {
+        Call<GetUserResponse> call = apiInterface.getUser(email);
+
+        call.enqueue(new Callback<GetUserResponse>() {
+            @Override
+            public void onResponse(Call<GetUserResponse> call, Response<GetUserResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onFailure("User fetch failed: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetUserResponse> call, Throwable t) {
+                callback.onFailure("User fetch failed: " + t.getMessage());
+            }
+        });
+    }
+    // Método para obtener el usuario por email
+    public void getUserByEmail(String email, final ApiCallback<GetUserResponse> callback) {
+        Call<GetUserResponse> call = apiInterface.getUserByEmail(email);
 
         call.enqueue(new Callback<GetUserResponse>() {
             @Override

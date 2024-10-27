@@ -22,157 +22,141 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etEditarUsuario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/formtext"
-        android:fontFamily="@font/roboto"
-        android:hint="Usuario"
-        android:inputType="textPersonName"
-        android:padding="16dp"
-        android:textColor="@color/white"
-        android:textColorHighlight="@color/black"
-        android:textColorHint="@color/white"
-        android:textColorLink="@color/bark"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/etEditarNombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditarCorreo" />
+
+    <!---   <EditText
+            android:id="@+id/etEditarContrasena"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="396dp"
+            android:fontFamily="@font/roboto"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorHighlight="@color/black"
+            android:textSize="16sp"
+            android:textColorLink="@color/bark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/formtext"
+            />
+    -->
+
 
     <EditText
         android:id="@+id/etEditarNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="204dp"
+        android:background="@drawable/formtext"
         android:fontFamily="@font/roboto"
         android:hint="Nombre"
         android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
         android:padding="16dp"
+        android:textColor="@color/white"
         android:textColorHighlight="@color/black"
+        android:textColorHint="@color/white"
         android:textColorLink="@color/bark"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/formtext"/>
+        tools:text="@tools:sample/first_names" />
 
     <EditText
         android:id="@+id/etEditarApellido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="268dp"
+        android:background="@drawable/formtext"
         android:fontFamily="@font/roboto"
         android:hint="Apellido"
         android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
         android:padding="16dp"
+        android:textColor="@color/white"
         android:textColorHighlight="@color/black"
+        android:textColorHint="@color/white"
         android:textColorLink="@color/bark"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/formtext"
-        />
+        tools:text="@tools:sample/last_names" />
 
     <EditText
         android:id="@+id/etEditarDNI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="332dp"
+        android:background="@drawable/formtext"
         android:fontFamily="@font/roboto"
         android:hint="DNI"
         android:inputType="number"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:textColorHighlight="@color/black"
-        android:textColorLink="@color/bark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/formtext"
-        />
-
-    <EditText
-        android:id="@+id/etEditarContrasena"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
-        android:fontFamily="@font/roboto"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
         android:padding="16dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
         android:textColorHighlight="@color/black"
-        android:textSize="16sp"
-        android:textColorLink="@color/bark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/formtext"
-        />
-
-    <EditText
-        android:id="@+id/etEditarCorreo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:fontFamily="@font/roboto"
-        android:hint="Correo Electrónico"
-        android:padding="16dp"
-        android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:inputType="textEmailAddress"
-        android:textColorHighlight="@color/black"
-        android:textSize="16sp"
         android:textColorLink="@color/bark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/formtext"
-        />
-
-    <Button
-        android:id="@+id/cancelButton"
-        style="@style/buttonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="550dp"
-
-        android:text="@string/cancelar"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/saveButton"
-        style="@style/buttonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-
-        android:layout_marginTop="500dp"
-        android:text="@string/guardar"
+    <EditText
+        android:id="@+id/etEditarCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/formtext"
+        android:clickable="false"
+        android:enabled="false"
+        android:fontFamily="@font/roboto"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/bark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+            android:id="@+id/cancelButton"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="550dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="@string/cancelar"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/saveButton"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+
+            android:layout_marginTop="500dp"
+            android:text="@string/guardar"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

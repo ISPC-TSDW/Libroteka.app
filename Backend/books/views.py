@@ -35,6 +35,8 @@ class BookViewSet(viewsets.ModelViewSet):
 class UsersLibrotekaViewSet(viewsets.ModelViewSet):
     queryset = UsersLibroteka.objects.all()
     serializer_class = UsersLibrotekaSerializer
+    lookup_field = 'email'  
+
 
 class LibrosView(APIView):
     permission_classes = [AllowAny] 
@@ -301,3 +303,14 @@ class ModifyRatingView(APIView):
 
 
 
+
+    def get(self, request):
+        user_id = request.query_params.get('id_user', None)
+
+        if user_id:
+            user = UserLibrotekaSerializer.objects.filter(id_user=user_id)
+        else:
+            favorites = Favorite.objects.all()
+
+        serializer = self.serializer_class(favorites, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

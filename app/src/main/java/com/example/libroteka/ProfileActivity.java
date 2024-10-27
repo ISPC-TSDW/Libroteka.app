@@ -5,9 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.MyApp;
+import com.example.libroteka.data.GetUserResponse;
+import com.example.libroteka.data.GetUserRequest;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -15,6 +22,9 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        MyApp app = (MyApp) getApplicationContext();
+        String userEmail = app.getUserEmail();
+
 
         // Initialize views
         Button editProfileButton = findViewById(R.id.editProfileButton);
@@ -22,7 +32,10 @@ public class ProfileActivity extends AppCompatActivity {
         Button faqButton = findViewById(R.id.faqButton);
         Button logoutButton = findViewById(R.id.logoutButton);
         Button goBackButton = findViewById(R.id.goBackButton);
-        //Textview userName = findViewById(R.id.first_name);
+        TextView emailTextView = findViewById(R.id.userEmail);
+        emailTextView.setText(userEmail);
+        TextView fullNameTextView = findViewById(R.id.userFullName);
+
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
