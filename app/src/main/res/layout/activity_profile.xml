@@ -35,22 +35,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <ImageView
-                android:id="@+id/profileImage"
-                android:layout_width="134dp"
-                android:layout_height="135dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/libromain3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-
             <TextView
                 android:id="@+id/userFullName"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="160dp"
                 android:textAlignment="center"
                 android:textColor="@color/bark"
                 android:textSize="20sp"
@@ -58,8 +47,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profileImage" />
-
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
                 android:id="@+id/userEmail"
@@ -79,7 +67,7 @@
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/editar_perfil"
                 android:textAlignment="center"
                 android:textSize="16sp"
