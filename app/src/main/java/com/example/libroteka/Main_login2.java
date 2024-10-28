@@ -75,8 +75,8 @@ public class Main_login2 extends AppCompatActivity {
             Toast.makeText(this, "La contraseña no puede estar vacía", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (password.length() < 8) {
-            Toast.makeText(this, "La contraseña debe tener al menos 8 caracteres", Toast.LENGTH_SHORT).show();
+        if (password.length() < 12) {
+            Toast.makeText(this, "La contraseña debe tener al menos 12 caracteres", Toast.LENGTH_SHORT).show();
             return false;
         }
         // Añadir validaciones adicionales de contraseña aquí si es necesario.
