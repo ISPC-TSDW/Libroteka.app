@@ -7,9 +7,9 @@
     android:background="@color/marble"
     tools:context=".Catalogo">
 
-    <!-- Icono de volver atrás -->
 
-    <!-- Icono de perfil -->
+
+    <!-- Icono de volver atrás -->
     <ImageView
         android:id="@+id/icon_back"
         android:layout_width="32dp"
@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/brownstone" />
 
+    <!-- Icono de perfil -->
     <ImageView
         android:id="@+id/icon_profile"
         android:layout_width="50dp"
@@ -32,12 +33,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Campo de búsqueda -->
-
-
-    <!-- Icono de filtro -->
-
-    <!-- RecyclerView para los libros -->
-
     <EditText
         android:id="@+id/search_input"
         android:layout_width="300dp"
@@ -57,7 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Menú de navegación inferior -->
+    <!-- Icono de filtro -->
     <ImageView
         android:id="@+id/icon_filter"
         android:layout_width="30dp"
@@ -70,6 +65,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/brownstone" />
 
+    <!-- RecyclerView para los libros -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_libros"
         android:layout_width="0dp"
@@ -83,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/search_input"
         app:layout_constraintVertical_bias="1.0" />
 
+    <!-- Menú de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
@@ -96,7 +93,3 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
