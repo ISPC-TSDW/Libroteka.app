@@ -188,3 +188,4 @@ class RatingSerializer(serializers.ModelSerializer):
         if not data['id_user'].is_active:
             raise serializers.ValidationError({"detail": "User account is deactivated."})
         return data
+

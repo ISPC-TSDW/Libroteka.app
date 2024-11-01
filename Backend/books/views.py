@@ -162,6 +162,7 @@ class LoginAPI(APIView):
             except UsersLibroteka.DoesNotExist:
                 return Response({"message": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 class UpdateUserAPI(APIView):
     permission_classes = [IsAuthenticated]
     # TODO: Implementar update con usuario auth
