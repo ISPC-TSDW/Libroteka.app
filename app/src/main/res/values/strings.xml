@@ -62,6 +62,10 @@
     <string name="autor">Autor</string>
     <string name="descripci_n">Descripción</string>
     <string name="t_tulo">Título</string>
+    <string name="apellido">Apellido</string>
+    <string name="dni">DNI</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
 
 
 </resources>
