@@ -83,6 +83,10 @@
     <string name="suspenso">Suspenso</string>
     <string name="juvenil">Juvenil</string>
     <string name="fantas_a">Fantasía</string>
+    <string name="nombre_de_la_categor_a">Nombre de la Categoría</string>
+    <string name="favorito">Favorito</string>
+    <string name="_15_000">$15.000</string>
+    <string name="t_tulo_del_libro">Título del Libro</string>
 
 
 </resources>

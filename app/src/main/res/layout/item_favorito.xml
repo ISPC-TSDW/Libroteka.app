@@ -8,6 +8,7 @@
 
     <!-- Image for the book -->
     <ImageView
+        android:contentDescription="@string/portada_del_libro"
         android:id="@+id/bookImageView"
         android:layout_width="85dp"
         android:layout_height="122dp"
@@ -25,12 +26,14 @@
     <!-- Delete button below the book image -->
     <ImageButton
         android:id="@+id/deleteButton"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="48dp"
+        android:backgroundTint="@color/light"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/delete_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bookImageView"
         app:srcCompat="@drawable/ic_delete" />

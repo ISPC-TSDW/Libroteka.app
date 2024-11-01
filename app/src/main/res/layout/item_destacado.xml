@@ -8,6 +8,7 @@
 
     <!-- Imagen del libro -->
     <ImageView
+        android:contentDescription="@string/portada_del_libro"
         android:id="@+id/imgLibro"
         android:layout_width="100dp"
         android:layout_height="150dp"
@@ -21,7 +22,7 @@
         android:id="@+id/btnFavorito"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:contentDescription="Favorito"
+        android:contentDescription="@string/favorito"
         android:src="@drawable/ic_heart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,11 +30,11 @@
     <!-- Título del libro -->
     <TextView
         android:id="@+id/tvTituloLibro"
-        android:layout_width="100dp"
-        android:layout_height="56dp"
         android:fontFamily="@font/roboto"
         android:gravity="center|start"
-        android:text="Título del Libro"
+        android:text="@string/t_tulo_del_libro"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:textColor="@color/bark"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -45,7 +46,7 @@
         android:id="@+id/tvPrecioLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$15.000"
+        android:text="@string/_15_000"
         android:textColor="@color/bark"
         app:layout_constraintStart_toStartOf="@+id/tvTituloLibro"
         app:layout_constraintTop_toBottomOf="@id/tvTituloLibro" />
