@@ -19,81 +19,86 @@
             android:layout_height="wrap_content"
             android:padding="60dp">
 
-            <ImageView
-                android:id="@+id/profileImage"
-                android:layout_width="134dp"
-                android:layout_height="135dp"
-                android:layout_marginTop="12dp"
-                android:contentDescription="@string/email_placeholder"
-                android:src="@android:drawable/ic_menu_camera"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
+            <!-- Título -->
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/lobster"
-                android:text="Libroteka"
+                android:text="@string/app_name"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="134dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/libromain3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/userFullName"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:text="@string/username_placeholder"
+                android:layout_marginTop="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/bark"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profileImage" />
+                app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
 
             <TextView
                 android:id="@+id/userEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/email_placeholder"
+                android:layout_marginTop="15dp"
                 android:textAlignment="center"
                 android:textColor="@color/bark"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/userName" />
+                app:layout_constraintTop_toBottomOf="@id/userFullName" />
+
 
             <Button
                 android:id="@+id/editProfileButton"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/editar_perfil"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/userEmail" />
+                app:layout_constraintTop_toBottomOf="@+id/userEmail" />
 
             <Button
                 android:id="@+id/faqButton"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/preguntas_frecuentes"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editProfileButton" />
 
@@ -102,11 +107,12 @@
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/contacto"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/faqButton" />
 
@@ -115,12 +121,12 @@
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="20dp"
-                android:onClick="previo"
+                android:layout_marginTop="16dp"
                 android:text="@string/cerrar_sesi_n"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
 
@@ -129,15 +135,16 @@
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/volver"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/logoutButton" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

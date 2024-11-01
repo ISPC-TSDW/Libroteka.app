@@ -7,20 +7,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Catalogo extends AppCompatActivity {
 
@@ -117,7 +114,7 @@ public class Catalogo extends AppCompatActivity {
         listaLibrosOriginales.add(new Libro("Orgullo y prejuicio", R.drawable.ic_book_orgulloyprejuicio, "Romance"));
         listaLibrosOriginales.add(new Libro("Bajo la misma estrella", R.drawable.ic_book_bajolamismaestrella, "Romance"));
         listaLibrosOriginales.add(new Libro("After", R.drawable.ic_book_after, "Romance"));
-        listaLibrosOriginales.add(new Libro("IT", R.drawable.ic_book_it, "Terror"));
+        listaLibrosOriginales.add(new Libro("IT", R.drawable.id_6, "Terror"));
         listaLibrosOriginales.add(new Libro("Drácula", R.drawable.ic_book_dracula, "Terror"));
         listaLibrosOriginales.add(new Libro("La llamada de Cthulhu", R.drawable.ic_book_lallamadadecthulhu, "Terror"));
     }

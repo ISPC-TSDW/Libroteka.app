@@ -8,8 +8,9 @@ from rest_framework import viewsets, generics, permissions, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-# from rest_framework.permissions import IsAuthenticated
-
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth.hashers import make_password
 
 from .serializer import *
 from .models import *
@@ -35,9 +36,10 @@ class BookViewSet(viewsets.ModelViewSet):
 class UsersLibrotekaViewSet(viewsets.ModelViewSet):
     queryset = UsersLibroteka.objects.all()
     serializer_class = UsersLibrotekaSerializer
+    lookup_field = 'email'  
+
 
 class LibrosView(APIView):
-    permission_classes = [AllowAny] 
 
     def get(self, request):
         books = Book.objects.all()
@@ -98,11 +100,21 @@ class RegisterAPI(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        
+        # Crear el usuario y guardar la contraseña como hash
         user = serializer.save()
+        user.password = make_password(user.password)
+        user.save()
+
+        # Generar token JWT
+        refresh = RefreshToken.for_user(user)
+        
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)[1]
+            "refresh": str(refresh),
+            "access": str(refresh.access_token),
         })
+
 class OrdersViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
@@ -118,13 +130,40 @@ class LoginAPI(APIView):
                 if not user.is_active:
                     return Response({"message": "User account is deactivated"}, status=status.HTTP_403_FORBIDDEN)
                 if check_password(password, user.password):
-                    return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
+                    # Generar token JWT
+                    refresh = RefreshToken.for_user(user)
+                    response = Response({
+                       'message': 'Inicio de sesión exitoso',
+                        'user': {
+                        'username': user.username,
+                        'email': user.email,
+                        'first_name': user.first_name,
+                        'last_name': user.last_name,
+                    }
+                    }, status=status.HTTP_200_OK)                
+                # Configuración de cookies HTTP-only para ambos tokens
+                    response.set_cookie(
+                        key="access_token",
+                        value=str(refresh.access_token),
+                        httponly=True,
+                        secure=True,
+                        samesite='Lax'
+                    )  
+                    response.set_cookie(
+                        key="refresh_token",
+                        value=str(refresh),
+                        httponly=True,
+                        secure=True,
+                        samesite='Lax'
+                    )
+                    return response
                 else:
                     return Response({"message": "Invalid password"}, status=status.HTTP_401_UNAUTHORIZED)
             except UsersLibroteka.DoesNotExist:
                 return Response({"message": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class UpdateUserAPI(APIView):
+    permission_classes = [IsAuthenticated]
     # TODO: Implementar update con usuario auth
     def put(self, request):
         try:
@@ -301,3 +340,14 @@ class ModifyRatingView(APIView):
 
 
 
+
+    def get(self, request):
+        user_id = request.query_params.get('id_user', None)
+
+        if user_id:
+            user = UserLibrotekaSerializer.objects.filter(id_user=user_id)
+        else:
+            favorites = Favorite.objects.all()
+
+        serializer = self.serializer_class(favorites, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

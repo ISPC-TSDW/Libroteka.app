@@ -7,6 +7,8 @@
 - Proyecto: Libroteka
 - Cohorte: 2022 - 2023
 
+### IMPORTANTE
+Al usar servicios gratuitos de Cloud Computing (Koyeb y Railway), estas instancias se configuraron para que cuando exista inactividad se SUSPENDEN. Es por ello que si no hay usuarios usando la app, la proxima interaccion (Login, Registro, etc) puede fallar. Basta de intentar nuevamente despues de unos segundos para solucionarlo.
 # Libroteka.app
 
 ## Introduccion 📖:
@@ -206,7 +208,6 @@ El uso de JWT se justifica por su seguridad en la transmisión de datos y su com
   </table>
 
 ### Tecnologias 
-
 <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white"> <img src = "https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/-Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white">
 <img src="https://img.shields.io/badge/-JavaScript-eed718?style=flat&logo=javascript&logoColor=ffffff">

@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/marble">
 
-    <!-- App Name TextView -->
-
-    <!-- "Contact Us" TextView -->
-
-    <!-- Name Input EditText -->
-
-    <!-- Email Input EditText -->
 
     <TextView
         android:id="@+id/et_appname"
@@ -83,12 +76,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.8"
         android:background="@drawable/formtext"/>
-
-    <!-- Message Input EditText -->
-
-    <!-- Submit Button -->
-
-    <!-- Go Back Button -->
 
     <EditText
         android:id="@+id/descriptionText"

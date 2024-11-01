@@ -54,14 +54,7 @@ public class MainActivity extends AppCompatActivity {
         // Access the content_main layout
         ContentMainBinding contentMainBinding = ContentMainBinding.bind(findViewById(R.id.nav_host_fragment_content_main));
 
-        // Find the profile button and set a click listener
-        Button profileButton = contentMainBinding.profileButton;
-        profileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToProfile(v);
-            }
-        });
+
 
         Button editProfileButton = findViewById(R.id.editProfileButton);
         editProfileButton.setOnClickListener(new View.OnClickListener() {
@@ -76,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
     private void setupButtons() {
         ContentMainBinding contentMainBinding = ContentMainBinding.bind(findViewById(R.id.nav_host_fragment_content_main));
 
-        Button profileButton = contentMainBinding.profileButton;
-        profileButton.setOnClickListener(this::goToProfile);
 
         Button editProfileButton = findViewById(R.id.editProfileButton);
         editProfileButton.setOnClickListener(v -> {

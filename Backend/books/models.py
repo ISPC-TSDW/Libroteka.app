@@ -3,21 +3,21 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.core.validators import RegexValidator
 
 
-class User(AbstractUser):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=35)
-    dni = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
-    email = models.EmailField(primary_key=True, unique=True)
+#class User(AbstractUser):
+#    first_name = models.CharField(max_length=30)
+#    last_name = models.CharField(max_length=35)
+#    dni = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
+#    email = models.EmailField(primary_key=True, unique=True)
 
-    groups = models.ManyToManyField(Group, related_name='books_users')
-    user_permissions = models.ManyToManyField(Permission, related_name='books_users')
+#    groups = models.ManyToManyField(Group, related_name='books_users')
+#    user_permissions = models.ManyToManyField(Permission, related_name='books_users')
 
-    class Meta:
-        db_table = 'users'
-        verbose_name = "Usuario"
-        verbose_name_plural = "Usuarios"
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+#    class Meta:
+#        db_table = 'users'
+#        verbose_name = "Usuario"
+#        verbose_name_plural = "Usuarios"
+#    def __str__(self):
+#        return f"{self.first_name} {self.last_name}"
 
 class Role(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -126,25 +126,27 @@ class OrderStatus(models.Model):
 
 
 
-class UsersLibroteka(models.Model):
+class UsersLibroteka(AbstractUser):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=35)
     dni = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')], unique=True)
-    email = models.EmailField(primary_key=True, unique=True)
     password = models.CharField(max_length=128)
-    is_active = models.BooleanField(blank=False, default=True)
+    is_active = models.BooleanField(default=True)
 
 
-    
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'dni','is_active']
+
     class Meta:
-        db_table= 'UsersLibroteka'
+        db_table = 'users_libroteka' 
         verbose_name = "Usuario"
         verbose_name_plural = "Usuarios"
 
-        def __str__(self):
-            return f"{self.first_name} {self.last_name} ({self.username})"
-    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.username})"
 class Order(models.Model):
 
     id_Order = models.AutoField(primary_key=True)

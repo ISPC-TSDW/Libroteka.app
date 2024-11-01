@@ -9,10 +9,6 @@
     android:padding="16dp"
     tools:context=".RegisterActivity">
 
-    <!-- Campo de entrada para el Nombre -->
-
-    <!-- Campo de entrada para el Correo Electrónico -->
-
     <TextView
         android:id="@+id/et_titulo"
         android:layout_width="wrap_content"
@@ -87,34 +83,25 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/formtext"/>
 
-    <TextView
-        android:id="@+id/tvIniciarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/roboto"
-        android:text="Ya tengo cuenta. Iniciar sesión"
-        android:textColor="@color/brownstone"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnRegistrar" />
-
-    <Button
-        android:id="@+id/btnRegistrar"
+    <EditText
+        android:id="@+id/etCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:background="@drawable/button_rounded"
+        android:layout_marginTop="124dp"
         android:fontFamily="@font/roboto"
-        android:text="Registrar"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:hint="Correo Electrónico"
+        android:padding="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:inputType="textEmailAddress"
+        android:textColorHighlight="@color/black"
+        android:textColorLink="@color/bark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etContrasena" />
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
+        android:background="@drawable/formtext"/>
 
     <EditText
         android:id="@+id/etContrasena"
@@ -136,30 +123,33 @@
         app:layout_constraintTop_toBottomOf="@id/etCorreo"
         android:background="@drawable/formtext"/>
 
-    <EditText
-        android:id="@+id/etCorreo"
+    <Button
+        android:id="@+id/btnRegistrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/button_rounded"
         android:fontFamily="@font/roboto"
-        android:hint="Correo Electrónico"
-        android:padding="16dp"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:inputType="textEmailAddress"
-        android:textColorHighlight="@color/black"
-        android:textColorLink="@color/bark"
+        android:text="Registrar"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre"
-        android:background="@drawable/formtext"/>
+        app:layout_constraintTop_toBottomOf="@id/etContrasena" />
 
-    <!-- Campo de entrada para la Contraseña -->
-
-    <!-- Botón de registro -->
-
-    <!-- Texto para iniciar sesión -->
+    <TextView
+        android:id="@+id/tvIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="Ya tengo cuenta. Iniciar sesión"
+        android:textColor="@color/brownstone"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnRegistrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
