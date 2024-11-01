@@ -10,11 +10,9 @@
 
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:autofillHints="username"
         android:id="@+id/userName"
-
+        android:layout_width="337dp"
+        android:layout_height="80dp"
         android:text="@string/editar_perfil"
         android:textAlignment="center"
         android:textColor="@color/bark"
@@ -25,6 +23,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <!---   <EditText
+            android:id="@+id/etEditarContrasena"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="396dp"
+            android:fontFamily="@font/roboto"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorHighlight="@color/black"
+            android:textSize="16sp"
+            android:textColorLink="@color/bark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/formtext"
+            />
+    -->
 
     <EditText
         android:id="@+id/etEditarCorreo"
@@ -50,18 +69,17 @@
 
     <EditText
         android:id="@+id/etEditarNombre"
-        android:layout_width="288dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="204dp"
-        android:autofillHints="name"
         android:background="@drawable/formtext"
         android:fontFamily="@font/roboto"
-        android:hint="@string/nombre"
+        android:hint="Nombre"
         android:inputType="textPersonName"
         android:padding="16dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         android:textColorLink="@color/bark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,18 +90,17 @@
 
     <EditText
         android:id="@+id/etEditarApellido"
-        android:layout_width="292dp"
-        android:layout_height="54dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
-        android:autofillHints="username"
         android:background="@drawable/formtext"
         android:fontFamily="@font/roboto"
-        android:hint="@string/apellido"
+        android:hint="Apellido"
         android:inputType="textPersonName"
         android:padding="16dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         android:textColorLink="@color/bark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,18 +111,17 @@
 
     <EditText
         android:id="@+id/etEditarDNI"
-        android:layout_width="292dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="332dp"
-        android:autofillHints="dni"
         android:background="@drawable/formtext"
         android:fontFamily="@font/roboto"
-        android:hint="@string/dni"
+        android:hint="DNI"
         android:inputType="number"
         android:padding="16dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         android:textColorLink="@color/bark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,23 +129,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etEditarCorreo"
-        android:layout_width="293dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="136dp"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/formtext"
-        android:clickable="false"
-        android:enabled="false"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/correo"
-        android:inputType="textEmailAddress"
-        android:padding="16dp"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/black"
-        android:textColorHint="@color/black"
-        android:textColorLink="@color/bark"
     <Button
         android:id="@+id/saveButton"
         style="@style/buttonStyle"
@@ -147,8 +146,8 @@
     <Button
         android:id="@+id/cancelButton"
         style="@style/buttonStyle"
-        android:layout_width="283dp"
-        android:layout_height="54dp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
         android:layout_marginTop="550dp"
 
         android:text="@string/cancelar"
@@ -157,12 +156,5 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-        android:text="@string/cancelar"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

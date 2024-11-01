@@ -19,17 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="60dp">
 
-            <ImageView
-                android:id="@+id/profileImage"
-                android:layout_width="134dp"
-                android:layout_height="135dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/libromain3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-
+            <!-- Título -->
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
@@ -46,7 +36,7 @@
 
 
             <ImageView
-android:contentDescription="@string/logo_libroteka"
+                android:id="@+id/profileImage"
                 android:layout_width="134dp"
                 android:layout_height="135dp"
                 android:layout_marginTop="4dp"
@@ -66,7 +56,10 @@ android:contentDescription="@string/logo_libroteka"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
 
             <TextView
                 android:id="@+id/userEmail"
@@ -84,8 +77,8 @@ android:contentDescription="@string/logo_libroteka"
             <Button
                 android:id="@+id/editProfileButton"
                 style="@style/buttonStyle"
-                android:layout_width="194dp"
-                android:layout_height="58dp"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/editar_perfil"
                 android:textAlignment="center"
@@ -112,14 +105,14 @@ android:contentDescription="@string/logo_libroteka"
             <Button
                 android:id="@+id/contactUsButton"
                 style="@style/buttonStyle"
-                android:layout_width="184dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/contacto"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/faqButton" />
 
@@ -128,12 +121,12 @@ android:contentDescription="@string/logo_libroteka"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="8dp"
-                android:onClick="previo"
+                android:layout_marginTop="16dp"
                 android:text="@string/cerrar_sesi_n"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/contactUsButton" />
 
@@ -142,27 +135,14 @@ android:contentDescription="@string/logo_libroteka"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/volver"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/logoutButton" />
-
-            <Button
-                android:id="@+id/faqButton"
-                style="@style/buttonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="36dp"
-                android:text="@string/preguntas_frecuentes"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editProfileButton" />
+                app:layout_constraintTop_toBottomOf="@id/logoutButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
