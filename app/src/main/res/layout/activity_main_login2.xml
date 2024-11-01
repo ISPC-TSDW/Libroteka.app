@@ -8,9 +8,6 @@
     android:background="@color/marble"
     tools:context=".Main_login2">
 
-    <!--seccion de ingreso de usuario-->
-
-    <!--seccion de ingreso de contraseña-->
 
     <TextView
         android:id="@+id/textView2"
@@ -26,8 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
-
-
 
     <EditText
         android:id="@+id/et_email"
@@ -49,25 +44,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         android:background="@drawable/formtext"/>
 
-    <TextView
-        android:id="@+id/tvOlvidasteContrasena"
-        android:layout_width="258dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="60dp"
-        android:gravity="center"
-        android:onClick="recuperarContraseña"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/forgotten"
-        android:textColor="@color/bark"
-        android:textColorHint="@color/bark"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
     <EditText
         android:id="@+id/et_pass"
         android:layout_width="0dp"
@@ -78,7 +54,6 @@
         android:hint="@string/prompt_password"
         android:inputType="textPassword"
         android:padding="16dp"
-
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="15sp"
@@ -124,11 +99,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <!--seccion de btn de inicio de sesion-->
-
-    <!--seccion de recuperacion de contraseña-->
-
-    <!--seccion de atentificacion por redes sociales-->
+    <TextView
+        android:id="@+id/tvOlvidasteContrasena"
+        android:layout_width="258dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:onClick="recuperarContraseña"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/forgotten"
+        android:textColor="@color/bark"
+        android:textColorHint="@color/bark"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
