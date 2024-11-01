@@ -45,6 +45,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:contentDescription="@string/logo_libroteka"
         android:id="@+id/img_login"
         android:layout_width="300dp"
         android:layout_height="250dp"
