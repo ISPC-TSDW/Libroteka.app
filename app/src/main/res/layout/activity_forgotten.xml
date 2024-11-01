@@ -9,6 +9,7 @@
     tools:context=".Main_forgotten">
 
     <ImageView
+        android:contentDescription="@string/recuperar_contrase_a"
         android:id="@+id/id_logo1"
         android:layout_width="196dp"
         android:layout_height="192dp"
@@ -34,6 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/id_logo1" />
 
     <EditText
+        android:autofillHints="emailAddress"
         android:id="@+id/et_mail"
         android:layout_width="311dp"
         android:layout_height="58dp"
@@ -44,7 +46,7 @@
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColor="@color/bark"
-        android:textColorHint="@color/grey"
+        android:textColorHint="#2E2E2E"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.22"

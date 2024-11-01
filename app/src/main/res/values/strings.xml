@@ -66,6 +66,10 @@
     <string name="dni">DNI</string>
     <string name="nombre">Nombre</string>
     <string name="correo">Correo</string>
+    <string name="recuperar_contrase_a">Recuperar contraseña</string>
+    <string name="categor_as">Categorías</string>
+    <string name="destacados">Destacados</string>
+    <string name="libroteka">Libroteka</string>
 
 
 </resources>
