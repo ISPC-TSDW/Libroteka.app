@@ -45,6 +45,23 @@ public class EditProfileActivity extends AppCompatActivity {
         etEditarDNI = findViewById(R.id.etEditarDNI);
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
+        apiManager.getUserByEmail(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
+            @Override
+            public void onSuccess(GetUserResponse response) {
+                String userEmail = response.getEmail();
+                String userFirstName = response.getFirstName();
+                String userLastName = response.getLastName();
+                Integer userDni = response.getDni();
+                etEditarNombre.setText(userFirstName);
+                etEditarApellido.setText(userLastName);
+                etEditarDNI.setText(String.valueOf(userDni)); // Convert Integer to String
+                etEditarCorreo.setText(userEmail);
+                etEditarCorreo.setText(userEmail);
+            }
+            public void onFailure(String errorMessage) {
+                Toast.makeText(EditProfileActivity.this, "Error al cargar los datos del usuario: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -69,22 +86,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 String lastName = etEditarApellido.getText().toString().trim();
                 String dni = etEditarDNI.getText().toString().trim();
                 // Cargar los datos del usuario
-                apiManager.getUserByEmail(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
-                    @Override
-                    public void onSuccess(GetUserResponse response) {
-                        String userEmail = response.getEmail();
-                        String userFirstName = response.getFirstName();
-                        String userLastName = response.getLastName();
-                        Integer userDni = response.getDni();
-                        etEditarNombre.setText(userFirstName);
-                        etEditarApellido.setText(userLastName);
-                        etEditarDNI.setText(userDni);
-                        etEditarCorreo.setText(userEmail);
-                    }
-                    public void onFailure(String errorMessage) {
-                        Toast.makeText(EditProfileActivity.this, "Error al cargar los datos del usuario: " + errorMessage, Toast.LENGTH_SHORT).show();
-                    }
-                });
+
                 AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
                 alerta.setMessage("¿Desea por editar sus datos?")
                         .setCancelable(false)
