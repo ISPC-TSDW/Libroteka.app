@@ -113,18 +113,8 @@ WSGI_APPLICATION = 'Libroteka.wsgi.application'
 
 import connection_url
 
-DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'libroteka', #cambia por la el nombre de db que quieras
-       'USER': 'root',
-       'PASSWORD': 'Facundo95!', #cambia por la contraseña de root
-       'HOST': 'localhost',
-       'PORT': '3306',
-    }
-}
 
-#DATABASES = {
+DATABASES = {
 #     'default': {
 #        'ENGINE': 'django.db.backends.mysql',
 #        'NAME': env('MYSQL_DATABASE'),
@@ -134,13 +124,13 @@ DATABASES = {
 #        'PORT': env('MYSQLPORT'), 
     
 #     }
-#}
-#HOST = env('MYSQL_PUBLIC_URL')
+}
+HOST = env('MYSQL_PUBLIC_URL')
 
-#DATABASES['default'] = connection_url.config(HOST, {
-#                      'ENGINE': 'django.db.backends.mysql',
-#                      'CONN_MAX_AGE': 1000,
-#                      }, ENGINE='django.db.backends.mysql')
+DATABASES['default'] = connection_url.config(HOST, {
+                      'ENGINE': 'django.db.backends.mysql',
+                      'CONN_MAX_AGE': 1000,
+                      }, ENGINE='django.db.backends.mysql')
 
 
 # Password validation
