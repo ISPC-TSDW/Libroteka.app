@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <!-- Image for the book -->
+
     <ImageView
         android:contentDescription="@string/portada_del_libro"
         android:id="@+id/bookImageView"
@@ -23,7 +23,7 @@
         app:layout_constraintWidth_percent="0.6"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
-    <!-- Delete button below the book image -->
+
     <ImageButton
         android:id="@+id/deleteButton"
         android:layout_width="48dp"

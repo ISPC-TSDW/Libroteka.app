@@ -25,6 +25,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
+    <EditText
+        android:id="@+id/etEditarCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/formtext"
+        android:clickable="false"
+        android:enabled="false"
+        android:fontFamily="@font/roboto"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/bark"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etEditarNombre"
         android:layout_width="288dp"
@@ -107,9 +130,17 @@
         android:textColorHighlight="@color/black"
         android:textColorHint="@color/black"
         android:textColorLink="@color/bark"
+    <Button
+        android:id="@+id/saveButton"
+        style="@style/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+
+        android:layout_marginTop="500dp"
+        android:text="@string/guardar"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,15 +157,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/saveButton"
-        style="@style/buttonStyle"
-        android:layout_width="285dp"
-        android:layout_height="63dp"
-
-        android:layout_marginTop="456dp"
-        android:text="@string/guardar"
+        android:text="@string/cancelar"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -142,4 +165,4 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

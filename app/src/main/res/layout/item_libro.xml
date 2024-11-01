@@ -52,4 +52,5 @@
         app:layout_constraintStart_toStartOf="@+id/tvTituloLibro"
         app:layout_constraintTop_toBottomOf="@id/tvTituloLibro" />
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
