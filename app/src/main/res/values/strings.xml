@@ -53,6 +53,15 @@
     <string name="volver">Volver</string>
     <string name="mis_favoritos">Mis Favoritos</string>
     <string name="delete_button">Quitar de favoritos</string>
+    <string name="agregar_a_favoritos">Agregar a favoritos</string>
+    <string name="portada_del_libro">Portada del libro</string>
+    <string name="buscar_libros">Buscar libros...</string>
+    <string name="filtro">Filtro</string>
+    <string name="perfil">Perfil</string>
+    <string name="foto_de_portada">Foto de portada</string>
+    <string name="autor">Autor</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="t_tulo">Título</string>
 
 
 </resources>

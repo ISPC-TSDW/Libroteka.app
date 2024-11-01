@@ -34,6 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:contentDescription="@string/foto_de_portada"
             android:id="@+id/img_perfil"
             android:layout_width="54dp"
             android:layout_height="52dp"
@@ -47,6 +48,7 @@
 
         <ImageView
             android:id="@+id/srcImg"
+            android:contentDescription="@string/portada_del_libro"
             android:layout_width="184dp"
             android:layout_height="304dp"
             android:layout_marginTop="16dp"
@@ -61,16 +63,17 @@
             android:layout_width="167dp"
             android:layout_height="45dp"
             android:layout_marginTop="4dp"
-            android:text="TextView"
+            android:text="@string/t_tulo"
             android:textAlignment="center"
             android:textColor="@color/bark"
-            android:textSize="30dp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
             app:layout_constraintStart_toStartOf="@+id/srcImg"
             app:layout_constraintTop_toBottomOf="@+id/srcImg" />
 
         <ImageButton
             android:id="@+id/btnFavorite"
+            android:contentDescription="@string/agregar_a_favoritos"
             android:layout_width="74dp"
             android:layout_height="62dp"
             android:textAlignment="center"
@@ -86,7 +89,7 @@
             android:layout_width="185dp"
             android:layout_height="30dp"
             android:layout_marginTop="24dp"
-            android:text="TextView"
+            android:text="@string/autor"
             android:textAlignment="center"
             android:textColor="@color/bark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,8 +102,8 @@
             android:layout_width="334dp"
             android:layout_height="104dp"
             android:layout_marginTop="24dp"
-            android:text="TextView"
-            android:textSize="22dp"
+            android:text="@string/descripci_n"
+            android:textSize="22sp"
             android:textAlignment="center"
             android:textColor="@color/bark"
             app:layout_constraintEnd_toEndOf="parent"
