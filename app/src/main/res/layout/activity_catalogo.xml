@@ -15,7 +15,9 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="Volver"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/brownstone" />

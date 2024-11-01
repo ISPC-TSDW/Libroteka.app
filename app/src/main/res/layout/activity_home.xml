@@ -9,7 +9,17 @@
     tools:context=".Home">
 
 
-    <!-- Icono de perfil -->
+    <ImageView
+        android:id="@+id/profileIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/profile_icon"/>
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -25,17 +35,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.796" />
-
-    <ImageView
-        android:id="@+id/profileIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_profile"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/profile_icon"/>
 
     <!-- Título de Categorías -->
     <TextView
@@ -102,6 +101,5 @@
         app:itemTextColor="@color/brownstone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
