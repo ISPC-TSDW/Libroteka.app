@@ -33,8 +33,8 @@ public interface ApiInterface {
     @GET("api/users/")
     Call<GetUserResponse> getUser(@Query("email") String email);
 
-    @GET("api/users/{email}")
-    Call<GetUserResponse> getUserByEmail(@Path("email") String email);
+    @GET("api/users/detail/")
+    Call<GetUserResponse> getUserByEmail(@Query("email") String email);
 
     @POST("api/users/")
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);

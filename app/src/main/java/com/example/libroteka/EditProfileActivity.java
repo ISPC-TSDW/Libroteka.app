@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.GetUserResponse;
 import com.example.libroteka.data.MyApp;
 import com.example.libroteka.data.UpdateProfileRequest;
 import com.example.libroteka.data.UpdateResponse;
@@ -67,8 +68,23 @@ public class EditProfileActivity extends AppCompatActivity {
                 String firstName = etEditarNombre.getText().toString().trim();
                 String lastName = etEditarApellido.getText().toString().trim();
                 String dni = etEditarDNI.getText().toString().trim();
-
-
+                // Cargar los datos del usuario
+                apiManager.getUserByEmail(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
+                    @Override
+                    public void onSuccess(GetUserResponse response) {
+                        String userEmail = response.getEmail();
+                        String userFirstName = response.getFirstName();
+                        String userLastName = response.getLastName();
+                        Integer userDni = response.getDni();
+                        etEditarNombre.setText(userFirstName);
+                        etEditarApellido.setText(userLastName);
+                        etEditarDNI.setText(userDni);
+                        etEditarCorreo.setText(userEmail);
+                    }
+                    public void onFailure(String errorMessage) {
+                        Toast.makeText(EditProfileActivity.this, "Error al cargar los datos del usuario: " + errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
                 AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
                 alerta.setMessage("¿Desea por editar sus datos?")
                         .setCancelable(false)
