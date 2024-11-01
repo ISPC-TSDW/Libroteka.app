@@ -201,6 +201,16 @@ class UsersLibrotekaListCreate(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
+class UsersLibrotekaListUser(APIView):
+    def get(self, request):
+        user_email = request.query_params.get('email', None)
+
+        if user_email:
+            user = get_object_or_404(UsersLibroteka, email=user_email)
+            serializer = UsersLibrotekaSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'Email parameter is required'}, status=status.HTTP_400_BAD_REQUEST)
 class CreateOrderView(APIView):
     def post(self, request):
         user_email = request.data.get('id_User')
