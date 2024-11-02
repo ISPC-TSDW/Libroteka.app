@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.libroteka.data.ApiManager;
+import com.example.libroteka.data.DeleteProfileRequest;
+import com.example.libroteka.data.DeleteResponse;
 import com.example.libroteka.data.GetUserResponse;
 import com.example.libroteka.data.MyApp;
 import com.example.libroteka.data.UpdateProfileRequest;
@@ -25,10 +27,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private Button saveButton;
     private Button cancelButton;
+    private Button deleteAccountButton;
     private EditText etEditarNombre;
     private EditText etEditarApellido;
     private EditText etEditarDNI;
     private EditText etEditarCorreo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class EditProfileActivity extends AppCompatActivity {
         etEditarDNI = findViewById(R.id.etEditarDNI);
         saveButton = findViewById(R.id.saveButton);
         cancelButton = findViewById(R.id.cancelButton);
+        deleteAccountButton = findViewById(R.id.deleteAccountButton);
         apiManager.getUserByEmail(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
             @Override
             public void onSuccess(GetUserResponse response) {
@@ -58,11 +63,11 @@ public class EditProfileActivity extends AppCompatActivity {
                 etEditarCorreo.setText(userEmail);
                 etEditarCorreo.setText(userEmail);
             }
+
             public void onFailure(String errorMessage) {
                 Toast.makeText(EditProfileActivity.this, "Error al cargar los datos del usuario: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
         // Cargar los datos del usuario
@@ -135,7 +140,50 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish(); // Finaliza esta actividad y regresa a la anterior
             }
         });
+        deleteAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(EditProfileActivity.this, R.style.AlertDialog);
+                alerta.setMessage("¿Desea eliminar su cuenta?")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Create an UpdateProfileRequest object
+                                DeleteProfileRequest deleteProfileRequest = new DeleteProfileRequest(userEmail, false);
+                                apiManager.deleteUserProfile(deleteProfileRequest, new ApiManager.ApiCallback<DeleteResponse>() {
+                                    @Override
+                                    public void onSuccess(DeleteResponse response) {
+                                        Toast.makeText(EditProfileActivity.this, "Cuenta eliminada correctamente", Toast.LENGTH_SHORT).show();
+                                        // Navegar a la pantalla de inicio
+                                        Intent intent = new Intent(EditProfileActivity.this, Main_login2.class);
+                                        startActivity(intent);
+                                        finish(); // Cerrar la actividad
+                                    }
+
+                                    @Override
+                                    public void onFailure(String errorMessage) {
+                                        Toast.makeText(EditProfileActivity.this, "Error al eliminar la cuenta: " + errorMessage, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Confirmar eliminación");
+                titulo.show();
+            }
+        });
+
     }
+
+
+
 
 
 
