@@ -3,7 +3,8 @@ package com.example.libroteka.retrofit;
 import retrofit2.Call;
 import retrofit2.http.Body;
 
-import com.example.libroteka.data.GetUserRequest;
+import com.example.libroteka.data.DeleteProfileRequest;
+import com.example.libroteka.data.DeleteResponse;
 import com.example.libroteka.data.GetUserResponse;
 import com.example.libroteka.data.BookResponse;
 import com.example.libroteka.data.FavoriteRequest;
@@ -41,6 +42,10 @@ public interface ApiInterface {
 
     @PUT("api/user/update/")
     Call<UpdateResponse> updateUserProfile(@Body UpdateProfileRequest updateProfileRequest);
+
+    //Delete User
+    @PUT("api/user/update/")
+    Call<DeleteResponse> deleteUserProfile(@Body DeleteProfileRequest deleteProfileRequest);
 
     @GET("api/book")
     Call<List<BookResponse>> getBooks();
