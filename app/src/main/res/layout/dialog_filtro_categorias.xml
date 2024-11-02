@@ -4,41 +4,40 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/radioGroupCategorias"
     >
 
-    <RadioGroup
-        android:id="@+id/radioGroupCategorias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/radioButtonDrama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Drama"
-            style="@style/CustomAlertDialog"
-            />
+    <RadioButton
+        android:id="@+id/radioButtonDrama"
+        style="@style/CustomAlertDialog"
+        android:layout_width="300dp"
+        android:textColor="@color/white"
+        android:layout_height="53dp"
+        android:text="@string/drama" />
 
-        <RadioButton
-            android:id="@+id/radioButtonSuspenso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suspenso"
-            style="@style/CustomAlertDialog"/>
+    <RadioButton
+        android:id="@+id/radioButtonSuspenso"
+        style="@style/CustomAlertDialog"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        android:text="@string/suspenso"
+        android:textColor="@color/white" />
 
-        <RadioButton
-            android:id="@+id/radioButtonFantasia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fantasía"
-            style="@style/CustomAlertDialog"/>
+    <RadioButton
+        android:id="@+id/radioButtonFantasia"
+        style="@style/CustomAlertDialog"
+        android:layout_width="300dp"
+        android:textColor="@color/white"
+        android:layout_height="49dp"
+        android:text="@string/fantas_a" />
 
-        <RadioButton
-            android:id="@+id/radioButtonJuvenil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Juvenil"
-            style="@style/CustomAlertDialog"/>
+    <RadioButton
+        android:id="@+id/radioButtonJuvenil"
+        style="@style/CustomAlertDialog"
+        android:textColor="@color/white"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:text="@string/juvenil" />
 
-    </RadioGroup>
 </LinearLayout>

@@ -53,6 +53,40 @@
     <string name="volver">Volver</string>
     <string name="mis_favoritos">Mis Favoritos</string>
     <string name="delete_button">Quitar de favoritos</string>
+    <string name="agregar_a_favoritos">Agregar a favoritos</string>
+    <string name="portada_del_libro">Portada del libro</string>
+    <string name="buscar_libros">Buscar libros...</string>
+    <string name="filtro">Filtro</string>
+    <string name="perfil">Perfil</string>
+    <string name="foto_de_portada">Foto de portada</string>
+    <string name="autor">Autor</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="t_tulo">Título</string>
+    <string name="apellido">Apellido</string>
+    <string name="dni">DNI</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
+    <string name="recuperar_contrase_a">Recuperar contraseña</string>
+    <string name="categor_as">Categorías</string>
+    <string name="destacados">Destacados</string>
+    <string name="libroteka">Libroteka</string>
+    <string name="logo_libroteka">Logo Libroteka</string>
+    <string name="registrar">Registrar</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="ya_tengo_cuenta_iniciar_sesi_n">Ya tengo cuenta. Iniciar sesión</string>
+    <string name="ingresa_un_correo">Ingresa un correo</string>
+    <string name="ingresa_un_mensaje">Ingresa un mensaje...</string>
+    <string name="contactanos">Contactanos</string>
+    <string name="tu_nombre">Tu nombre</string>
+    <string name="enviar">Enviar</string>
+    <string name="drama">Drama</string>
+    <string name="suspenso">Suspenso</string>
+    <string name="juvenil">Juvenil</string>
+    <string name="fantas_a">Fantasía</string>
+    <string name="nombre_de_la_categor_a">Nombre de la Categoría</string>
+    <string name="favorito">Favorito</string>
+    <string name="_15_000">$15.000</string>
+    <string name="t_tulo_del_libro">Título del Libro</string>
 
 
 </resources>

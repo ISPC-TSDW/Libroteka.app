@@ -41,9 +41,9 @@
         android:id="@+id/tvCategorias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:paddingStart="16dp"
-        android:text="Categorías"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/categor_as"
         android:textColor="@color/brownstone"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -65,20 +65,22 @@
         android:orientation="horizontal"/>
 
     <!-- Título "Destacados" -->
+
+    <!-- RecyclerView para libros destacados -->
+
     <TextView
         android:id="@+id/tvDestacados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Destacados"
-        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/destacados"
         android:textColor="@color/brownstone"
         android:textSize="18sp"
-        android:layout_marginTop="24dp"
-        android:paddingStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/rvCategorias"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvCategorias" />
 
-    <!-- RecyclerView para libros destacados -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDestacados"
         android:layout_width="match_parent"

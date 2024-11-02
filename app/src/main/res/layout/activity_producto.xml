@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marble"
-    android:backgroundTint="@color/ic_google_background"
     tools:context=".ProductoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,66 +45,79 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+
+        <!-- Title positioned above the image and centered -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/t_tulo"
+            android:textColor="@color/bark"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/srcImg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Main image centered -->
+
+        <!-- Heart icon positioned below the image and centered -->
+
+        <!-- Author text positioned below the heart icon -->
+
+        <!-- Description positioned below author text -->
+
         <ImageView
             android:id="@+id/srcImg"
             android:layout_width="184dp"
             android:layout_height="304dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="@string/portada_del_libro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_tituloprod"
             app:srcCompat="@drawable/el_laberinto_del_fauno" />
 
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="167dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="4dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="@color/bark"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
-            app:layout_constraintStart_toStartOf="@+id/srcImg"
-            app:layout_constraintTop_toBottomOf="@+id/srcImg" />
-
         <ImageButton
             android:id="@+id/btnFavorite"
-            android:layout_width="74dp"
-            android:layout_height="62dp"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/agregar_a_favoritos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtTitle"
-            app:layout_constraintTop_toTopOf="@+id/txtTitle"
-            app:layout_constraintVertical_bias="0.515"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/srcImg"
             app:srcCompat="@mipmap/ic_favorite_basic_round" />
 
         <TextView
             android:id="@+id/txtAuthor"
-            android:layout_width="185dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="24dp"
-            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/autor"
             android:textAlignment="center"
             android:textColor="@color/bark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/btnFavorite" />
 
         <TextView
             android:id="@+id/txtDescription"
-            android:layout_width="334dp"
-            android:layout_height="104dp"
-            android:layout_marginTop="24dp"
-            android:text="TextView"
-            android:textSize="22dp"
-            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/descripci_n"
             android:textColor="@color/bark"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtAuthor" />
 
