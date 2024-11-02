@@ -87,6 +87,7 @@
     <string name="favorito">Favorito</string>
     <string name="_15_000">$15.000</string>
     <string name="t_tulo_del_libro">Título del Libro</string>
+    <string name="eliminar_cuenta">ELIMINAR CUENTA</string>
 
 
 </resources>
