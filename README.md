@@ -258,7 +258,7 @@ Puntos claves:
 <td>
 
 ## Credenciales Django Admin
-- user: superadmin
+- user: ####### (comunicarse con el admin)
 - password: ####### (comunicarse con el admin)
 
 ## Librerías
