@@ -16,6 +16,8 @@ En este proyecto, el objetivo es poder fomentar y desarrollar las habilidades y 
 Para lograrlo, estamos diseñando una aplicación en línea que permitirá a los usuarios buscar, filtrar y encontrar libros de su elección a través de búsquedas personalizadas. Este manual tiene como objetivo analizar y documentar las necesidades funcionales del sistema a desarrollar, identificando los requisitos y las necesidades actuales de los usuarios.
 Estableceremos prioridades para garantizar que el sistema final se ajuste a las necesidades del usuario y cumpla con los estándares deseados.
 
+## Objetivo de Libroteka 🎯
+Libroteka tiene como propósito ofrecer a los usuarios una experiencia enriquecedora para encontrar libros según sus preferencias de autor, género o título. La aplicación mejora la experiencia de búsqueda y proporciona una plataforma que fomenta la lectura, facilitando la navegación a través de un catálogo de libros actualizado y variado. La idea principal de este proyecto ha sido desarrollar un sistema eficiente, seguro y escalable, con la experiencia del usuario como eje central.
 
 ## Proposito del Proyecto 📝
 <b>1. Facilitar el acceso a la lectura:</b> 
