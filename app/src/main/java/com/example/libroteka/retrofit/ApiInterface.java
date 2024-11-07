@@ -10,9 +10,12 @@ import com.example.libroteka.data.FavoriteRequest;
 import com.example.libroteka.data.LoginRequest;
 import com.example.libroteka.data.RegisterRequest;
 import com.example.libroteka.data.RegisterResponse;
+import com.example.libroteka.data.TokenRequest;
 import com.example.libroteka.data.UpdateProfileRequest;
 import com.example.libroteka.data.UpdateResponse;
 import com.example.libroteka.data.UserResponse;
+import com.example.libroteka.data.TokenResponse;
+
 
 import java.util.List;
 
@@ -61,4 +64,10 @@ public interface ApiInterface {
             @Query("id_user") String userId,
             @Query("id_book") int bookId
     );
+
+    @POST("api/token/")
+    Call<TokenResponse> getToken(@Body TokenRequest tokenRequest);
+
+    @POST("/token/refresh/")
+    Call<TokenResponse> refreshToken(@Body String refreshToken);
 }
