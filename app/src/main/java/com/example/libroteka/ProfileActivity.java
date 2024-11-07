@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.MyApp;
 import com.example.libroteka.data.GetUserResponse;
-import com.example.libroteka.data.GetUserRequest;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -32,9 +31,27 @@ public class ProfileActivity extends AppCompatActivity {
         Button faqButton = findViewById(R.id.faqButton);
         Button logoutButton = findViewById(R.id.logoutButton);
         Button goBackButton = findViewById(R.id.goBackButton);
-        TextView emailTextView = findViewById(R.id.userEmail);
-        emailTextView.setText(userEmail);
-        TextView fullNameTextView = findViewById(R.id.userFullName);
+        // User Data
+        TextView userFirstNameText = findViewById(R.id.userFirstName);
+        TextView userLastNameText = findViewById(R.id.userLastName);
+        TextView userEmailText = findViewById(R.id.userEmail);
+
+        ApiManager apiManager = new ApiManager();
+        apiManager.getUserByEmail(userEmail, new ApiManager.ApiCallback<GetUserResponse>() {
+            @Override
+            public void onSuccess(GetUserResponse response) {
+                String userEmail = response.getEmail();
+                String userFirstName = response.getFirstName();
+                String userLastName = response.getLastName();
+                userFirstNameText.setText(userFirstName);
+                userLastNameText.setText(userLastName);
+                userEmailText.setText(userEmail);
+            }
+            public void onFailure(String errorMessage) {
+                Toast.makeText(ProfileActivity.this, "Error al cargar los datos del usuario: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         // Set up button listeners
         editProfileButton.setOnClickListener(new View.OnClickListener() {

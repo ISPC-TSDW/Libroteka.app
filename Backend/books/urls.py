@@ -22,6 +22,7 @@ urlpatterns = [
     path('roles/<int:pk>/', RoleRetrieveUpdateDestroyAPIView.as_view(), name='role-retrieve-update-destroy'),
     path('buscar-libros/', BusquedaLibrosView.as_view(), name='buscar_libros'),
     path('users/', UsersLibrotekaListCreate.as_view(), name='users-list-create'),
+    path('users/detail/', UsersLibrotekaListUser.as_view(), name='user-detail'),
     path('libros/', LibrosView.as_view(), name='libros'),
     path('create-orders/', CreateOrderView.as_view(), name='create-orders'),
     path('favorites/', FavoriteManageView.as_view(), name='favorites'),

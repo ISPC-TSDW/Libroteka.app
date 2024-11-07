@@ -7,24 +7,27 @@
     android:background="@color/marble"
     tools:context=".Catalogo">
 
-    <!-- Icono de volver atrás -->
 
-    <!-- Icono de perfil -->
+
+    <!-- Icono de volver atrás -->
     <ImageView
         android:id="@+id/icon_back"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
-        android:contentDescription="Volver"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/volver"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/brownstone" />
 
+    <!-- Icono de perfil -->
     <ImageView
         android:id="@+id/icon_profile"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:contentDescription="Perfil"
+        android:contentDescription="@string/perfil"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="25dp"
         android:src="@drawable/ic_profile"
@@ -32,44 +35,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Campo de búsqueda -->
-
-
-    <!-- Icono de filtro -->
-
-    <!-- RecyclerView para los libros -->
-
     <EditText
         android:id="@+id/search_input"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:background="@drawable/search_box_background"
         android:drawablePadding="8dp"
-        android:hint="Buscar libros..."
+        android:hint="@string/buscar_libros"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColor="@android:color/black"
-        android:textColorHint="#A8A6A5"
+        android:textColorHint="#2d2d2d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Menú de navegación inferior -->
+    <!-- Icono de filtro -->
     <ImageView
         android:id="@+id/icon_filter"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="85dp"
         android:layout_marginEnd="45dp"
-        android:contentDescription="Filtro"
+        android:contentDescription="@string/filtro"
         android:src="@drawable/filtrar1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/brownstone" />
 
+    <!-- RecyclerView para los libros -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_libros"
         android:layout_width="0dp"
@@ -83,6 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/search_input"
         app:layout_constraintVertical_bias="1.0" />
 
+    <!-- Menú de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
@@ -91,12 +91,9 @@
         app:itemIconTint="@color/brownstone"
         app:itemTextColor="@color/brownstone"
         app:menu="@menu/menu_navigation"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-

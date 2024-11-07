@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/marble">
 
-    <!-- App Name TextView -->
-
-    <!-- "Contact Us" TextView -->
-
-    <!-- Name Input EditText -->
-
-    <!-- Email Input EditText -->
 
     <TextView
         android:id="@+id/et_appname"
@@ -33,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Contactanos"
+        android:text="@string/contactanos"
         android:textColor="@color/bark"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -44,18 +37,19 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <EditText
+        android:autofillHints="name"
         android:id="@+id/et_name"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:gravity="center|start"
-        android:hint="Tu nombre"
+        android:hint="@string/tu_nombre"
         android:padding="16dp"
         android:textSize="15sp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:inputType="textPersonName"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,15 +59,16 @@
         android:background="@drawable/formtext"/>
 
     <EditText
+        android:autofillHints="emailAddress"
         android:id="@+id/emailText"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Ingresa un correo"
+        android:hint="@string/ingresa_un_correo"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:textSize="15sp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:fontFamily="@font/roboto"
         android:ems="10"
         android:layout_margin="20dp"
@@ -84,23 +79,18 @@
         app:layout_constraintWidth_percent="0.8"
         android:background="@drawable/formtext"/>
 
-    <!-- Message Input EditText -->
-
-    <!-- Submit Button -->
-
-    <!-- Go Back Button -->
-
     <EditText
+        android:autofillHints="description"
         android:id="@+id/descriptionText"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:gravity="top|start"
-        android:hint="Ingresa un mensaje..."
+        android:hint="@string/ingresa_un_mensaje"
         android:inputType="textMultiLine"
         android:padding="16dp"
         android:textSize="15sp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:maxLines="10"
         android:minLines="4"
         android:scrollbars="vertical"
@@ -117,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_rounded"
-        android:text="Enviar"
+        android:text="@string/enviar"
         app:layout_constraintBottom_toTopOf="@+id/goBackButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
