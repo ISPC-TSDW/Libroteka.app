@@ -54,7 +54,11 @@ public class Main_login2 extends AppCompatActivity {
 
             @Override
             public void onFailure(String errorMessage) {
-                Toast.makeText(Main_login2.this, "Login fallido: " + errorMessage, Toast.LENGTH_SHORT).show();
+                if (errorMessage.equals("User account is deactivated")) {
+                    Toast.makeText(Main_login2.this, "Cuenta desactivada. Por favor, contacta al soporte.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Main_login2.this, "Login fallido", Toast.LENGTH_SHORT).show();
+                }
             }
         } );
     }

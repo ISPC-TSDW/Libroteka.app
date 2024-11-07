@@ -92,16 +92,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'dni']
-class UsersLibrotekaSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
-
+class UserLibrotekaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UsersLibroteka
-        fields = ['id', 'username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active']
+        model = User
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active'] 
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
-        return super().create(validated_data)
+        return super().create(validated_data)        
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:

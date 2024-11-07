@@ -233,7 +233,24 @@ public class ApiManager {
             }
         });
     }
+    public void deleteUserProfile(DeleteProfileRequest deleteProfileRequest, final ApiCallback<DeleteResponse> callback) {
+        Call<DeleteResponse> call = apiInterface.deleteUserProfile(deleteProfileRequest);
+        call.enqueue(new Callback<DeleteResponse>() {
+            @Override
+            public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onFailure("Profile update failed: " + response.message());
+                }
+            }
+            @Override
+            public void onFailure(Call<DeleteResponse> call, Throwable t) {
+                callback.onFailure("Profile update failed: " + t.getMessage());
+            }
+        });
 
+    }
 
     public void getUser(String email, final ApiCallback<GetUserResponse> callback) {
         Call<GetUserResponse> call = apiInterface.getUser(email);
