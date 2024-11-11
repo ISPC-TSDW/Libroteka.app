@@ -129,7 +129,7 @@ class UsersLibrotekaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UsersLibroteka
-        fields = ['username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active']
+        fields = ['id', 'username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active']
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinLengthValidator
 
 
 # class User(AbstractUser):
@@ -129,9 +129,9 @@ class OrderStatus(models.Model):
 class UsersLibroteka(AbstractUser):
     id = models.AutoField(primary_key=True)
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=30, unique=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=35)
+    username = models.CharField(max_length=30, unique=True, validators=[MinLengthValidator(2)])
+    first_name = models.CharField(max_length=30, validators=[MinLengthValidator(2)])
+    last_name = models.CharField(max_length=35 , validators=[MinLengthValidator(2)])
     dni = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')], unique=True)
     password = models.CharField(max_length=128)
     is_active = models.BooleanField(blank=False, default=True)
