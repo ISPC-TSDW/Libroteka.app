@@ -95,15 +95,11 @@ class UserSerializer(serializers.ModelSerializer):
 class UserLibrotekaSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'dni'] 
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active'] 
 
     def create(self, validated_data):
-        user = User.objects.create_user(
-            validated_data['username'], 
-            validated_data['email'], 
-            validated_data['password']
-        )
-        return user        
+        validated_data['password'] = make_password(validated_data['password'])
+        return super().create(validated_data)        
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -133,7 +129,7 @@ class UsersLibrotekaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UsersLibroteka
-        fields = ['username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active']
+        fields = ['id', 'username', 'first_name', 'last_name', 'dni', 'email', 'password', 'is_active']
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
@@ -190,3 +186,4 @@ class RatingSerializer(serializers.ModelSerializer):
         if not data['id_user'].is_active:
             raise serializers.ValidationError({"detail": "User account is deactivated."})
         return data
+

@@ -26,12 +26,14 @@ import com.example.libroteka.data.RegisterResponse;
 public class RegisterActivity extends AppCompatActivity {
 
     private ApiManager apiManager;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        apiManager = new ApiManager();
+        sessionManager = new SessionManager(getApplicationContext());
+        apiManager = new ApiManager(sessionManager);
 
         // Definimos las referencias a los campos de entrada
         EditText etDni = findViewById(R.id.etDNI);

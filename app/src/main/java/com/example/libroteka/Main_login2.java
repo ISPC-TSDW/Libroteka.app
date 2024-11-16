@@ -9,23 +9,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.libroteka.data.ApiManager;
 import com.example.libroteka.data.LoginRequest;
-import com.example.libroteka.data.MyApp;
+import com.example.libroteka.data.TokenRequest;
+import com.example.libroteka.data.TokenResponse;
 import com.example.libroteka.data.UserResponse;
 
 public class Main_login2 extends AppCompatActivity {
-
     private EditText emailEditText;
     private EditText passwordEditText;
     private Button button;
     private ApiManager apiManager;
-
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login2);
 
-        apiManager = new ApiManager();
+        sessionManager = new SessionManager(getApplicationContext());
+        apiManager = new ApiManager(sessionManager);
         emailEditText = findViewById(R.id.et_email);
         passwordEditText = findViewById(R.id.et_pass);
         button = findViewById(R.id.button); // Asegúrate de que este ID sea correcto
@@ -33,10 +34,8 @@ public class Main_login2 extends AppCompatActivity {
         button.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
+            String token = getToken(email, password);
 
-            if (validateInputs(email, password)) {
-                loginUser(email, password);
-            }
         });
     }
 
@@ -46,8 +45,6 @@ public class Main_login2 extends AppCompatActivity {
         apiManager.loginUser(loginRequest, new ApiManager.ApiCallback<UserResponse>() {
             @Override
             public void onSuccess(UserResponse response) {
-                MyApp app = (MyApp) getApplicationContext();
-                app.setUserEmail(email);
                 Toast.makeText(Main_login2.this, "Login exitoso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Main_login2.this, Home.class);
                 intent.putExtra("email", email);
@@ -63,7 +60,30 @@ public class Main_login2 extends AppCompatActivity {
                     Toast.makeText(Main_login2.this, "Login fallido", Toast.LENGTH_SHORT).show();
                 }
             }
+        } );
+    }
+
+    private String getToken(String email, String password) {
+        TokenRequest tokenRequest = new TokenRequest(email, password);
+        String token = null;
+        apiManager.getToken(tokenRequest, new ApiManager.ApiCallback<TokenResponse>() {
+            @Override
+            public void onSuccess(TokenResponse response) {
+                sessionManager.createLoginSession(response.getAccess(), response.getRefreshToken(), email);
+                if (validateInputs(email, password)) {
+
+                    loginUser(email, password);
+                }
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(Main_login2.this, "Error en token: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+
         });
+        return token;
+
     }
 
     private boolean validateInputs(String email, String password) {
