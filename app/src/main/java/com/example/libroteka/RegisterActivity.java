@@ -120,6 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean isValidPassword(String contrasena) {
+        Log.i("registro", "Validando contraseña");
         List<String> errors = new ArrayList<>();
         // Validar longitud
         if (contrasena.length() < 12) {
@@ -131,16 +132,19 @@ public class RegisterActivity extends AppCompatActivity {
         Matcher matcher = pattern.matcher(contrasena);
 
         if (!matcher.matches()) {
+            Log.i("registro", "Contraseña no válida");
             errors.add("Debe contener 1 minuscula, 1 mayuscula, numero y caracter");
         }
 
         // Verificar que no haya caracteres consecutivos iguales
         if (contrasena.matches(".*(.)\\1{2,}.*")) {
+            Log.i("registro", "Contraseña no válida2");
             errors.add("No debe contener más de 2 caracteres consecutivos iguales");
         }
 
         // Verificar si hay secuencias consecutivas
         if (hasConsecutiveSequence(contrasena)) {
+            Log.i("registro", "Contraseña no válida3");
            errors.add("No debe contener secuencias numéricas de más de 3 caracteres");
         }
 

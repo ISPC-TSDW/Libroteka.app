@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,8 @@ public class Main_login2 extends AppCompatActivity {
     private Button button;
     private ApiManager apiManager;
     private SessionManager sessionManager;
+    private ImageButton togglePasswordButton;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class Main_login2 extends AppCompatActivity {
         apiManager = new ApiManager(sessionManager);
         emailEditText = findViewById(R.id.et_email);
         passwordEditText = findViewById(R.id.et_pass);
+        togglePasswordButton = findViewById(R.id.btn_toggle_password);
         button = findViewById(R.id.button); // Asegúrate de que este ID sea correcto
 
         button.setOnClickListener(v -> {
@@ -36,6 +40,19 @@ public class Main_login2 extends AppCompatActivity {
             String password = passwordEditText.getText().toString().trim();
             String token = getToken(email, password);
 
+        });
+        togglePasswordButton.setOnClickListener(v -> {
+            if (isPasswordVisible) {
+                // Si la contraseña está visible, la ocultamos
+                passwordEditText.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                togglePasswordButton.setImageResource(R.drawable.ic_visibility_off); // Cambia el ícono
+            } else {
+                // Si la contraseña está oculta, la mostramos
+                passwordEditText.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                togglePasswordButton.setImageResource(R.drawable.ic_visibility); // Cambia el ícono
+            }
+            isPasswordVisible = !isPasswordVisible; // Alterna el estado de la visibilidad
+            passwordEditText.setSelection(passwordEditText.getText().length()); // Mantén el cursor al final del texto
         });
     }
 

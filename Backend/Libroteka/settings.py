@@ -137,12 +137,13 @@ DATABASES = {
     
 #     }
 }
+
 HOST = env('MYSQL_PUBLIC_URL')
 
 DATABASES['default'] = connection_url.config(HOST, {
-                      'ENGINE': 'django.db.backends.mysql',
-                      'CONN_MAX_AGE': 1000,
-                      }, ENGINE='django.db.backends.mysql')
+                       'ENGINE': 'django.db.backends.mysql',
+                       'CONN_MAX_AGE': 1000,
+                       }, ENGINE='django.db.backends.mysql')
 
 
 # Password validation
