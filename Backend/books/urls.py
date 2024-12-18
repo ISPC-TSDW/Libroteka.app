@@ -14,7 +14,7 @@ router.register(r'genre', GenreViewSet)
 router.register(r'book', BookViewSet)
 router.register(r'users', UsersLibrotekaViewSet)
 router.register(r'orders', OrdersViewSet)
-router.register(r'TokenObtainPairView', )
+# router.register(r'TokenObtainPairView', )
 
 
 
